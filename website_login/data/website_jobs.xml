@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <function model="website.menu" name="_test_function"/>
+
+        <record id="company_certificate" model="company.certificates">
+            <field name="name">certificados de empresa</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="requision_approve">
+        <t t-call="website.layout">
+            <t t-set="additional_title">revisión</t>
+
+            <div class="container">
+                <h1 class="text-center mt-2">
+                    aprobación de revisión
+                </h1>
+
+                <div class="row mt-3">
+                    <section class="col">
+                        <table style="margin-bottom: 10px;">
+                            <tr>
+                                <td>
+                                    <a id="requisicion_approve" style="color: white;background-color: #37d737;opacity: 0.6;" data-value="1"
+                                       class="btn btn-primary btn-lg">Aprobar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a id="requisicion_reject" style="background-color: #ff2f2f;color: white;opacity: 0.6;" data-value="0"
+                                       class="btn btn-primary btn-lg">Rechazar
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        <h2 class="text-left text-muted">
+                            <p><span t-field="requisicion.name"/>  [ <span t-field="requisicion.stage_id.name"/> ]</p>
+                        </h2>
+
+                        <form method="post" class="s_website_form"
+                              enctype="multipart/form-data">
+                            <div id="group_1"
+                                 style="background-color:#d1f9dd;padding-top:13px;padding-bottom:1px;border-radius: 32px;">
+                                <input  class="form-control o_website_form_input" id="requisicion_id"
+                                                   t-att-value="requisicion_id" readonly="true" type="hidden"/>
+                                <input  class="form-control o_website_form_input" id="user"
+                                                   t-att-value="user" readonly="true" type="hidden"/>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 155px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="solicitante">Nombre del Solicitante
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.solicitante.name" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="cargo_soli">Cargo del Solicitante
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.cargo_soli" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="emp">Empresa Cliente
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.emp.name" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Aprobaciones</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 35px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aprobador_nivel1">Aprobador Nivel 1
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aprobador_nivel1.name" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aprobador_nivel2">Aprobador Nivel 2
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aprobador_nivel2.name" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aprobador_nivel3">Aprobador Nivel 3
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aprobador_nivel3.name" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Información Vacante</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 155px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="cargo_solicitado">Cargo Solicitado
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.cargo_solicitado.name" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="jefe_inmediato">Jefe Inmediato
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.jefe_inmediato.name" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="catidad_vacantes">Cantidad de
+                                                    Vacantes
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.catidad_vacantes" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Generos">Género
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.Generos" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="res_city">Ciudad
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.res_city.name" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="sede">Sede
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.sede" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="area">Área (Proceso)
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.area" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="un_organizativa">Cliente/Proyecto o
+                                                    <br/>
+                                                    Unidad Organizativa
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.un_organizativa.nombre_unidad_org"
+                                                   readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="centro_de_costo">Numero de Centro de
+                                                    Costo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.centro_de_costo.numero" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="centro_costo">Nombre del centro
+                                                    <br/>de costo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.centro_de_costo.centro_costo"
+                                                   readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="personal_a_cargo">Tiene Personal a
+                                                    Cargo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.personal_a_cargo" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="masivo">Masivo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.masivo" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Información de la Vacante</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 123px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="requiere_entrevista">Requiere
+                                                    Entrevista con<br/>Jefe Inmediato
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.requiere_entrevista" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="requiere_prueba">Requiere Prueba
+                                                    Técnica
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.requiere_prueba" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="requiere_studio_seguridad">Requiere
+                                                    Estudio de Seguridad
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.requiere_studio_seguridad" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Contrato</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 155px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="tipo_contrato">Tipo de Contrato
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.tipo_contrato" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.tipo_contrato=='OBRA LABOR'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="cliente1">Cliente
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.cliente1" readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="requisicion.tipo_contrato=='OBRA LABOR'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="no_contrato_comercial">No.
+                                                        Contrato
+                                                        Comercial
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.no_contrato_comercial" readonly="true"/>
+                                            </td>
+                                        </t>
+                                        <t t-if="requisicion.tipo_contrato=='FIJO' or requisicion.tipo_contrato=='MEDIO TIEMPO'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="tiempo_de_contrato_inicial">
+                                                        Tiempo de
+                                                        Contrato Inicial
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.tiempo_de_contrato_inicial"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="requisicion.tipo_contrato=='FIJO' or requisicion.tipo_contrato=='MEDIO TIEMPO'">
+                                            <td>
+                                                <div class="text-right" id="rango_div">
+                                                    <label class="col-form-label" for="rango">Rango
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.rango" readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </table>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 123px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="turn">Turno
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.turn" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="horari">Horario de Trabajo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.horari.name" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="manejo_vacaciones">Horario / Manejo
+                                                    de Vacaciones
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.manejo_vacaciones" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="manejo_incapacidades">Manejo de
+                                                    Incapacidades<br/>Generales
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.manejo_incapacidades" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="nivel_riesgo_arl">Nivel de Riesgo ARL
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.nivel_riesgo_arl" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="nivel_riesgo">Porcentaje Nivel de
+                                                    <br/>RIESGO ARL
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.nivel_riesgo" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Justificación</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 123px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="mo_solicitud">Motivo de Solicitud
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.mo_solicitud" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="per_quien_reemplaza">Persona a
+                                                    quien Reemplaza
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.per_quien_reemplaza.name" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="cargo_pre">Cargo Presupuestado
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.cargo_pre" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="tipo_de_salario">Tipo de Salario
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.tipo_de_salario" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="wage">Salario
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.wage" readonly="true"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="pacto_con">Pacto / Convención
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.pacto_con" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="docuemnto_ref">Documento Referido
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                            <t t-if="document">
+                                                <a t-att-href="'/attachment/download?attachment_id=%i' % document.id">
+                                                    <span class="fa fa-download">Download</span>
+                                                </a>
+                                            </t>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Beneficios</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 59px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_alimentacion">Auxilio de
+                                                    Alimentación Fijo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aux_alimentacion" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.aux_alimentacion == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="valor_auxilio_alimentacion">
+                                                        Valor Auxilio de<br/>Alimentación:
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.valor_auxilio_alimentacion"
+                                                       readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label"
+                                                           for="auxilio_de_alimentacion_a_partir_de">
+                                                        Auxilio De Alimentacion<br/>A Partir De
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.auxilio_de_alimentacion_a_partir_de"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_alimentacion_pro">Auxilio de
+                                                    Alimentación proporcional
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aux_alimentacion_pro" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.aux_alimentacion_pro == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="valor_aux_alimentacion_pro">
+                                                        Valor Auxilio de Alimentación<br/>proporcional:
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.valor_aux_alimentacion_pro"
+                                                       readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="aux_alimentacion_pro_partir">
+                                                        Auxilio
+                                                        de Alimentación proporcional<br/>a partir de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.aux_alimentacion_pro_partir"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_rodamiento">Auxilio de
+                                                    Rodamiento fijo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aux_rodamiento" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.aux_rodamiento == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Valor_Auxili_de_Rodamiento">
+                                                        Valor Auxilio de<br/>Rodamiento fijo:
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Valor_Auxili_de_Rodamiento"
+                                                       readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label"
+                                                           for="Auxilio_de_Rodamiento_a_partir_de">
+                                                        Auxilio
+                                                        de Rodamiento<br/>fijo a partir de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Auxilio_de_Rodamiento_a_partir_de"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_rodamiento_pro">Auxilio de
+                                                    Rodamiento proporcional
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aux_rodamiento_pro" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.aux_rodamiento_pro == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="valor_aux_rodamiento_pro">
+                                                        Valor Auxilio de Rodamiento<br/>proporcional
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.valor_aux_rodamiento_pro"
+                                                       readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="aux_rodamiento_pro_partir">
+                                                        Auxilio de
+                                                        Rodamiento<br/>proporcional a partir de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.aux_rodamiento_pro_partir"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_celular">Auxilio de Celular
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aux_celular" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.aux_celular == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Valor_Auxilio_de_Celular">Valor
+                                                        Auxilio de<br/>Celular
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Valor_Auxilio_de_Celular"
+                                                       readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Auxilio_de_Celular_a_partir_de">
+                                                        Auxilio de Celular a partir de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Auxilio_de_Celular_a_partir_de"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="medicina_prepagada">Medicina
+                                                    Prepagada
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.medicina_prepagada" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.medicina_prepagada == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Valor_Medicina_Prepagada">Valor
+                                                        Medicina<br/>Prepagada
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Valor_Medicina_Prepagada"
+                                                       readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Medicina_Prepagada_a_partir_de">
+                                                        Medicina Prepagada a partir de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Medicina_Prepagada_a_partir_de"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="bonos">Bonos
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.bonos" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.bonos == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Valor_Bonos">Valor<br/>Bonos
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Valor_Bonos" readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Bonos_a_partir_de">Bonos a partir
+                                                        de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Bonos_a_partir_de" readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="comisiones">Comisiones
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.comisiones" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.comisiones == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Valor_Comisiones">Valor
+                                                        <br/>
+                                                        Comisiones
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.comisiones" readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Comisiones_a_partir_de">
+                                                        Comisiones a
+                                                        partir de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Comisiones_a_partir_de"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="otro">Otro
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.otro" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.otro == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="cual_Otro_Beneficio">¿Cúal Otro
+                                                        <br/>
+                                                        Beneficio?
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.cual_Otro_Beneficio" readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Valor_Otro_Beneficio">Valor Otro
+                                                        <br/>
+                                                        Beneficio
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Valor_Otro_Beneficio" readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="requisicion.otro == 'SI'">
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="Otro_Beneficio_a_partir_de">Otro
+                                                        Beneficio<br/>a partir de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.Otro_Beneficio_a_partir_de"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_movilizacion">Auxilio
+                                                    movilización
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input"
+                                                   t-att-value="requisicion.aux_movilizacion" readonly="true"/>
+                                        </td>
+                                        <t t-if="requisicion.aux_movilizacion == 'SI'">
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="valor_aux_movilizacion">Valor
+                                                        Auxilio
+                                                        <br/>
+                                                        movilización
+                                                        <strong>
+                                                            <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                            </span>
+                                                        </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.valor_aux_movilizacion"
+                                                       readonly="true"/>
+                                            </td>
+                                            <td>
+                                                <div class="text-right o_website_form_required_custom">
+                                                    <label class="col-form-label" for="aux_movilizacion_a_partir">
+                                                        Auxilio
+                                                        movilización<br/>a partir de
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control o_website_form_input"
+                                                       t-att-value="requisicion.aux_movilizacion_a_partir"
+                                                       readonly="true"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </table>
+
+                                <div class="form-group row form-field">
+                                    <t t-if="requisicion.observaciones">
+                                        <div class="col-lg-3 col-md-4 text-right">
+                                            <label class="col-form-label" for="observaciones">Observaciones
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-7 col-md-8">
+                                            <textarea class="form-control o_website_form_input"
+                                                      readonly="true" t-esc="requisicion.observaciones"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

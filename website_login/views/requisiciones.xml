@@ -1,0 +1,1229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_requisicions">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Añadir Requisicion</t>
+
+            <div class="container">
+                <h1 class="text-center mt-2">
+                    Añadir Requisicion
+                </h1>
+
+                <div class="row mt-3">
+                    <section class="col">
+                        <form id="add_requisicion" action="/create_requisicion" method="post" class="s_website_form"
+                              enctype="multipart/form-data">
+                            <!--                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>-->
+                            <div id="group_1"
+                                 style="background-color:#d1f9dd;padding-top:13px;padding-bottom:1px;border-radius: 32px;">
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 155px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="solicitante">Nombre del Solicitante
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="solicitante" id="solicitante"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="employees" t-as="employee" t-att-value="employee.id">
+                                                    <t t-esc="employee.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="cargo_soli">Cargo del Solicitante
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="cargo_soli" class="form-control o_website_form_input"
+                                                   name="cargo_soli" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="emp">Empresa Cliente
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="emp" id="emp"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="companies" t-as="company" t-att-value="company.id"
+                                                        t-att-selected="company.id == company_current.id">
+                                                    <t t-esc="company.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Aprobaciones</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 155px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aprobador_nivel1">Aprobador Nivel 1
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aprobador_nivel1" id="aprobador_nivel1"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="nivel1_rec" t-as="nivel1" t-att-value="nivel1.id">
+                                                    <t t-esc="nivel1.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aprobador_nivel2">Aprobador Nivel 2
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aprobador_nivel2" id="aprobador_nivel2"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="nivel2_rec" t-as="nivel2" t-att-value="nivel2.id">
+                                                    <t t-esc="nivel2.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aprobador_nivel3">Aprobador Nivel 3
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aprobador_nivel3" id="aprobador_nivel3"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="nivel3_rec" t-as="nivel3" t-att-value="nivel3.id">
+                                                    <t t-esc="nivel3.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Información Vacante</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 155px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="cargo_solicitado">Cargo Solicitado
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="cargo_solicitado" id="cargo_solicitado"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="jobs" t-as="job" t-att-value="job.id">
+                                                    <t t-esc="job.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="jefe_inmediato">Jefe Inmediato
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="jefe_inmediato" id="jefe_inmediato"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="employees" t-as="employee" t-att-value="employee.id">
+                                                    <t t-esc="employee.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="catidad_vacantes">Cantidad de
+                                                    Vacantes
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control o_website_form_input" value="1"
+                                                   name="catidad_vacantes" required=""/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Generos">Género
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="Generos" required="">
+                                                <option></option>
+                                                <option value="MASCULINO">MASCULINO</option>
+                                                <option value="FEMENINO">FEMENINO</option>
+                                                <option value="INDIFERENTE">INDIFERENTE</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="res_city">Ciudad
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="res_city" required="">
+                                                <option></option>
+                                                <option t-foreach="cities" t-as="city" t-att-value="city.id">
+                                                    <t t-esc="city.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="sede">Sede
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   name="sede" required=""/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="area">Área (Proceso)
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   name="area" required=""/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="un_organizativa">Cliente/Proyecto o
+                                                    <br/>
+                                                    Unidad Organizativa
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="un_organizativa" id="jefe_inmediato"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="unidades" t-as="unidades_rec"
+                                                        t-att-value="unidades_rec.id">
+                                                    <t t-esc="unidades_rec.nombre_unidad_org"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="centro_de_costo">Numero de Centro de
+                                                    Costo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="centro_de_costo" id="centro_de_costo"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="centro" t-as="centro_rec"
+                                                        t-att-value="centro_rec.id">
+                                                    <t t-esc="centro_rec.numero"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="centro_costo">Nombre del centro
+                                                    <br/>de costo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text"
+                                                   class="form-control o_website_form_input" id="centro_costo"
+                                                   name="centro_costo" readonly=""/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="personal_a_cargo">Tiene Personal a
+                                                    Cargo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="personal_a_cargo"
+                                                    required="">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="masivo">Masivo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text"
+                                                   class="form-control o_website_form_input" id="masivo"
+                                                   name="masivo" readonly="true" value="NO"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Información de la Vacante</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 123px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="requiere_entrevista">Requiere
+                                                    Entrevista con<br/>Jefe Inmediato
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="requiere_entrevista"
+                                                    required="">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="requiere_prueba">Requiere Prueba
+                                                    Técnica
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="requiere_prueba"
+                                                    required="">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="requiere_studio_seguridad">Requiere
+                                                    Estudio de Seguridad
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="requiere_studio_seguridad"
+                                                    id="requiere_studio_seguridad"
+                                                    required="">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO">NO</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Contrato</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 155px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="tipo_contrato">Tipo de Contrato
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="tipo_contrato" id="tipo_contrato"
+                                                    required="">
+                                                <option></option>
+                                                <option value="FIJO">FIJO</option>
+                                                <option value="MEDIO TIEMPO">MEDIO TIEMPO</option>
+                                                <option value="SERVICIOS">SERVICIOS</option>
+                                                <option value="INDEFINIDO">INDEFINIDO</option>
+                                                <option value="OBRA LABOR">OBRA LABOR</option>
+                                                <option value="APRENDIZAJE">APRENDIZAJE</option>
+                                                <option value="DIARIO">DIARIO</option>
+                                            </select>
+                                        </td>
+                                        <td id="tipo_contrato_a" style="display:none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="cliente1">Cliente
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="tipo_contrato_b" style="display:none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input" id="cliente1"
+                                                   name="cliente1"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td id="tipo_contrato_c" style="display:none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="no_contrato_comercial">No. Contrato
+                                                    Comercial
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="tipo_contrato_d" style="display:none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input" id="no_contrato_comercial"
+                                                   name="no_contrato_comercial"/>
+                                        </td>
+                                        <td id="contrato_inicial_div_a" style="display:none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="tiempo_de_contrato_inicial">Tiempo de
+                                                    Contrato Inicial
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="contrato_inicial_div_b" style="display:none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="tiempo_de_contrato_inicial"
+                                                   name="tiempo_de_contrato_inicial"/>
+                                        </td>
+                                    </tr>
+                                    <tr id="rango_visible" style="display:none;">
+                                        <td>
+                                            <div class="text-right" id="rango_div">
+                                                <label class="col-form-label" for="rango">Rango
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="rango" id="rango">
+                                                <option></option>
+                                                <option value="DÍAS">DÍAS</option>
+                                                <option value="MESES">MESES</option>
+                                                <option value="AÑOS">AÑOS</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 123px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="turn">Turno
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="turn" id="turn"
+                                                    required="">
+                                                <option></option>
+                                                <option value="FIJO">FIJO</option>
+                                                <option value="ROTATIVO">ROTATIVO</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="horari">Horario de Trabajo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="horari" id="horari"
+                                                    required="">
+                                                <option></option>
+                                                <option t-foreach="calendars" t-as="calendar" t-att-value="calendar.id">
+                                                    <t t-esc="calendar.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="manejo_vacaciones">Horario / Manejo
+                                                    de Vacaciones
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="manejo_vacaciones" id="manejo_vacaciones"
+                                                    required="">
+                                                <option></option>
+                                                <option value="L-V">L-V</option>
+                                                <option value="L-S">L-S</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="manejo_incapacidades">Manejo de
+                                                    Incapacidades<br/>Generales
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="manejo_incapacidades"
+                                                    id="manejo_incapacidades"
+                                                    required="">
+                                                <option></option>
+                                                <option value="PAGAR AL 66.66%">PAGAR AL 66.66%</option>
+                                                <option value="PAGAR AL 100%">PAGAR AL 100%</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="nivel_riesgo_arl">Nivel de Riesgo ARL
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="nivel_riesgo_arl"
+                                                    id="nivel_riesgo_arl"
+                                                    required="">
+                                                <option></option>
+                                                <option value="1 RIESGO I">1 RIESGO I</option>
+                                                <option value="2 RIESGO II">2 RIESGO II</option>
+                                                <option value="3 RIESGO III">3 RIESGO III</option>
+                                                <option value="4 RIESGO IV">4 RIESGO IV</option>
+                                                <option value="5 RIESGO V">5 RIESGO V</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="nivel_riesgo">Porcentaje Nivel de
+                                                    <br/>RIESGO ARL
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="nivel_riesgo"
+                                                   name="nivel_riesgo" required="" readonly="true"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Justificación</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 123px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="mo_solicitud">Motivo de Solicitud
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="mo_solicitud" id="mo_solicitud"
+                                                    required="">
+                                                <option></option>
+                                                <option value="RENUNCIA TITULAR">RENUNCIA TITULAR</option>
+                                                <option value="CANCELACIÓN DE CONTRATO">CANCELACIÓN DE CONTRATO</option>
+                                                <option value="VENCIMIENTO DE CONTRATO">VENCIMIENTO DE CONTRATO</option>
+                                                <option value="EVALUACIÓN DE ASCENSO">EVALUACIÓN DE ASCENSO</option>
+                                                <option value="AMPLIACIÓN DE PLANTA">AMPLIACIÓN DE PLANTA</option>
+                                                <option value="TRANSLADO">TRANSLADO</option>
+                                                <option value="SUSTITUCIÓN PATRONAL">SUSTITUCIÓN PATRONAL</option>
+                                                <option value="VACACIONES">VACACIONES</option>
+                                                <option value="FUNCIONARIO PROMOVIDO">FUNCIONARIO PROMOVIDO</option>
+                                                <option value="INCAPACIDAD / LICENCIA">INCAPACIDAD / LICENCIA</option>
+                                                <option value="CREACIÓN DE CARGO">CREACIÓN DE CARGO</option>
+                                                <option value="PENSIÓN">PENSIÓN</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="per_quien_reemplaza">Persona a
+                                                    quien Reemplaza
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="per_quien_reemplaza">
+                                                <option></option>
+                                                <option t-foreach="employees" t-as="employee" t-att-value="employee.id">
+                                                    <t t-esc="employee.name"/>
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="cargo_pre">Cargo Presupuestado
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="cargo_pre"
+                                                    required="">
+                                                <option></option>
+                                                <option value="Si">SI</option>
+                                                <option value="No">NO</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="tipo_de_salario">Tipo de Salario
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="tipo_de_salario" id="tipo_de_salario"
+                                                    required="">
+                                                <option></option>
+                                                <option value="SUELDO BÁSICO">SUELDO BÁSICO</option>
+                                                <option value="SALARIO INTEGRAL">SALARIO INTEGRAL</option>
+                                                <option value="APOYO SOSTENIMIENTO">APOYO SOSTENIMIENTO</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="wage">Salario
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="wage" required=""
+                                                   name="wage"/>
+                                        </td>
+                                        <td>
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="pacto_con">Pacto / Convención
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="pacto_con" id="pacto_con"
+                                                    required="">
+                                                <option></option>
+                                                <option value="PACTO COLECTIVO">PACTO COLECTIVO</option>
+                                                <option value="CONVENCIÓN COLECTIVA DE TRABAJO">CONVENCIÓN COLECTIVA DE TRABAJO</option>
+                                                <option value="NO APLICA">NO APLICA</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="docuemnto_ref">Documento Referido
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="file" class="form-control o_website_form_input"
+                                                   style="padding:2px;"
+                                                   name="docuemnto_ref"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-left">
+                                    <label style="margin-left: 50px;" class="col-form-label">
+                                        <u>Beneficios</u>
+                                    </label>
+                                </div>
+                                <table style="border-spacing: 10px; border-collapse: separate; margin-left: 59px;">
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_alimentacion">Auxilio de
+                                                    Alimentación Fijo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aux_alimentacion" id="aux_alimentacion">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="aux_alimentacion_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="valor_auxilio_alimentacion">
+                                                    Valor Auxilio de<br/>Alimentación:
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_alimentacion_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="valor_auxilio_alimentacion"
+                                                   name="valor_auxilio_alimentacion"/>
+                                        </td>
+                                        <td id="aux_alimentacion_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="auxilio_de_alimentacion_a_partir_de">
+                                                    Auxilio De Alimentacion<br/>A Partir De
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_alimentacion_d" style="display: none;">
+                                            <select class="form-control" name="auxilio_de_alimentacion_a_partir_de"
+                                                    id="auxilio_de_alimentacion_a_partir_de">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_alimentacion_pro">Auxilio de
+                                                    Alimentación proporcional
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aux_alimentacion_pro"
+                                                    id="aux_alimentacion_pro">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="aux_alimentacion_pro_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="valor_aux_alimentacion_pro">
+                                                    Valor Auxilio de Alimentación<br/>proporcional:
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_alimentacion_pro_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="valor_aux_alimentacion_pro"
+                                                   name="valor_aux_alimentacion_pro"/>
+                                        </td>
+                                        <td id="aux_alimentacion_pro_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aux_alimentacion_pro_partir">Auxilio
+                                                    de Alimentación proporcional<br/>a partir de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_alimentacion_pro_d" style="display: none;">
+                                            <select class="form-control" name="aux_alimentacion_pro_partir"
+                                                    id="aux_alimentacion_pro_partir">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_rodamiento">Auxilio de
+                                                    Rodamiento fijo
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aux_rodamiento"
+                                                    id="aux_rodamiento">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="aux_rodamiento_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Valor_Auxili_de_Rodamiento">
+                                                    Valor Auxilio de<br/>Rodamiento fijo:
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_rodamiento_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="Valor_Auxili_de_Rodamiento"
+                                                   name="Valor_Auxili_de_Rodamiento"/>
+                                        </td>
+                                        <td id="aux_rodamiento_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Auxilio_de_Rodamiento_a_partir_de">
+                                                    Auxilio
+                                                    de Rodamiento<br/>fijo a partir de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_rodamiento_d" style="display: none;">
+                                            <select class="form-control" name="Auxilio_de_Rodamiento_a_partir_de"
+                                                    id="Auxilio_de_Rodamiento_a_partir_de">
+                                                <option></option>
+                                                <option value="FECHA DE INGRES">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_rodamiento_pro">Auxilio de
+                                                    Rodamiento proporcional
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aux_rodamiento_pro"
+                                                    id="aux_rodamiento_pro">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="aux_rodamiento_pro_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="valor_aux_rodamiento_pro">
+                                                    Valor Auxilio de Rodamiento<br/>proporcional
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_rodamiento_pro_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="valor_aux_rodamiento_pro"
+                                                   name="valor_aux_rodamiento_pro"/>
+                                        </td>
+                                        <td id="aux_rodamiento_pro_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aux_rodamiento_pro_partir">Auxilio de
+                                                    Rodamiento<br/>proporcional a partir de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_rodamiento_pro_d" style="display: none;">
+                                            <select class="form-control" name="aux_rodamiento_pro_partir"
+                                                    id="aux_rodamiento_pro_partir">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_celular">Auxilio de Celular
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aux_celular"
+                                                    id="aux_celular">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="aux_celular_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Valor_Auxilio_de_Celular">Valor
+                                                    Auxilio de<br/>Celular
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_celular_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="Valor_Auxilio_de_Celular"
+                                                   name="Valor_Auxilio_de_Celular"/>
+                                        </td>
+                                        <td id="aux_celular_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Auxilio_de_Celular_a_partir_de">
+                                                    Auxilio de Celular a partir de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_celular_d" style="display: none;">
+                                            <select class="form-control" name="Auxilio_de_Celular_a_partir_de"
+                                                    id="Auxilio_de_Celular_a_partir_de">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="medicina_prepagada">Medicina
+                                                    Prepagada
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="medicina_prepagada"
+                                                    id="medicina_prepagada">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="medicina_prepagada_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Valor_Medicina_Prepagada">Valor
+                                                    Medicina<br/>Prepagada
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="medicina_prepagada_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="Valor_Medicina_Prepagada"
+                                                   name="Valor_Medicina_Prepagada"/>
+                                        </td>
+                                        <td id="medicina_prepagada_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Medicina_Prepagada_a_partir_de">
+                                                    Medicina Prepagada a partir de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="medicina_prepagada_d" style="display: none;">
+                                            <select class="form-control" name="Medicina_Prepagada_a_partir_de"
+                                                    id="Medicina_Prepagada_a_partir_de">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="bonos">Bonos
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="bonos"
+                                                    id="bonos">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="bonos_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Valor_Bonos">Valor<br/>Bonos
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="bonos_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="Valor_Bonos"
+                                                   name="Valor_Bonos"/>
+                                        </td>
+                                        <td id="bonos_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Bonos_a_partir_de">Bonos a partir
+                                                    de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="bonos_d" style="display: none;">
+                                            <select class="form-control" name="Bonos_a_partir_de"
+                                                    id="Bonos_a_partir_de">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="comisiones">Comisiones
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="comisiones"
+                                                    id="comisiones">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="comisiones_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Valor_Comisiones">Valor
+                                                    <br/>
+                                                    Comisiones
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="comisiones_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="Valor_Comisiones"
+                                                   name="Valor_Comisiones"/>
+                                        </td>
+                                        <td id="comisiones_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Comisiones_a_partir_de">Comisiones a
+                                                    partir de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="comisiones_d" style="display: none;">
+                                            <select class="form-control" name="Comisiones_a_partir_de"
+                                                    id="Comisiones_a_partir_de">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="otro">Otro
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="otro"
+                                                    id="otro">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="otro_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="cual_Otro_Beneficio">¿Cúal Otro
+                                                    <br/>
+                                                    Beneficio?
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="otro_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="cual_Otro_Beneficio"
+                                                   name="cual_Otro_Beneficio"/>
+                                        </td>
+                                        <td id="otro_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Valor_Otro_Beneficio">Valor Otro
+                                                    <br/>
+                                                    Beneficio
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="otro_d" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="Valor_Otro_Beneficio"
+                                                   name="Valor_Otro_Beneficio"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="otro_e" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="Otro_Beneficio_a_partir_de">Otro
+                                                    Beneficio<br/>a partir de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="otro_f" style="display: none;">
+                                            <select class="form-control" name="Otro_Beneficio_a_partir_de"
+                                                    id="Otro_Beneficio_a_partir_de">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option value="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="text-right">
+                                                <label class="col-form-label" for="aux_movilizacion">Auxilio
+                                                    movilización
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="aux_movilizacion"
+                                                    id="aux_movilizacion">
+                                                <option></option>
+                                                <option value="SI">SI</option>
+                                                <option value="NO" selected="true">NO</option>
+                                            </select>
+                                        </td>
+                                        <td id="aux_movilizacion_a" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="valor_aux_movilizacion">Valor Auxilio
+                                                    <br/>
+                                                    movilización
+                                                    <strong>
+                                                        <span>(<t t-esc="company_current.currency_id.symbol"/>)
+                                                        </span>
+                                                    </strong>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_movilizacion_b" style="display: none;">
+                                            <input type="text"
+                                                   class="form-control o_website_form_input"
+                                                   id="valor_aux_movilizacion"
+                                                   name="valor_aux_movilizacion"/>
+                                        </td>
+                                        <td id="aux_movilizacion_c" style="display: none;">
+                                            <div class="text-right o_website_form_required_custom">
+                                                <label class="col-form-label" for="aux_movilizacion_a_partir">Auxilio
+                                                    movilización<br/>a partir de
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td id="aux_movilizacion_d" style="display: none;">
+                                            <select class="form-control" name="aux_movilizacion_a_partir"
+                                                    id="aux_movilizacion_a_partir">
+                                                <option></option>
+                                                <option value="FECHA DE INGRESO">FECHA DE INGRESO</option>
+                                                <option value="1 MES">1 MES</option>
+                                                <option value="2 MESES">2 MESES</option>
+                                                <option value="3 MESES">3 MESES</option>
+                                                <option values="4 MESES">4 MESES</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="form-group row form-field">
+                                    <div class="col-lg-3 col-md-4 text-right">
+                                        <label class="col-form-label" for="observaciones">Observaciones
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-8">
+                                        <textarea class="form-control o_website_form_input"
+                                                  id="observaciones" name="observaciones"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                        <span id="o_website_form_result"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

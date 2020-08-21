@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="thankyou_requisicion">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="text-center">solicitud fue creada</h1>
+                                <p class="text-center">
+                                    El nombre de referencia es :
+                                    <b>
+                                        <t t-esc="requisicion_name"/>
+                                    </b>
+                                </p>
+                            </div>
+                            <div class="row" id="job_edited_thanks">
+                                <div class="col-lg-12 text-center mt32 mb32">
+                                    In the meantime,
+                                    <h3 class="mt8 mb32">Look around on our website:</h3>
+                                    <a role="button" href="/" class="btn btn-primary btn-lg">Continue To Our
+                                        Website
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="entrevista_template">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Entrevista</t>
+            <h1 class="text-center mt-2">
+                Entrevista formar
+            </h1>
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="row mt-3">
+                            <section id="forms" class="col">
+                                <form>
+                                    <div class="form-group alert alert-info"
+                                         style="margin-top:15px;margin-left: 24%;width:50%;">
+                                        <h6 class="text-center">para completar el formulario de solicitud de empleo,
+                                            solicite la entrevista
+                                        </h6>
+                                    </div>
+                                    <div id="entrevista_dic"
+                                         style="background-color: #d1f9dd;padding-bottom: 16px;margin-bottom: 14%;border-radius: 15px;">
+                                        <input type="hidden" class="form-control o_website_form_input"
+                                               id="record_id"
+                                               t-att-value="record_id"/>
+                                        <div class="form-group row form-field o_website_form_required_custom">
+                                            <div class="col-lg-3 col-md-4 text-right" style="margin-top: 25px;">
+                                                <label class="col-form-label" for="entrevista">Entrevista
+                                                </label>
+                                            </div>
+                                            <div class="col-4" style="margin-top: 25px;">
+                                                <select class="form-control" name="entrevista" id="entrevista">
+                                                    <option></option>
+                                                    <option t-foreach="entrevista_rec" t-as="entrevista"
+                                                            t-att-value="entrevista.id">
+                                                        <t t-esc="entrevista.title"/>
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a id="submit_entrevista" style="margin-left: 26%;margin-top: -11px;"
+                                               class="btn btn-primary btn-md">Enviar
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="entrevista applied">
+                                        <div class="col-lg-12 text-center mt32 mb32">
+                                            <a role="button" href="/" class="btn btn-primary btn-lg">Finalizar Registro
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="users_form_signup_request" model="ir.ui.view">
+        <field name="name">users.form.signup.request</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="signup_request" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="users_search_signup_requests" model="ir.ui.view">
+        <field name="name">users.search.signup.request</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="signup_request" invisible="1"/>
+                <filter name="requests" string="Signup Requests"
+                        domain="[('signup_request','=',True), ('active', '=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="created_id_applicant_form" model="ir.ui.view">
+        <field name="name">created.id.applicant.form</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="created_user" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

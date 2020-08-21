@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_login.requisicion_error">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Requisition Approval</t>
+            <center>
+                <p><b>Permission Denied.</b></p>
+            </center>
+        </t>
+    </template>
+</odoo>

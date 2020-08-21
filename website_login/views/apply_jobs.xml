@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="applied_job">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Apply Job</t>
+
+            <div class="container">
+                <h1 class="text-center mt-2">
+                    Edit Application Form
+                </h1>
+
+                <div class="row mt-3">
+                    <section class="col">
+                        <form id="edit_applied_jobs" action="/edited_applied_job" method="post" class="s_website_form"
+                              enctype="multipart/form-data" data-model_name="hr.applicant">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3 col-md-4 text-right">
+                                    <label class="col-form-label" for="job_name">Applied Job</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <select class="form-control" name="job_name">
+                                        <option>Choose a applied job...</option>
+                                        <option t-foreach="records" t-as="record" t-att-value="record.id">
+                                            <t t-esc="record.name"/>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <t t-if="not records">
+                            <div class="form-group alert alert-info">
+                                <h5 class="text-center">No Applied Jobs Available</h5>
+                            </div>
+                            </t>
+
+                            <div id="job_details" style="display: none;">
+
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3 col-md-4 text-right">
+                                    <label class="col-form-label" for="partner_name">Your Name</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <input id="partner_name" type="text" class="form-control o_website_form_input"
+                                           name="partner_name"
+                                           required=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3 col-md-4 text-right">
+                                    <label class="col-form-label" for="email_from">Your Email</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <input id="email_from" type="email" class="form-control o_website_form_input"
+                                           name="email_from"
+                                           required=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3 col-md-4 text-right">
+                                    <label class="col-form-label" for="partner_phone">Your Phone Number</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <input id="partner_phone" type="text" class="form-control o_website_form_input"
+                                           name="partner_phone"
+                                           required=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row form-field">
+                                <div class="col-lg-3 col-md-4 text-right">
+                                    <label class="col-form-label" for="description">Short Introduction</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <textarea id="description" class="form-control o_website_form_input"
+                                              name="description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-field o_website_form_custom">
+                                <div class="col-lg-3 col-md-4 text-right">
+                                    <label class="col-form-label" for="Resume">Resume</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <input id="attachment" type="file" class="form-control o_website_form_input"
+                                           name="Resume"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    <span id="o_website_form_result"></span>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="applied_form_user_id" inherit_id="website_hr_recruitment.apply">
+        <xpath expr="//form[@id='hr_recruitment_form']" position="inside">
+            <div class="form-group row form-field o_website_form_required_custom" style="display: none">
+                <div class="col-lg-3 col-md-4 text-right">
+                    <label class="col-form-label" for="created_user">User</label>
+                </div>
+                <div class="col-lg-7 col-md-8">
+                    <input id="change_job" type="text" name="created_user" class="form-control o_website_form_input"
+                           t-att-value="request.env.uid" required=""/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="website_login.assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/website_login/static/src/js/choose_job.js"></script>
+        </xpath>
+    </template>
+
+</odoo>
