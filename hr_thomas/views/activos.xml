@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="view_activos_form" model="ir.ui.view">
+      <field name="name">activos.form</field>
+      <field name="model">activos</field>
+      <field name="arch" type="xml">
+        <form string="activos">
+           <group>
+             <group>
+               <field name="activo_cargo" string="Activo del Cargo"/>
+               <field name="categoria" string="Categoría"/>
+               <field name="cargo_job_id" string="Cargo Asociado" readonly="False"/>
+               
+            
+             </group>
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record> 
+
+
+     
+
+
+
+
+    <record id="view_activos_tree" model="ir.ui.view">
+      <field name="name">activos.tree</field>
+      <field name="model">activos</field>
+        <field name="arch" type="xml">
+            <tree string="sector activos">
+               <field name="activo_cargo" string="Activo del Cargo"/>
+               <field name="categoria" string="Categoría"/>
+               <field name="cargo_job_id" string="Cargo Asociado"/>
+               
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_activos" model="ir.actions.act_window">
+        <field name="name">Activos</field>
+        <field name="res_model">activos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            activos
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Activos'
+            action='action_activos'
+            id='activos_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='13' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

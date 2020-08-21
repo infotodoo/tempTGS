@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="alergia_form" model="ir.ui.view">
+      <field name="name">alergia.form</field>
+      <field name="model">alergia</field>
+      <field name="arch" type="xml">
+        <form string="alergia">
+           <group>
+             <group>
+                 <field name="Nombre" string="Alergia"/>
+              
+             </group>
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record> 
+
+
+     
+
+
+
+
+    <record id="view_alergia_tree" model="ir.ui.view">
+      <field name="name">alergia.tree</field>
+      <field name="model">alergia</field>
+        <field name="arch" type="xml">
+            <tree string="sector alergia">
+             <field name="Nombre" string="Alergias"/>
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_alergia" model="ir.actions.act_window">
+        <field name="name">Alergías</field>
+        <field name="res_model">alergia</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Alergias
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Alergias'
+            action='action_alergia'
+            id='alergia_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='13' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

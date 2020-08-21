@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record id="view_hr_experiencia_inherit" model="ir.ui.view">
+      <field name="name">hr.resume.line.inherit</field>
+      <field name="model">hr.resume.line</field>
+      <field name="inherit_id" ref="hr_skills.resume_line_view_form"/>
+      <field name="arch" type="xml">
+         <xpath expr="//field[(@name='line_type_id')]" position="after">
+
+          <field name="rama_empresa_laboro" string="Rama de la Empresa en la que Laboró" required="True"/>
+          <field name="cargo_desempenado" string="Cargo Desempeñado"  required="True"/>
+          <field name="Tipo_de_Contrato" string="Tipo de Contrato"  required="True"/>
+          <field name="pais" string="País"  required="True"/>
+          <field name="actualmente_laborando" string="Actualmente Laborando"  required="True"/>     
+
+
+          
+         </xpath>
+         
+
+          <xpath expr="//field[(@name='date_end')]" position="after">
+
+          
+          <field name="total_days" string="Tiempo Laborado (Días)" readonly="True"/>
+
+
+          
+         </xpath>
+        
+      </field>
+   </record>
+
+  
+
+
+
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_login.signup_again" inherit_id="auth_signup.signup" name="Sign Up Again">
+        <xpath expr="//div[hasclass('oe_login_buttons')]" position="replace">
+            <div class="text-center oe_login_buttons pt-3">
+                <t t-if="error=='Esperando la validación de su cuenta. Se enviará a su cuenta de correo'">
+                    <a role="button" href="/web/signup?" class="btn btn-primary btn-block">Sign up for another</a>
+                </t>
+                <t t-else="">
+                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                </t>
+                <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link btn-sm" role="button">Already have an
+                    account?
+                </a>
+                <div class="o_login_auth"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="website_slection" inherit_id="website.layout" name="Website Selection">
+        <xpath expr="//div[@id='footer']" position="before">
+            <div id="websites_available">
+                <t t-set="website_ids" t-value="request.env['website'].search([])"/>
+                <div style="height: 150px; overflow-y: auto;white-space: nowrap;">
+                    <t t-foreach="website_ids" t-as="website" t-att-value="website.id">
+                        <div style="display: inline-block;height: 100%;width: 15%;float: none;border: 4px solid black;">
+                            <a target="_blank" t-attf-href="http://{{website.domain}}">
+                            <img t-if="website.logo" t-att-src="image_data_uri(website.logo)"
+                                 style="height: 80%; width: 100%;"/>
+                            </a>
+                            <div style="height: 20%; width: 100%;border-top: 4px solid black;background-color: #d1f9dd;" >
+                                <t t-esc="website.name"/>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom45"
+                string="SYC-FOR-043 AUTORIZACION FONDO SOLIDARIO V1"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom45_template"
+        />
+
+
+        <template id="report_custom45_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">                 
+                   
+                        <div class="page">  
+                            <head>
+                                <style>                                    
+                                    p {font-size:14px;}
+                                    span {font-size:14px;}
+                                    li {font-size:14px;}
+                                    div#b{          
+                                    width:260px;
+                                    height:150px;
+                                    background-color:white;
+                                    float:left;         
+                                    }
+                                </style>
+                            </head>  
+                           <p align="right">SYC-FOR-043-V1</p>                         
+                           <strong><h5 align="center">FONDO DE SOLIDARIDAD GRUPO THOMAS GREG &amp; SONS </h5></strong><br></br>
+                           <p align="justify">
+                            Como filosofía principal en el grupo Thomas Greg &amp; Sons, se encuentra el bienestar de todos y cada uno de sus miembros, los cuales en alguna proporción han sido afectados de una u otra manera por la situación económica que afronta el país y adicionalmente a situaciones de calamidad doméstica que lastiman no sólo la parte individual sino también la colectiva de esta gran familia. 
+                            Por esta razón el grupo cuenta con un FONDO DE SOLIDARIDAD tendiente a ofrecer apoyo a sus trabajadores en situaciones difíciles, el cual está dirigido por un comité integrado por los Directores de los departamentos de Gestión Humana de cada una de las empresas del Grupo y quienes son el contacto directo con los colaboradores. Las empresas buscan que todos tengamos la oportunidad de ser solidarios con nuestros compañeros y que ellos lo sean con nosotros. A través del Fondo serán atendidos todos aquellos casos en los que el trabajador afiliado o su grupo familiar requieran de la solidaridad. 
+                            
+                           </p>
+                           <p>Requisitos:</p>
+                           <p>
+                               <ul>
+                                   <li align="justify">Ser colaborador de cualquiera de las compañías del Grupo Thomas Greg &amp;  Sons. </li>
+                                   <li align="justify">Autorizar el descuento por nómina del valor de la donación mensual. El valor mínimo aceptado por cada persona es de $2,000 mensuales. </li>
+                               </ul>
+                           </p>
+                           <p align="justify">
+                            Los interesados pueden diligenciar el desprendible adjunto y entregarlo en el Departamento de Gestión Humana. 
+                           </p>
+                           <p>Recuerde que:</p>
+                           <p>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul style="list-style-type:none;">
+                                            <li align="justify">1. El Fondo opera con las donaciones voluntarias de los miembros. </li>
+                                            <li align="justify">2. El Fondo cubrirá casos de calamidad doméstica, una vez han recurrido o a los beneficios del sistema de seguridad social. </li>
+                                            <li align="justify">3. El Fondo no es un ahorro, no genera utilidad, es una DONACION VOLUNTARIA. </li>
+                                            <li>4. El Fondo es una entidad sin ánimo de lucro. </li>
+                                            <li>5. Reciben beneficio de este fondo, los afiliados y sus familias. </li>
+                                        </ul>
+                                        <hr></hr>
+                                       
+                                          <strong><h5 align="center"> FONDO DE EMPLEADOS T.G. SOLIDARIOS </h5></strong>
+                                          <p align="justify">
+                                            He sido informado (a) sobre el funcionamiento del Fondo de Solidaridad que existe en la compañía cuya vinculación es de carácter voluntario. 
+                                          </p>
+                                          <p align="justify">
+                                            Yo, <strong><span t-field="o.employee_id"></span></strong>  identificado (a) con la C.C. No. <strong><span t-field="o.identificacion"></span></strong>  autorizo al pagador descontar quincenalmente de mi sueldo la suma de $ <strong><span t-field="o.clase_beneficio"></span></strong> con destino al Fondo de Solidaridad a partir del____________ de ____________.
+                                          </p>
+                                          <p align="justify">
+                                            Nómina  <strong> <span t-field="o.company_id"></span></strong>    Área o dependencia  <strong><span t-field="o.area_req_contrato"></span></strong>      Ciudad  <strong> <span t-field="o.res_city"></span> </strong>
+
+                                          </p>                                          
+                                          <div id="b">
+                                          <br></br><br></br><br></br><br></br><br></br>
+                                               <p>
+                                            Fecha  <strong> <span t-field="o.fecha_firma_contrato"></span> </strong>  
+                                          </p> 
+                                          </div>
+                                          <div id="b">
+                                              <p>                                                
+                                                <span><img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="220" height="90"/></span><br></br>
+                                                <p align="center"><span>Firma</span></p>
+                                              </p>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                           </p>
+                        </div>
+                   
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <data>
+        <report
+                id="report_custom_2"
+                string="SYC-FOR-034-MINUTA DE CONTRATO FIJO"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom_2_template"
+        />
+
+
+        <template id="report_custom_2_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                   
+                        <div class="page">
+                           <head>
+                              <style>
+                                p {font-size:20px;}
+                                span {font-size:20px;}
+                                li {font-size:20px;}
+                                div {font-size:20px;}
+
+                                
+                                *{
+                                  margin:0px;
+                                  padding:0px;
+                                  }                               
+                                  
+                                  
+                                   div#a{
+                                   margin:auto;
+                                   margin-top:60px;
+                                   width:1100px;
+                                   height:300px;
+                                   border: 0px solid black;
+                                 
+                                  }                            
+                                  
+                                  
+                                  
+                                   div#b{
+                                  
+                                   width:500px;
+                                   height:300px;
+                                   background-color:white;
+                                   float:left;
+                                 
+                                  }                          
+                                                                  
+                                  
+                                  
+                                   div#c{
+                                  
+                                   width:500px;
+                                   height:300px;
+                                   background-color:white;
+                                   float:left;                             
+                                                                   
+                                 
+                                  }                               
+                                  
+  
+                              </style>                          
+                            </head>
+
+                            <p align="right">SYC-FOR-034-V2</p> 
+                            <strong><p align="center">CONTRATO DE TRABAJO A TÉRMINO FIJO</p></strong>
+                            <p align="justify">
+                                Entre los suscritos, de una parte, la sociedad <strong> <span t-field="o.company_id"></span>  </strong>, domiciliada en <strong> <span t-field="o.res_city"></span> </strong>, que en el texto de este documento se llamará “EL EMPLEADOR”, representada por el Dr.(a). <strong> <span t-field="o.nombre_representante"></span> </strong>, en su calidad de <strong><span t-field="o.cargo_representante"></span> </strong> y de la otra parte el <strong><span t-field="o.employee_id"></span> </strong>, mayor y de esta vecindad e identificado como aparece al pie de su firma, quien obra en su propio nombre y quien en adelante se denominará “EL TRABAJADOR”, se ha celebrado el Contrato de Trabajo que consta en el presente documento y que se regirá por las siguientes estipulaciones: 
+
+                            </p>
+                            <p align="justify">
+                               <strong>PRIMERA.</strong>- EL TRABAJADOR se obliga a prestar e incorporar lealmente al servicio exclusivo de EL EMPLEADOR, en la ciudad de Bogotá o en la que éste le indique, toda su capacidad normal de trabajo en el desempeño de las funciones propias, anexas, conexas y complementarias del cargo de <strong> <span t-field="o.job_id"></span> </strong> de conformidad con lo que establece la Ley y este contrato, con los Reglamentos, Circulares y procedimientos establecidos por EL EMPLEADOR y con las órdenes e instrucciones que el Empleador de modo particular le imparta. La Empresa podrá además asignarle cualquier otro cargo o funciones al TRABAJADOR y trasladarlo a cualquiera de las agencias o sucursales establecidas o que se establezcan en esta u otras ciudades del país en forma temporal o definitiva de acuerdo a la necesidad o conveniencia del servicio, siempre que no implique desmejora en el salario, obligándose dicho trabajador a aceptar tal designación.
+                            </p>
+                            <p align="justify">
+                               <strong>SEGUNDA.</strong>- El presente contrato de trabajo es a término fijo por     <strong><span t-field="o.tiempo_contrato_inc"></span></strong> <strong><span t-field="o.rango_contrato"></span></strong>, por lo que tendrá vigencia hasta el día <strong><span t-field="o.fecha_firma_contrato"></span></strong>; No obstante lo anterior, el período de prueba del presente contrato será el consagrado en el artículo 78 del Código Sustantivo de Trabajo, es decir, la quinta parte del término inicialmente pactado, sin que pueda exceder de dos meses y por tanto durante tal término cualquiera de las partes podrá darlo por terminado unilateralmente sin preaviso y sin indemnización alguna. Este contrato también podrá terminarse de acuerdo con lo dispuesto en los artículos 7o. del Decreto 2351 de 1965, 28 de la ley 789 de 2002, en el Reglamento de Trabajo de EL EMPLEADOR y también por las causales que más adelante se pactan.
+                            </p>
+                            <p align="justify">
+                                Las partes dejan constancia expresa de su mutua decisión de no prorrogar el presente contrato de trabajo, por lo que él terminará en la fecha estipulada, quedando así dichas partes recíprocamente avisadas de tal circunstancia.
+                            </p>
+                            <p align="justify">
+                               <strong>PARÁGRAFO.</strong>- En caso de terminación unilateral o intempestiva por parte de EL TRABAJADOR, éste deberá darlo por terminado mediante aviso escrito a LA EMPRESA con antelación no inferior a treinta (30) días. En caso de no dar EL TRABAJADOR el aludido aviso, o darlo tardíamente, deberá pagar a LA EMPRESA una indemnización equivalente a treinta días de salario o proporcional al tiempo faltante, deducible de la liquidación final de este contrato (salario, prestaciones sociales, vacaciones, intereses a las cesantías, indemnización, etc.), descuento éste que el TRABAJADOR autoriza de manera expresa.
+                            </p>
+                            <p align="justify">
+                               <strong>TERCERA.</strong>- Son obligaciones y funciones especiales del TRABAJADOR, además de las que se desprenden de la naturaleza y objeto del presente contrato y del cargo a desempeñar, las siguientes:
+                               <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul style="list-style-type:lower-latin">
+                                            <li>- Guardar absoluta y estricta reserva sobre la totalidad de los asuntos, normas, procedimientos, actividades, etc. de LA EMPRESA; </li>
+                                            <li>- Cumplir estrictamente el horario establecido por EL EMPLEADOR;</li>
+                                            <li>- Cumplir con máxima lealtad, honestidad, cuidado, diligencia y puntualidad las labores asignadas;</li>
+                                            <li> - Sujetarse estrechamente a las órdenes, pautas, políticas y procedimientos fijados por la Empresa;</li>
+                                            <li> - Guardar absoluto respeto y adecuado y correcto tratamiento con los superiores jerárquicos, compañeros de trabajo y con los clientes y visitantes de LA EMPRESA;</li>
+                                            <li> - Mantener en inmejorables condiciones de aseo los elementos de trabajo;</li>
+                                            <li>- Comunicar al Empleador todo aquello que se considere de interés para éste;</li>
+                                            <li>- No atender durante las horas de trabajo asuntos u ocupaciones distintos de aquellos que le correspondan;</li>
+                                            <li>- Acatar la orden de traslado y/o otros cargos que EL EMPLEADOR le asigne diverso al inicialmente pactado en esta u otra ciudad o dependencia;</li>
+                                            <li>- Dedicar la totalidad del tiempo laboral al desempeño de las funciones que le han sido encomendadas;</li>
+                                            <li>- Responder de la manera más rigurosa por la conservación de documentos, útiles, equipos, muebles y bienes asignados para el desempeño de su trabajo o confiados para su guarda o custodia, ninguno de los cuales podrá ser retirado de la institución bajo ningún pretexto sin autorización expresa del EMPLEADOR, ni ser utilizado en beneficio personal o familiar;</li>
+                                            <li>Participar en las actividades programadas de capacitación, desarrollo de personal, instrucción o entrenamiento que determine EL EMPLEADOR;</li>
+                                            <li>No prestar directa ni indirectamente servicios laborales a terceros, salvo que EL EMPLEADOR lo permita previamente en forma expresa y por escrito;</li>
+                                            <li>- Dar aviso inmediato al EMPLEADOR de la ocurrencia de cualquier accidente de trabajo por parte del TRABAJADOR o cualquier compañero de trabajo.</li>
+                                            <li>- Toda otra obligación que se desprenda de las labores principales, anexas, conexas y complementarias que según lo anterior y según su cargo le incumban al TRABAJADOR.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                                                    
+                            </p>
+                             <br></br>
+                            <p align="justify">
+                               <strong>CUARTA.</strong> - Son prohibiciones especiales del TRABAJADOR, además de las que prevé la Ley y las que se desprenden de la naturaleza y objeto del presente contrato y el cargo a desempeñar, las siguientes:
+                                  <br></br>
+                               <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul style="list-style-type:lower-latin">
+                                            <li> - Abandonar el trabajo sin justa causa y sin previo aviso justificado dado al superior respectivo o sin permiso de éste; </li>
+                                            <li> - Ejecutar defectuosamente el trabajo;</li>
+                                            <li> - Vender, cambiar, prestar o negociar en cualquier forma algún objeto de propiedad del EMPLEADOR;</li>
+                                            <li> - Licores embriagantes Mantener dentro de la Empresa y en cualquier cantidad o tóxicos, explosivos, barbitúricos, estupefacientes, drogas enervantes o cualquier sustancia o producto semejante;</li>
+                                            <li> - No usar en la forma indicada la ropa de trabajo o los uniformes especiales, según los casos;</li>
+                                            <li> - Originar o promover riñas, discordias o discusiones con otros trabajadores, superiores o visitantes, o tomar parte en tales actos;</li>
+                                            <li> - No acatar las órdenes e instrucciones sobre seguridad y vigilancia de las instalaciones de EL EMPLEADOR que le imparta el Empleador o sus representantes;</li>
+                                            <li> - Apartarse de las órdenes, instrucciones o Reglamentos establecidos por EL EMPLEADOR en relación con la forma, términos y circunstancias en que EL TRABAJADOR debe cumplir sus funciones;</li>
+                                            <li> - Autorizar o ejecutar, sin ser de su competencia, operaciones que afecten los intereses del EMPLEADOR, o negociar bienes y/o mercancías del EMPLEADOR en provecho propio;</li>
+                                            <li> - Presentar cuentas de gastos ficticios o reportar como cumplidas visitas o tareas no efectuadas;</li>
+                                            <li>- Toda otra prohibición que se desprenda de las labores principales, anexas, conexas y complementarias que según lo anterior y de acuerdo con sus cargos incumban al trabajador.</li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            </p>
+                            <br></br>
+                            <p align="justify">
+                               <strong>QUINTA.</strong> - Son justas causas para dar por terminado este contrato, por parte del EMPLEADOR y sin preaviso alguno, además de las estipuladas en la Ley y en el Reglamento de Trabajo de la Empresa, las siguientes, que para tales efectos se consideran como faltas graves:
+
+                               <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul style="list-style-type:lower-latin">
+                                            <li> - Cualquier acto de negligencia, descuido u omisión en que incurra EL TRABAJADOR en el ejercicio de sus funciones;</li>
+                                            <li> - La violación por parte del TRABAJADOR de cualquiera de las obligaciones o prohibiciones establecidas en este contrato;</li>
+                                            <li> - Comentar con terceras personas, aún en forma indirecta, asuntos reservados del EMPLEADOR, conocidos por EL TRABAJADOR;</li>
+                                            <li> - La ejecución por parte del TRABAJADOR de labores remuneradas al servicio de terceros, sin autorización del Empleador;</li>
+                                            <li> - La inobservancia del TRABAJADOR de las medidas de seguridad prescritas por EL EMPLEADOR;</li>
+                                            <li> - Cualquier daño que por negligencia o descuido del TRABAJADOR se cause en cualquiera de los elementos puestos bajo su cuidado;</li>
+                                            <li> - Incumplir el horario de trabajo establecido en este contrato;</li>
+                                            <li> - Presentarse embriagado o alicorado al trabajo; ingerir licores, narcóticos o drogas enervantes durante las horas de servicio, o portar armas durante el trabajo salvo quienes por razón del mismo deban tenerlas;</li>
+                                            <li> - Cualquier acto de violencia, irrespeto, injuria o malos tratamientos en que incurra EL TRABAJADOR contra sus superiores jerárquicos, los usuarios de los servicios del EMPLEADOR, o contra terceros que se encuentren en las dependencias de la misma;</li>
+                                            <li> - Abandonar el trabajo sin permiso del respectivo superior jerárquico;</li>
+                                            <li> - La no asistencia a una sección completa de la jornada de trabajo;</li>
+                                            <li> - La pérdida o extravío, sin explicación válida, a juicio del Empleador, de cualquiera de los elementos de trabajo que se le confíen, así como su destrucción o deterioro anormal;</li>
+                                            <li> - No acatar la orden que EL EMPLEADOR dé al TRABAJADOR para ocupar otro cargo diferente al descrito en este contrato o al que posteriormente se le asigne; </li>
+                                            <li> - Sustraer, consumir, permitir o auxiliar la sustracción o consumo de elementos de trabajo, herramientas, mercancías de propiedad del EMPLEADOR, valores y, en general, todo hecho inmoral o ilícito cometido por EL TRABAJADOR en el lugar de trabajo o por razón de éste, aún en forma culposa;</li>
+                                            <li> - El mal tratamiento de las mercancías, muebles, enseres y dependencias del EMPLEADOR;</li>
+                                            <li> - Fingir enfermedad o incapacidad en la Empresa para ausentarse del trabajo;</li>
+                                            <li> - No operar correctamente los vehículos, máquinas, instrumentos o herramientas confiadas para el desempeño del cargo asignado;</li>
+                                            <li> - Desatender las instrucciones, órdenes o indicaciones impartidas por su Jefe inmediato o sus superiores.</li>
+                                            <li> - No utilizar las prendas (ropa, vestido, calzado de labor, etc.) y/o elementos de trabajo que suministre el Empleador para el desempeño de las funciones del trabajador.</li>
+                                            <li> - No entregar a la Empresa dentro de las veinticuatro (24) horas siguientes a su recibo los dineros que por razón de sus funciones cobre el trabajador a los clientes de la Compañía.</li>
+                                         
+                                        </ul>
+                                        <p align="justify">
+                                           <strong>SEXTA.</strong> Derechos De Autor, Invenciones, Descubrimientos: EL TRABAJADOR acepta de manera expresa y voluntaria que todas los procedimientos, descubrimientos, invenciones, fórmula, obras protegidas por derechos de propiedad intelectual y las mejoras en los procedimientos de cualquier tipo que EL TRABAJADOR llegue a producir, generar o crear, lo mismo que todos los trabajos y consiguientes resultados de las actividades que EL TRABAJADOR realice durante la prestación sus servicios a EL EMPLEADOR, quedarán de propiedad exclusiva de la Empresa, de conformidad con lo dispuesto en las leyes vigentes. Además, EL EMPLEADOR tendrá el derecho de patentar o registrar a su nombre o a nombre de terceros esos inventos, obras o mejoras para lo cual el Empleado adquiere la obligación y el compromiso de acceder y facilitar el cumplimiento oportuno de las correspondientes formalidades y dará su firma y otorgará los poderes y documentos necesarios para tal fin según se lo indique EL EMPLEADOR, sin que éste quede obligado al pago de compensación alguna ya que EL EMPLEADOR remunera y paga el tiempo durante el cual EL TRABAJADOR presta con exclusividad sus servicios y además suministra los medios, implementos, datos, infraestructura y demás ayudas para la actividad de EL TRABAJADOR que produce la invención u obra. En consecuencia, EL TRABAJADOR no tiene derecho a reclamar ninguna compensación, pago o indemnización y renuncia a cualquier reclamación administrativa, judicial o arbitral sobre estos aspectos. El incumplimiento de esta obligación se califica como falta grave. Como en el curso de la relación laboral EL TRABAJADOR tiene acceso a secretos y a investigaciones confidenciales de EL EMPLEADOR y sus Compañías Afiliadas, todos los descubrimientos e inventos, incluyendo aquellos que se encuentren en estado de desarrollo, relacionados con el negocio o las actividades investigativas de EL EMPLEADOR y sus Compañías Afiliadas, que EL TRABAJADOR haya realizado o conocido en el desempeño de sus funciones propias de su empleo, solo o conjuntamente con otros, será propiedad de EL EMPLEADOR. Una vez se conozca los descubrimientos o inventos, EL TRABAJADOR adquiere la obligación de informarlos inmediata y espontáneamente al EMPLEADOR. A solicitud de EL EMPLEADOR y por su cuenta y riesgo, EL TRABAJADOR o sus mandatarios solicitarán en nombre de la empresa las patentes para dichos descubrimientos e inventos en Colombia o en el extranjero para lo cual firmarán todos los documentos que sean necesarios, incluidas las cesiones de patentes que les indique EL EMPLEADOR y se obliga a prestar toda la colaboración para cualquier procedimiento relacionado con las patentes y solicitudes de patentes. El incumplimiento de esta obligación se califica como falta grave.”
+                                        </p>
+                                        <p align="justify">
+                                           <strong>SEPTIMA.</strong> - Las partes de común acuerdo convienen que el Empleador podrá prescribir que el trabajador preste sus servicios mediante jornadas diarias flexibles de trabajo que se distribuirán en un máximo de 6 días a la semana y con un día de descanso obligatorio que puede o no de acuerdo con las circunstancias respectivas de cada semana coincidir con el domingo. Convienen además las partes que las aludidas jornadas flexibles serán señaladas oportunamente por la Empresa de conformidad con los respectivos requerimientos, repartiéndolas de manera variable durante la respectiva semana de tal forma que no se den jornadas menores de 4 horas continuas ni superiores a 10 horas diarias, quedando establecido que si se superaren 8 horas de trabajo en un día no habrá lugar a recargo por trabajo suplementario, todo ello de conformidad con lo establecido en el literal d) del artículo 51 de la Ley 789 de 2002”.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>OCTAVA.</strong> - Si EL TRABAJADOR no se presenta al trabajo durante dos (2) días, sin previo aviso y sin que haya plena y comprobada justificación, se presume que ha abandonado el puesto, entendiéndose que ello constituye una terminación unilateral del contrato de trabajo por parte de EL TRABAJADOR.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>NOVENA.</strong> - EL TRABAJADOR acepta desde ahora que si a la finalización del presente contrato de trabajo al EMPLEADOR se le presentaren circunstancias que le impidieren efectuar oportunamente la liquidación del contrato, dicho Empleador dispondrá de quince (15) días hábiles contados desde la aludida terminación, para tales efectos.
+                                        </p>
+                                        <br></br>
+                                        <p align="justify">
+                                           <strong>DÉCIMA.</strong> - EL EMPLEADOR, como contraprestación por los servicios del TRABAJADOR, le pagará mensualmente la suma de <strong> <span t-field="o.wage" ></span> <span t-if="o.currency_id" t-esc="o.currency_id.amount_to_text(o.wage)"></span>s </strong>, no obstante, si la Compañía lo considera pertinente podrá realizar el pago de forma quincenal lo cual el TRABAJADOR acepta desde ya, siendo entendido que en dicho salario está incluida y comprendida la remuneración de los descansos en dominicales y festivos, de acuerdo con la Ley. De otra parte, se conviene que en el evento de que EL TRABAJADOR, por cualquier causa, recibiere sumas por concepto de salario variable, el 82,5% de tales sumas constituye la remuneración ordinaria y el 17,5% restante constituye la remuneración del descanso dominical y festivo correspondiente a aquellas.
+                                        </p>
+                                        <p align="justify">
+                                           <strong> PARÁGRAFO.</strong>- EL EMPLEADOR, a su elección, podrá pagar al TRABAJADOR el salario aquí pactado, las prestaciones, vacaciones o indemnizaciones que se causen a favor del empleado, o cualquier otra suma que la Empresa le debiere, directamente en dinero efectivo o a través de cheque de Banco de la ciudad donde labore EL TRABAJADOR, o a través de consignación que se le efectuare a dicho trabajador en cuenta corriente, de ahorros, etc. Si EL EMPLEADOR optare por este último mecanismo de pago, EL TRABAJADOR queda obligado, dentro de los quince (15) días siguientes a la notificación de tal decisión, a suscribir los formularios, entregar los documentos y llenar los trámites respectivos para la apertura de la cuenta en el Banco que EL EMPLEADOR le indique. Convienen las partes que durante la vigencia de este contrato de trabajo EL EMPLEADOR podrá establecer y utilizar diferentes modalidades de pago de las sumas y conceptos ya citados, dentro de las opciones aquí pactadas. 
+                                        </p>
+                                        <p align="justify">
+                                           <strong> DÉCIMA PRIMERA.</strong>- Disponen expresamente las partes que no constituyen salario ni factor del mismo los auxilios o beneficios habituales u ocasionales existentes o los que en el futuro llegare a reconocer EL EMPLEADOR, convencional o contractualmente, o llegue a otorgar en forma unilateral, tales como primas extralegales, de servicios, de Navidad, etc.; auxilios de educación; créditos con intereses rebajados; auxilios funerarios, etc.- También disponen en forma expresa las partes que el suministro de alimentos al trabajador por parte de La Empresa o su venta a bajo precio, tampoco constituirán salario ni factor de salario, todo ello de acuerdo con lo establecido en el artículo 15 de la Ley 50 de 1.990. 
+                                        </p>
+                                        <p align="justify">
+                                           <strong>DÉCIMA SEGUNDA.</strong> - EL TRABAJADOR laborará la jornada máxima legal de trabajo dentro de los turnos y en los horarios que le indique EL EMPLEADOR, siendo entendido que el Empleador podrá introducir a tales horarios y/o turnos de trabajo las reformas o modificaciones que estime pertinentes. Igualmente, la Empresa podrá, cuando lo considere conveniente, ampliar la jornada de trabajo diaria hasta por diez (10) horas para que EL TRABAJADOR descanse el sábado o parte de dicho día. Tratándose de trabajadores que no sean de dirección, confianza o manejo, EL TRABAJADOR se obliga a laborar horas extras cuando así lo ordene EL EMPLEADOR. Así mismo, podrán implantarse jornadas diarias flexibles de trabajo de conformidad con la cláusula séptima de este contrato.
+                                        </p>
+                                        <p align="justify">
+                                            Todo trabajo suplementario o de horas extras y todo trabajo en día domingo o festivo en los que legalmente debe concederse descanso, mientras no sea labor que según la Ley o contrato ha de ejecutarse así, debe ser autorizado por la Empresa previamente por escrito para cada caso. En consecuencia, EL EMPLEADOR no reconocerá ningún trabajo suplementario o en días de descanso legalmente obligatorio que no haya sido autorizado, como queda dicho. En el evento de que EL TRABAJADOR llegue a desempeñar un cargo de dirección, confianza o manejo, estará excluido de las regulaciones sobre jornada máxima legal, de acuerdo con lo establecido en el artículo 162 del Código Sustantivo del Trabajo.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>DÉCIMA TERCERA.</strong>- Si por virtud del presente contrato el trabajador prestare servicios a terceras personas naturales o jurídicas por orden o con la aquiescencia de la Empresa, en las instalaciones de ésta o por fuera de ellas, tales servicios quedan remunerados con el salario que el trabajador devenga por razón del aludido contrato de trabajo, por lo que no habrá lugar a pagos extras por los servicios adicionales de que se trata, ni se configurará relación jurídica alguna por tales servicios, toda vez que ellos se prestarían en razón al citado contrato de trabajo.
+                                        </p>
+                                        <p align="justify">
+                                          <strong>DÉCIMA CUARTA.</strong> - Si EL TRABAJADOR, por causa de enfermedad o accidente, no asistiere a su trabajo, deberá presentar al EMPLEADOR, a la mayor brevedad, la respectiva incapacidad, a cuyo efecto se establece que exclusivamente será válida la expedida por los médicos del Instituto de Seguros Sociales o de la respectiva Entidad Promotora de Salud, según el caso, para justificar las ausencias antedichas.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>DÉCIMA QUINTA.</strong> - El presente contrato de trabajo reemplaza íntegramente cualquier otra estipulación que con anterioridad hubiere regido entre las partes que lo suscriben.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>DÉCIMA SEXTA.</strong> - EL TRABAJADOR deja constancia que conoce el Reglamento de Trabajo y el Reglamento de Higiene y Seguridad Industrial de la Empresa.
+                                        </p>
+                                        <p align="justify">
+                                          <strong>DÉCIMA SEPTIMA.</strong> - De común acuerdo queda establecido entre las partes que el Empleador podrá disponer que el día de descanso obligatorio a que tendrá derecho el trabajador institucionalizadamente, sea el sábado y no el domingo de conformidad con el parágrafo 1º del artículo 26 de la Ley 789 de 2002. Como consecuencia de lo anterior en este evento, el citado trabajador laboraría los días domingos integrándose tales días a su jornada ordinaria y sin que por tanto se cause recargo o sobre remuneración alguna.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>DÉCIMA OCTAVA.</strong> - EL TRABAJADOR autoriza de manera expresa a EL EMPLEADOR para que le sean practicados cuestionarios y/o pruebas por selección directa o aleatoria de fidelización con la utilización de técnicas de polígrafo y/o exámenes fisiológicos sobre cualquier aspecto y en el momento que EL EMPLEADOR considere pertinente en relación con los servicios que prestará EL TRABAJADOR.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>PARÁGRAFO.</strong> - EL TRABAJADOR autoriza a EL EMPLEADOR para custodiar y utilizar los resultados de las pruebas referidas anteriormente judicial o extrajudicialmente para los fines que estime pertinentes. EL TRABAJADOR declara de manera expresa que conoce en qué consisten los procedimientos de que trata esta cláusula y los acepta íntegra e incondicionalmente.”
+                                        </p>
+                                        <p align="justify">
+                                           <strong> DECIMA NOVENA.</strong> - En concordancia con lo establecido en el numeral 1 de Artículo 58, del Código Sustantivo del Trabajo, durante la vigencia del presente contrato, EL TRABAJADOR se obliga y se compromete a facilitar la práctica de las pruebas acá mencionadas. Como consecuencia de lo señalado en el presente documento, se considera FALTA GRAVE y por lo tanto Justa Causa para dar por terminado el contrato de trabajo, que el TRABAJADOR no permita la práctica de los cuestionarios y/o pruebas por selección directa o aleatoria de fidelización con la utilización de técnicas de polígrafo y/o exámenes fisiológicos, aún por primera vez.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>VIGÉSIMA.</strong> - EL TRABAJADOR autoriza expresamente a la Empresa para que en el evento en que dicho trabajador le adeude suma alguna por cualquier concepto como deudas, dineros recibidos de los clientes, etc. deduzca, compense y descuente de los salarios y/o prestaciones sociales y/o indemnizaciones y/o vacaciones dichas sumas tanto durante la vigencia del contrato como a su terminación.
+                                        </p>
+                                        <p align="justify">
+                                          <strong>VIGÉSIMA PRIMERA.</strong> - EL TRABAJADOR autoriza de manera expresa a la Empresa para que descuente, compense, y retenga las sumas que adeudare a la Empresa por cualquier concepto como descuadres en inventarios, sumas no cobradas efectivamente por el trabajador, cheques devueltos, etc., de la liquidación final de dicho contrato (salarios, cesantías, intereses de cesantías, vacaciones, primas, indemnizaciones, etc.).
+                                        </p>
+                                        <p align="justify">
+                                           <strong>VIGÉSIMA SEGUNDA</strong>- EL TRABAJADOR ha anotado al pie de su firma la dirección actual de su residencia permanente. Toda notificación que LA EMPRESA tuviere que hacerle al TRABAJADOR en razón del desarrollo o terminación del presente contrato, se entenderá válida y legalmente hecha si se dirige a la dirección del trabajador que figura en las oficinas de LA EMPRESA. En caso de cambio de residencia EL TRABAJADOR está obligado a avisar dicha circunstancia al EMPLEADOR dentro de los cinco (5) días siguientes a dicho cambio.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>VIGÉSIMA TERCERA.</strong> - EL TRABAJADOR ha anotado al pie de su firma la dirección actual de su correo electrónico, así como la de su residencia. Toda notificación que LA EMPRESA tuviere que hacerle al TRABAJADOR en razón del desarrollo o terminación del presente contrato, se entenderá válida y legalmente hecha si se dirige a la dirección de correo electrónico de EL TRABAJADOR que figura en las oficinas de LA EMPRESA. En caso de cambio de cuenta de correo electrónico EL TRABAJADOR está obligado a avisar dicha circunstancia al EMPLEADOR dentro de los cinco (5) días siguientes a dicho cambio. 
+                                        </p>
+                                        <p align="justify">
+                                           <strong>PARÁGRAFO.</strong>- EL TRABAJADOR acepta con la firma del presente contrato, que los documentos de terminación del contrato de trabajo tales como, carta de fondo de cesantías, carta examen de retiro, últimos tres pagos de aportes al Sistema Integral de Seguridad Social, liquidación final del contrato de trabajo, comprobante de pago de la citada liquidación etc., serán remitidos al correo electrónico proporcionado por éste a la EMPRESA, teniendo el TRABAJADOR cinco (5) días para realizar las observaciones pertinentes después de recibida la citada documentación.
+                                        </p>
+                                        <p align="justify">
+                                           <strong>VIGÉSIMA CUARTA.</strong> - Para todos los efectos legales y prestacionales se deja constancia que EL TRABAJADOR prestara sus servicios al EMPLEADOR desde el <strong><span t-esc="o.date_start.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> de  <span t-esc="o.date_start.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')"  t-esc-options="{'widget': 'num2words','case':'capital'}"/> de  <span t-esc="o.date_start.strftime('%Y')"/> </strong>
+                                        </p>
+                                        <p align="justify">
+                                            Para constancia se suscribe el presente documento por las partes y ante testigos hábiles en la ciudad de <strong> <span t-field="o.res_city"></span> </strong>, a los <strong><span t-esc="o.fecha_firma_contrato.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/>   de   <span t-esc="o.fecha_firma_contrato.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')"  t-esc-options="{'widget': 'num2words','case':'capital'}"/> de  <span t-esc="o.fecha_firma_contrato.strftime('%Y')"/> </strong>
+                                        </p>
+                                          <br></br>
+                                          <div id="a">
+                                             <div id="b"><strong>EL EMPLEADOR:</strong>  <br></br><br></br><br></br> <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="470" height="180"/> <strong> <span t-field="o.nombre_representante"></span></strong> <br></br> <span>C.C.</span><span t-field="o.cedula_representante"></span> <span>de</span> <span t-field="o.lugar_expedicion_con"></span> <br></br> <span t-field="o.company_id"></span> </div>
+                                             <div id="c"><strong>EL TRABAJADOR:</strong>  <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><strong><span t-field="o.employee_id"></span></strong>  <br></br> <span>C.C.</span> <span t-field="o.identificacion"></span> <span>de</span>   <span t-field="o.lugar_expedicion_contratado"></span>  <br></br> <span>TELÉFONO:</span> <span t-field="o.telefono_empleado"></span> <br></br> <span>DIRECCIÓN:</span> <span t-field="o.Via_principal"></span><span> </span><span t-field="o.nombre_via_principal"></span><span> </span><span t-field="o.via_generadora"></span> <span> </span><span t-field="o.predio"></span> <span> </span><span t-field="o.complemento"></span> <br></br> <span>CORREO:</span> <span t-field="o.correo_empleado"></span> </div> 
+                                          </div>  
+
+                                    </div>
+                                </div>
+                            </div>
+                            </p>
+                                 
+                             
+                        </div>
+                    
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

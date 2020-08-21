@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="ccnomina_form" model="ir.ui.view">
+      <field name="name">ccnomina.form</field>
+      <field name="model">ccnomina</field>
+      <field name="arch" type="xml">
+        <form string="ccnomina">
+           <group>
+             <group>
+                <field name="nombre_ccnomina" string="CC-Nomina"/>
+                <field name="identificador" string="Identificador"/>
+              
+             </group>
+           </group>   
+        </form>
+      </field>
+    </record> 
+
+    <record id="ccnomina_tree" model="ir.ui.view">
+      <field name="name">ccnomina.tree</field>
+      <field name="model">ccnomina</field>
+        <field name="arch" type="xml">
+            <tree string="sector ccnomina">
+                <field name="identificador" string="Identificador"/>
+                <field name="nombre_ccnomina" string="CC-Nomina"/>
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ccnomina" model="ir.actions.act_window">
+        <field name="name">ccnomina</field>
+        <field name="res_model">ccnomina</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            CC-Nomina
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='CC-Nomina'
+            action='action_ccnomina'
+            id='ccnomina_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='23'/> 
+    </data>   
+</odoo>

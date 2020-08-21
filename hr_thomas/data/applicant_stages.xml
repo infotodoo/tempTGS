@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="hr.recruitment.stage" id="stage_pre_seleccionado">
+            <field name="name">Pre-Seleccionado</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_entrevista_psicologo">
+            <field name="name">Entrevista Psicológica</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_entrevista_jefe">
+            <field name="name">Entrevista Jefe Inmediato</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_estudio_seguridad">
+            <field name="name">Estudio de Seguridad</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_examen_medico">
+            <field name="name">Examen Médico</field>
+            <field name="sequence">5</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_referencias">
+            <field name="name">Referencias</field>
+            <field name="sequence">6</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_contratacion">
+            <field name="name">Contratación</field>
+            <field name="sequence">7</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_compensacion_beneficios">
+            <field name="name">Compensación y Beneficios</field>
+            <field name="sequence">8</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_espera_cliente">
+            <field name="name">En espera por el Cliente</field>
+            <field name="sequence">9</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_espera_candidato">
+            <field name="name">En espera por el Candidato</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_espra_por_tercero">
+            <field name="name">En espera por Tercero</field>
+            <field name="sequence">11</field>
+        </record>
+
+        <record model="hr.recruitment.stage" id="stage_reclutamiento">
+            <field name="name">En Reclutamiento</field>
+            <field name="sequence">12</field>
+        </record>
+    </data>   
+</odoo>

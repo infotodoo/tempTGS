@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom9345"
+                string="SYC-FOR-077 AUTORIZACIÓN DERECHOS DE IMAGEN"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom9345_template"
+        />
+
+        <template id="report_custom9345_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">                   
+                        <div class="page">
+                            <head>
+                                <style>
+                                    p {font-size:22px;}
+                                    span {font-size:22px;}                              
+                                    *{
+                                        margin:0px;
+                                        padding:0px;
+                                        }                               
+                                         div#a{
+                                         margin:auto;
+                                         margin-top:60px;
+                                         width:1100px;
+                                         height:300px;
+                                         border: 0px solid black;
+                                        }                          
+                                         div#b{
+                                         width:500px;
+                                         height:300px;
+                                         background-color:white;
+                                         float:left;
+                                        }                          
+                                         div#c{
+                                         width:500px;
+                                         height:300px;
+                                         background-color:white;
+                                         float:left;                             
+                                        }     
+                                </style>
+                            </head>
+                            <p align="right">SYC-FOR-077 <span t-field="o.version_documento"></span></p>
+                           <strong><p align="center">AUTORIZACIÓN DERECHOS DE IMAGEN</p></strong>
+                           <p align="justify">
+                               
+                               <strong><span t-field="o.employee_id"></span></strong>, mayor de edad, domiciliado y residenciado en <strong><span t-field="o.res_city"></span></strong>, identificado con la cédula de ciudadanía  No  <strong><span t-field="o.identificacion"></span></strong>  de <strong><span t-field="o.lugar_expedicion_contratado"></span></strong>, en mi calidad de persona natural cuyo imagen será fijada en una fotografía o producción audiovisual (video) que utilizará y publicará la Sociedad  <strong><span t-field="o.company_id"></span></strong>. quien para todos los fines del presente documento se denominará  <strong>LA PERSONA,</strong>  por una parte; y   <strong><span t-field="o.nombre_representante"></span></strong>, mayor de edad, domiciliado en <strong> <span t-field="o.res_city"></span>  </strong>, identificado con la cédula de ciudadanía número  <strong><span t-field="o.cedula_representante"></span></strong>   <span>de</span>  <strong><span t-field="o.lugar_expedicion_con"></span></strong>  en su calidad de Representante Legal de la Sociedad  <strong><span t-field="o.company_id"></span></strong>  quien en adelante se denominará  <strong>LA EMPRESA;</strong>  hemos acordado suscribir el presente documento de autorización de uso de derechos de imagen sobre fotografía y procedimientos análogos a la fotografía, o producción audiovisual (video), así como los patrimoniales de autor y derechos conexos, el cual se regirá por las normas legales aplicables y en particular por las siguientes cláusulas: 
+
+                           </p>
+                           <p align="justify">
+                               <strong> PRIMERA – AUTORIZACIÓN: LA PERSONA,</strong> mediante el presente documento autoriza de manera expresa y voluntaria la utilización de los derechos de imagen sobre fotografías o procedimientos análogos a la fotografía, o producciones audiovisuales (videos), así como los derechos patrimoniales de autor respecto a reproducción, comunicación pública, transformación, distribución y a los derechos conexos a <strong>LA EMPRESA</strong> para incluirlos en fotografías o procedimientos análogos a la fotografía, o producciones audiovisuales (videos). <strong>PARÁGRAFO:</strong> Las ediciones o modificaciones que <strong>LA EMPRESA</strong> efectúe de las producciones audiovisuales no deberán afectar el contexto y significado del contenido de la presentación respectiva. 
+                           </p>
+                           <p align="justify">
+                            <strong>SEGUNDA - OBJETO:</strong> Por medio del presente escrito, <strong>LA PERSONA,</strong>  autoriza a la Sociedad <strong><span t-field="o.company_id"></span></strong>, para que de conformidad con las normas internacionales y nacionales que sobre propiedad intelectual sean aplicables, use los derecho de imagen sobre fotografías o procedimientos análogos a la fotografía, o producciones audiovisuales (videos), así como los derechos de propiedad intelectual y sobre Derechos Conexos que le puedan pertenecer para ser utilizados por <strong><span t-field="o.company_id"></span></strong>,   <strong> PARÁGRAFO - ALCANCE DEL OBJETO:</strong>  La presente autorización de uso se otorga a la Sociedad  <strong><span t-field="o.company_id"></span></strong>, para ser utilizada en ediciones impresas y electrónicas, digitales, en la red internet. <strong>PARÁGRAFO:</strong> Tal uso se realizará por parte de la Sociedad <strong><span t-field="o.company_id"></span></strong>, para efectos de su publicación de manera directa, o a través de un tercero que se designe para tal fin. 
+                           </p>
+                           <p align="justify">
+                             <strong>TERCERA - TERRITORIO:</strong>  Los derechos aquí autorizados se dan sin limitación geográfica o territorial alguna.  
+                           </p>
+                           <p align="justify">
+                             <strong>CUARTA – ALCANCE:</strong>  La presente autorización se da tanto para formato o soporte material, y se extiende a la utilización en medio óptico, magnético, electrónico, en red, mensajes de datos o similar conocido o por conocer en el futuro. 
+                           </p>
+                           <p align="justify">
+                             <strong>QUINTA – EXCLUSIVIDAD:</strong> La autorización de uso aquí establecida no implica exclusividad en favor de la Sociedad   <strong><span t-field="o.company_id"></span></strong>, por lo tanto, <strong>LA PERSONA</strong>  se reserva y conservará el derecho de otorgar directamente, u otorgar a cualquier tercero, autorizaciones de uso similares o en los mismos términos aquí acordados. 
+                           </p>
+                           <p>
+                             Dada en <strong><span t-field="o.res_city"></span></strong>, En señal de aceptacion, se firma a los  <strong> <span t-esc="o.fecha_firma_contrato.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> </strong> días del mes de  <strong> <span t-esc="o.fecha_firma_contrato.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> </strong>  del  <strong><span t-esc="o.fecha_firma_contrato.strftime('%Y')"/> </strong>
+                           </p>
+                           <br></br><br></br><br></br>
+                           <div id="a">
+                                <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="240" height="130"/><br></br>
+                               <div id="b"><strong><span t-field="o.nombre_representante"></span>  <br></br><span>C.C. N°</span> <span t-field="o.cedula_representante"></span> <span>de</span> <span t-field="o.lugar_expedicion_con"></span>  </strong></div>
+                               <div id="c"><strong><span t-field="o.employee_id"></span></strong>  <br></br> <strong> <span>C.C. N°</span> <span t-field="o.identificacion"></span> <span>de</span> <span t-field="o.lugar_expedicion_contratado"></span> </strong> </div>
+                           </div>
+                        </div>
+                   
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

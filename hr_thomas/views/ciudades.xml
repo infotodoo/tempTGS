@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_customer_form" model="ir.ui.view">
+            <field name="name">customer.form</field>
+            <field name="model">ciudades</field>
+            <field name="arch" type="xml">
+                <form string="ciudades">
+                    <group>
+                        <group>
+                            <field name="name_city" string="Ciudad" />
+                            <field name="departamentos" string="Departamentos" />
+                            <field name="paises" string="País" />
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_customer_tree" model="ir.ui.view">
+            <field name="name">customer.tree</field>
+            <field name="model">ciudades</field>
+            <field name="arch" type="xml">
+                <tree string="sector customer">
+                    <field name="name_city" string="Ciudad" />
+                    <field name="departamentos" string="Departamento" />
+                    <field name="paises" string="País" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_customer" model="ir.actions.act_window">
+            <field name="name">ciudades</field>
+            <field name="res_model">ciudades</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    ciudades
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Ciudades" action="action_customer" id="customer_menu" parent="contacts.menu_country_state_partner" sequence="99" />
+    </data>
+</odoo>

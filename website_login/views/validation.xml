@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_login.signup_again" inherit_id="auth_signup.signup" name="Sign Up Again">
+        <xpath expr="//div[hasclass('oe_login_buttons')]" position="replace">
+            <div class="text-center oe_login_buttons pt-3">
+                <t t-if="error=='Waiting for validation of your account.'">
+                    <a role="button" href="/web/signup?" class="btn btn-primary btn-block">Sign up for another</a>
+                </t>
+                <t t-else="">
+                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                </t>
+                <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link btn-sm" role="button">Already have an
+                    account?
+                </a>
+                <div class="o_login_auth"/>
+            </div>
+        </xpath>
+    </template>
+
+
+
+</odoo>

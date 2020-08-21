@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="view_unidades_form" model="ir.ui.view">
+      <field name="name">unidades.form</field>
+      <field name="model">unidades</field>
+      <field name="arch" type="xml">
+        <form string="unidades">
+           <group>
+             <group>
+                 <field name="nombre_unidad_org" string="Unidad Organizativa" required="True"/>
+                 <field name="company_id" string="Compañia" required="True"/>
+              
+             </group>
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record> 
+
+
+     
+
+
+
+
+    <record id="view_unidades_tree" model="ir.ui.view">
+      <field name="name">unidades.tree</field>
+      <field name="model">unidades</field>
+        <field name="arch" type="xml">
+            <tree string="sector unidades">
+              <field name="nombre_unidad_org" string="Unidad Organizativa"/>
+              <field name="company_id" string="Compañia"/>
+              
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_unidades" model="ir.actions.act_window">
+        <field name="name">Unidades Organizativas</field>
+        <field name="res_model">unidades</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            unidades
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Unidades Organizativas'
+            action='action_unidades'
+            id='unidades_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='7' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

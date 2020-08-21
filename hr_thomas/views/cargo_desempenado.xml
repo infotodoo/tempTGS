@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="cargo_desempenadoform" model="ir.ui.view">
+      <field name="name">cargo.desen.form</field>
+      <field name="model">cargo.desen</field>
+      <field name="arch" type="xml">
+        <form string="cargo.desen">
+           <group>
+             <group>
+                <field name="cargo_desempenado" string="Cargo Desempeñado"/> 
+               
+              
+             </group>
+           </group>   
+        </form>
+      </field>
+    </record> 
+
+    <record id="cargo_desen_tree" model="ir.ui.view">
+      <field name="name">cargo.desen.tree</field>
+      <field name="model">cargo.desen</field>
+        <field name="arch" type="xml">
+            <tree string="sector cargo_desen">
+                <field name="cargo_desempenado" string="Cargo Desempeñado"/> 
+              
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cargo_desen" model="ir.actions.act_window">
+        <field name="name">Cargo Desempeñado</field>
+        <field name="res_model">cargo.desen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Cargo
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Cargo Desempeñado'
+            action='action_cargo_desen'
+            id='cargo_desen_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='31'/> 
+    </data>   
+</odoo>

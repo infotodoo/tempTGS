@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom77"
+                string="SYC-FOR-047 CERTIFICACION DEPENDIENTES"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom77_template"
+        />
+
+
+        <template id="report_custom77_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                   
+                        <div class="page">
+                            <head>
+                                <style type="text/css">
+                                    p {font-size:20px;}
+                                    span {font-size:20px;} 
+                                    *{
+                                        margin:0px;
+                                        padding:0px;
+                                        }
+                                        
+                                                                                
+                                         div#a{
+                                         margin:auto;
+                                         margin-top:60px;
+                                         width:1100px;
+                                         height:30px;
+                                         border: 0px solid black;
+                                        
+                                       
+                                        }
+                                        
+                                                                                
+                                        
+                                         div#b{
+                                        
+                                         width:30px;
+                                         height:30px;
+                                         background-color:white;
+                                         float:left;
+                                         border: 1px solid black;
+                                         margin:18px;                                                                          
+                                        }
+                                                                              
+                                                                                
+                                        
+                                         div#c{
+                                        
+                                         width:1000px;
+                                         height:30px;
+                                         background-color:white;
+                                         float:left;
+                                         margin:0px;                                      
+                                                                                 
+                                       
+                                       
+                                        }
+                                        
+                                        
+                                    
+                                    </style>
+                            </head>
+                            <br></br>
+                            <p align="right">SYC-FOR-047-V2</p>
+                            <p>Señores</p>
+                            <p> <span t-field="o.company_id"></span></p>
+                            <strong><p align="right">REF: Solicitud disminución Base de Retención</p></strong>
+                            <p align="justify">
+                                Conforme en lo dispuesto en el artículo 25 de la Ley 1607 de 2012 de Reforma Tributaria, y en el parágrafo 3, artículo 2 del Decreto Reglamentario 099 de 2013, que permite disminuir de mi base de retención en la fuente el 10% de mis ingresos brutos provenientes de la relación laboral del respectivo mes por concepto de dependientes, hasta un máximo de treinta y dos (32) UVT ($1.139.424), declaro que:     
+                            </p>
+                            <p>
+                                
+                                    <div id="a">
+                                        <div id="b"></div>
+                                        <div id="c"><p align="justify">1. Tengo hijos menores de 18 años de edad que dependen económicamente de mí.</p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div id="b"></div>
+                                        <div id="c"><p align="justify">2. Tengo hijos con edad entre 18 y 23 años, a los cuales me encuentro financiando su educación en instituciones formales de educación superior certificadas por el ICFES o la autoridad oficial correspondiente; o en los programas técnicos de educación no formal debidamente acreditados por la autoridad competente.   </p></div>                                       
+                                       
+                                    </div>
+                                   
+                                    <div id="a">
+                                        <div id="b"></div>
+                                        <div id="c"><p align="justify">3. Tengo hijos mayores de 23 años que se encuentran en situación de dependencia originada en factores físicos o psicológicos que están certificados por Medicina Legal.      </p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div id="b"></div>
+                                        <div id="c"><p align="justify">4. Que mi cónyuge o compañero permanente se encuentra en situación de dependencia por ausencia de ingresos en el año menores a doscientas sesenta (260) UVT $8.283.600, para lo cual me permito adjuntar certificado por contador público.         </p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div id="b"></div>
+                                        <div id="c"><p align="justify">5. Que mi cónyuge o compañero permanente se encuentra en situación de dependencia por dependencia originada en factores físicos o psicológicos que están certificados por Medicina Legal.            </p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div id="b"></div>
+                                        <div id="c"><p align="justify">6. Que mis padres y/o hermanos se encuentra en situación de dependencia por ausencia de ingresos en el año menores a doscientas sesenta (260) UVT $8.283.600, para lo cual me permito adjuntar certificado por contador público.               </p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div id="b"></div>
+                                        <div id="c"><p align="justify">7. Mis padres y/o hermanos se encuentran en situación de dependencia por dependencia originada en Factores físicos  o psicológicos que están certificados por Medicina Legal.                  </p></div>                                       
+                                       
+                                    </div> 
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">Lo anterior se hace constar bajo la gravedad de juramento.                     </p></div>                                       
+                                       
+                                    </div> 
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">Nombre: <span t-field="o.employee_id"></span></p>   </div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">Firma:</p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">CC:<span t-field="o.identificacion"></span> </p></div>                                       
+                                       
+                                    </div>
+                                    <br></br>
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">Nombre del dependiente _________________________________</p></div>                                       
+                                       
+                                    </div> 
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">Identificación del dependiente _____________________________</p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">Parentesco _________________________</p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">Yo <strong><span t-field="o.employee_id"></span></strong> identificado(a) con cédula de ciudadanía   No. <strong><span t-field="o.identificacion"></span> </strong> de   <strong><span t-field="o.lugar_expedicion_contratado"></span></strong>    manifiesto que la deducción que he    Solicitado como dependiente solo será utilizado por mí en esta Compañía.        </p></div>                                       
+                                       
+                                    </div>
+                                    <br></br>
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c">  <strong> <p align="justify"> Firma del Trabajador:        </p> </strong> </div>                                       
+                                       
+                                    </div> 
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify"> <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="210" height="100"/> </p></div>                                       
+                                       
+                                    </div>
+                                    <div id="a">
+                                        <div></div>
+                                        <div id="c"><p align="justify">c.c <span t-field="o.identificacion"></span> </p></div>                                       
+                                       
+                                    </div>                                                                  
+                                                                   
+                                                                    
+                             
+                            </p>
+                           
+                        </div>
+                   
+                </t>
+            </t>
+        </template>       
+       
+    </data>
+</odoo>

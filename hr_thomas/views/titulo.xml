@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="titulo_form" model="ir.ui.view">
+      <field name="name">titulo.form</field>
+      <field name="model">titulo</field>
+      <field name="arch" type="xml">
+        <form string="titulo">
+           <group>
+             <group>
+               <field name="nombre" string="Título Obtenido"/>
+
+              
+             </group>
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record> 
+
+
+     
+
+
+
+
+    <record id="view_titulo_tree" model="ir.ui.view">
+      <field name="name">titulo.tree</field>
+      <field name="model">titulo</field>
+        <field name="arch" type="xml">
+            <tree string="sector titulo">
+                <field name="nombre" string="Título Obtenido"/>
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_titulo" model="ir.actions.act_window">
+        <field name="name">Título Obtenido</field>
+        <field name="res_model">titulo</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Título
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Título Obtenido'
+            action='action_titulo'
+            id='titulo_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='20' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

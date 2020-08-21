@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_hr_applicant_form_inherit" model="ir.ui.view">
+        <field name="name">hr.applicant.form.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">            
+                     
+            <field name="email_from" position="attributes" >
+                <attribute name="required">True</attribute>
+            </field>
+            <field name="email_cc" position="attributes" >
+                <attribute name="invisible">True</attribute>
+            </field>
+            <field name="email_cc" position="attributes" >
+                <attribute name="string">Confirmar correo electrónico</attribute>
+            </field> 
+            <field name="partner_mobile" position="attributes" >
+                <attribute name="required">True</attribute>
+            </field>
+            <field name="type_id" position="attributes" >
+                <attribute name="invisible">True</attribute>
+            </field>
+                                
+            
+            
+            <xpath expr="//sheet/div[2]" position="after">
+                <group>
+                    <group>
+                        <field name="requisicion" string="Requisición a la que Aplica"/>
+                        <field name="ide_requisicion" invisible="True"/>
+                        <field name="emp_aplica" string="Empresa relacionada"/>
+                        <field name="jefe" string="Jefe Inmediato"/>
+                        <field name="cargo_aplica" string="Cargo al que Aplica"/>
+                        <field name="turno_trabajo" string="Turno de Trabajo"/>
+                        
+                       
+                       
+
+                      
+                    </group>
+                    <group>
+                        <field name="personal_cargo" string="Tiene Personal a Cargo"/>
+                        <field name="ciudad_req"/>
+                        <field name="sede" string="Sede"/>                       
+                        <field name="area_req" string="Área"/>
+                        <field name="psicologo_req"/>
+                        <field name="reclutador_req"/> 
+                    </group>
+                    <group>
+                        <field name="ascenso" string="Ascenso"/>
+                    </group>
+                    <group>
+                        <field name="tratamiento_datos" string="Tratamiento de Datos"/>
+                    </group>
+                    <group>
+
+                    </group>
+                    <group>                        
+                        <field name="id_estado_de_solicitud" invisible="True"/>
+                        <field name="fecha_hora_pre_seleccionado" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 2)]}" readonly="True"/>
+                        <field name="tiempo_pre_seleccionado" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 2)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_entrevista_psicologica" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 3)]}" readonly="True"/>
+                        <field name="tiempo_entrevista_psicologica" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 3)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_entrevista_jefe_inmediato" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 4)]}" readonly="True"/>
+                        <field name="tiempo_entrevista_jefe_inmediato" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 4)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_estudio_seguridad"  attrs="{'invisible': [('id_estado_de_solicitud', '!=', 5)]}" readonly="True"/>
+                        <field name="tiempo_estudio_seguridad"  attrs="{'invisible': [('id_estado_de_solicitud', '!=', 5)]}" readonly="True"  widget="float_time"/>
+                        <field name="fecha_hora_examen_medico" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 6)]}" readonly="True"/>
+                        <field name="tiempo_examen_medico" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 6)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_examen_referencias" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 7)]}" readonly="True"/>
+                        <field name="tiempo_referencias" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 7)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_examen_contratacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 8)]}" readonly="True"/>
+                        <field name="tiempo_contratacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 8)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_compensacion_beneficios" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 9)]}" readonly="True"/>
+                        <field name="tiempo_compensacion_beneficios" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 9)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_espera_por_cliente" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 10)]}" readonly="True"/>
+                        <field name="tiempo_espera_por_cliente" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 10)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_espera_por_candidato" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 11)]}" readonly="True"/>
+                        <field name="tiempo_espera_por_candidato" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 11)]}" readonly="True" widget="float_time"/>
+                        <field name="fecha_hora_espera_por_tercero" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 12)]}" readonly="True"/>
+                        <field name="tiempo_espera_por_tercero" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 12)]}" readonly="True" widget="float_time"/>
+                        <field name="tiempo_total" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 12)]}" readonly="True" widget="float_time"/>
+                       
+                        
+                       
+                    </group>
+                    <group>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//field[(@name='email_from')]" position="after">
+                <field name="emal_cc" string="Confirmar correo electrónico" required="True"/>
+            </xpath>
+            <xpath expr="//field[(@name='description')]" position="before">
+                <field name="id" invisible="True"/>
+                <sheet>
+                    <notebook>
+                        <page string="Información General">
+                            <group>
+                                <group>
+                                    <field name="tratamiento" string="Tratamiento" required="True"/>
+                                    <field name="name1" string="Primer Apellido" required="True"/>
+                                    <field name="name2" string="Segundo Apellido"/>
+                                    <field name="name3" string="Primer Nombre" required="True"/>
+                                    <field name="name4" string="Segundo Nombre"/>
+                                    <field name="tipod" string="Tipo de Documento" required="True"/>
+                                    <field name="ide" string="Número de Identificación" required="True"/>
+                                    <field name="cide" string="Confirmar Número de Identificación" required="True"/>
+                                    <field name="lugar_expedicion" string="Lugar de Expedición" required="True"/>
+                                    
+                                </group>
+                                <group>
+                                    <field name="pais" string="País de Nacimiento" required="True"/>                                
+                                    <field name="namef" string="Fecha  de Nacimiento" required="True"/>
+                                    <field name="conf" string="Confirmar Fecha de Nacimiento" required="True"/>                                   
+                                    <field name="dep" string="Departamento de Residencia" required="True"/>
+                                    <field name="city" string="Ciudad" required="True"/>
+                                    <field name="barrio" string="Barrio de Residencia" required="True"/>
+                                </group>
+                                <group string="Dirección de Residencia">
+                                    <field name="direccion_dian" string="Vía Principal"/>
+                                    <field name="nombre_via_principla" string="Nombre Via Principal"
+                                           placeholder="EJ:38A BIS"/>
+                                    <field name="via_generadora" string="Via Generadora" placeholder="EJ:20B"
+                                           />
+                                    <field name="Predio" string="Predio" placeholder="EJ:45"/>
+                                    <field name="complemento" string="Complemento" placeholder="EJ:SUR"/>
+                                    <field name="dire_completo" string="Dirección Completa"/>
+                                </group>
+                               
+                                <group>                                   
+                                    <field name="idioma" string="Idioma Nativo" required="True"/>
+                                    <field name="grupo_san" string="Grupo Sanguíneo" required="True"/>
+                                    <field name="genero" string="Género" required="True"/>
+                                
+                                    <field name="declara_renta" string="Declara Renta" required="True"/>
+                                </group>
+                                <group string="Información de Vivienda">
+                                    <field name="tipo_vivienda" string="Tipo de Vivienda"/>
+                                    <field name="cual_tipo_vivienda" attrs="{'invisible': [('tipo_vivienda', 'not in', ['OTRO'])],'required': [('tipo_vivienda', 'in', ('OTRO'))]}"/>
+                                    <field name="carac_vivienda"  string="Caracteristica de la Vivienda"/>
+                                    <field name="cual_carc_vivienda" attrs="{'invisible': [('carac_vivienda', 'not in', ['OTRO'])],'required': [('carac_vivienda', 'in', ('OTRO'))]}" string="Cual Caracteristica de la Vivienda"/>
+                                    <field name="zona_vivienda" string="Zona de Vivienda"/>
+                                    <field name="ser_energia_elec" string="Cuenta con servicio de energía eléctrica"/>
+                                    <field name="alcantarilla" string="Cuenta con servicio de alcantarillado"/>
+                                    <field name="acc" string="Cuenta con servicio de Acueducto"/>
+                                </group>
+                                <group>
+                                    <field name="tallap" string="Talla Pantalón" required="True"/>
+                                    <field name="tallac" string="Talla Camisa" required="True"/>
+                                    <field name="tallas" string="Talla Saco" required="True"/>
+                                    <field name="tallaz" string="Talla Zapatos" required="True"/>
+                                </group>
+
+
+                                <group>
+                                    <field name="basura" string="Cuenta con servicio de recolección de basura"
+                                        />
+                                    <field name="gt" string="Cuenta con servicio de Gas Natural" />
+                                    <field name="etnico" string="Grupo Etnico"/>
+                                    <field name="estrato" string="Estrato Socioeconómico"/>
+                                </group>
+                                <group>
+                                    <field name="eps" string="EPS" domain="[('tipo', '=', 'EPS')]"/>
+                                    <field name="afp" string="AFP" domain="[('tipo', '=', 'AFP')]"/>
+                                    <field name="afc" string="AFC" domain="[('tipo', '=', 'AFC')]"/>
+                                  
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Información Familiar">
+                            <group>
+                                <group string="Persona en caso de Emergencia">
+                                    <field name="nombre_completo" string="Nombre Completo"/>
+                                    <field name="tel_contacto" string="Télefono"/>
+                                    <field name="parentesco" string="Parentesco"/>
+                                    <field name="Cual_Parentezco" attrs="{'invisible': [('parentesco', 'not in', ['OTRO'])],'required': [('parentesco', 'in', ('OTRO'))]}"  string="Cual Parentesco"/>
+                                    <h2>Dirección</h2>
+                                    <field name="via_principal_con" string="Vía Principal"/>                                   
+                                    <field name="nombre_via_principal_cont" string="Nombre Vía Principal"  placeholder="38A BIS"/>
+                                    <field name="via_generadora_con" string="Vía Generadora" placeholder="20B"/>
+                                    <field name="predio_con" string="Predio" placeholder="61"/>
+                                    <field name="complemento_con" string="Complemento" placeholder="SUR"/>
+                                    <field name="direccion_contacto" string="Dirección Completa"/>
+                                </group>
+                                <group>
+                                    <field name="pe_eco" string="Existen personas que dependan económicamente de usted"
+                                           />
+                                    <field name="cab_familia" string="Es cabeza de familia"/>
+                                    <field name="no_personas_nucleo_familiar" string="No. Personas del Núcleo Familiar"/>
+                                    <field name="no_personas_estado_incapacidad"
+                                           string="No. Personas en Estado de Incapacidad"/>
+                                </group>
+                                <group>
+                                 
+                                    <field name="lic_conducir" string="Tiene licencia de Conducir"/>                                      
+                                    <field name="tipo_lic_conducir"    string="Tipo de Licencia para Conducir"  attrs="{'invisible': [('lic_conducir', 'not in', ['SI'])],'required': [('lic_conducir', 'in', ('SI'))]}"/>
+                                    <field name="medio_transporte" string="Medio de Transporte Principal"/>
+                                    <field name="medio_transporte_sec" string="Medio de Transporte Secundario"/>
+                                    <field name="Horas_trabajo" string="Horas parra llegar al Trabajo"/>
+                                    <field name="estado_civil" string="Estado Civil"/>
+                                </group>
+                                <group string="Cónyuge" attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('estado_civil', 'in', ('CASADO/A','UNIÓN LIBRE'))]}">
+                                    <field name="primer_apellido_conyugue" string="Primer Apellido del Cónyuge" attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('estado_civil', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                                    <field name="segundo_apellido_conyugue" string="Segundo Apellido del Cónyuge" attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])]}"/>
+                                    <field name="primer_nombre_conyugue" string="Primer Nombre del Cónyuge" attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('estado_civil', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                                    <field name="segundo_nombre_conyugue" string="Segundo Nombre del Cónyuge"  attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])]}"/>
+                                    <field name="escolaridad_conyugue" string="Escolaridad del Cónyuge"  attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('estado_civil', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                                    <field name="genero_conyugue" string="Genero del Cónyuge" attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('estado_civil', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                                    <field name="lugar_nacimiento_conyugue" string="Lugar de Nacimiento del Cónyuge" attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('estado_civil', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                                    <field name="pais_nacimiento_conyugue" string="País de Nacimiento del Cónyuge"  attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('estado_civil', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                                    <field name="fecha_conyugue" string="Fecha de Nacimiento del Cónyuge"  attrs="{'invisible': [('estado_civil', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('estado_civil', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                            <group string="Información de los Hijos">                                
+                                <field  name="hijos_Line">
+                                    <tree>
+                                        <field name="nombre_hijo" string="Nombre del hijo" required="True"/>
+                                        <field name="segundo_nombre" string="Segundo Nombre"/>
+                                        <field name="primer_apellido" string="Primer Apellido" required="True"/>
+                                        <field name="segundo_apellido" string="Segundo Apellido"/>
+                                        <field name="identificacion"  string="Identificación" required="True"/>                                                                       
+                                        <field name="genero_hijo" string="Genero" required="True"/>
+                                        <field name="grupo_sanguineo" string="Grupo Sanguíneo" required="True"/> 
+                                                                                                    
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="nombre_hijo" string="Nombre del hijo" required="True"/>
+                                                <field name="segundo_nombre" string="Segundo Nombre"/>
+                                                <field name="primer_apellido" string="Primer Apellido" required="True"/>
+                                                <field name="segundo_apellido" string="Segundo Apellido"/>
+                                                <field name="identificacion"  string="Identificación" required="True"/>
+                                                <field name="nivel_escolaridad_hijo" string="Escolaridad" required="True"/>
+                                                <field name="ocupacion_hijo" string="Ocupación" required="True"/>
+                                            </group>
+                                            <group>                                                
+                                               <field name="fecha_nac_hijo" string="Fecha de nacimiento del hijo" required="True"/>                                 
+                                               <field name="genero_hijo" string="Genero" required="True"/>
+                                               <field name="grupo_sanguineo" string="Grupo Sanguíneo" required="True"/>
+                                               <field name="nacionalidad" string="Nacionalidad" required="True"/>
+                                               <field name="pais_nacimiento" string="País de Nacimiento" required="True"/>
+                                               <field name="hijastro" string="Hijastro" required="True"/> 
+                                           
+                                            </group>
+                                        </group>
+                                             
+                                    </form>
+                                </field>
+                            </group>
+                            <group string="Información de Mascotas">                                 
+                               <field name="mascotas_line" string="Mascotas">
+                                   <tree editable="bottom">
+                                       <field name="tipo_mascota" string="Tipo de Mascota"/>
+                                       <field name="numero_mascota" string="Numero de Mascotas"/>
+                                       
+                                       <field name="dueño_mascota" string="Aplicante"/>  
+                                   </tree>
+                               </field>
+                            </group>
+                            <group>
+                            </group>
+                        </page>
+                        <page string="Información Específica">
+                            <group>
+                                <group>
+                                    <field name="tiene_enfermedad" string="Tiene Alguna Enfermedad Importante"/>
+                                    <field name="toma_medicamneto" string="Toma Algun Medicamento"/>
+                                </group>
+                                <field name="miedos" string="Miedos o Fobias"/>
+                                <field name="nombre_hobby" string="Hobby"/>
+                                <field name="alergia" string="Tiene Alguna Alergia?"/>
+                            </group>
+                        </page>
+                        <page string="Experiencia Laboral y Formación">
+                            <group string="Experiencia Laboral y Certificaciones">
+                                <field name="resume_line_ids" string="Experiencia Laboral y Certificados"/>
+                            </group>
+
+                            <group>
+                                <field name="escolaridad_solicitante" string="Escolaridad del Solicitante"/>
+                                <field name="estudia_actualmente_solicitante" sring="Estudia Actualmente"/>
+                            </group> 
+
+                            <group string="Formación Académica">
+                                <field name="formacion_line" string="Formación Académica">
+                                    <tree>
+                                        <field name="formacion" string="Formación" required="True"/>
+                                        <field name="estudia_actualmente_for" string="Estudia Actualmente" required="True"/>
+                                        <field name="nombre_institucion" string="Nombre Institución" required="True"/>
+                                        <field name="titulo_obtenido" string="Título Obtenido" required="True"/>
+
+                                      
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="formacion" string="Formación" required="True"/>
+                                                <field name="estudia_actualmente_for" string="Estudia Actualmente" required="True"/>
+                                                <field name="nombre_institucion" string="Nombre Institución" required="True"/>
+                                                <field name="titulo_obtenido" string="Título Obtenido" required="True"/>
+                                                <field name="clase_titulo" string="Clase de Instituto" required="True"/>
+                                                <field name="estado_formacion" string="Estado Formación" required="True"/>
+                                                <field name="pais_donde_estudio" string="País Donde Estudio" required="True"/>
+                                                <field name="tiempo_estudio" string="Tiempo Estudio" required="True"/>
+                                                <field name="periocidad_estudio" string="Periocidad Estudio" required="True"/>
+                                                <field name="fecha_graduacion" string="Fecha de Graduación" required="True"/>
+                                            </group>
+                                          
+                                        </group>
+                                        
+                                    </form>
+                                </field>
+                                
+                            </group>
+                            <group string="Dominio de Idiomas ">
+                                <field name="idioma_line" string="Idiomas">
+                                    <tree editable="bottom">
+                                        <field name="nombre" string="Idioma" required="True"/>
+                                        <field name="porcent_dominio" string="Porcentaje de Dominio" required="True"/>
+                                        <field name="po" string="Porcentaje" widget="progressbar"/>
+
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Documentos">
+                            <group>
+                                <group>
+                                  
+                                    <field name="fotocopia_cedula" string="Fotocopia de la Cédula"  filename="fotocopia_cedula_filename"/>
+                                    <field name="fotocopia_cedula_filename" invisible="True"/>
+                                    <field name="cer_estudio" string="Certificados de Estudio" filename="cer_estudio_emp_filename"/>
+                                    <field name="cer_estudio_emp_filename" invisible="True"/>
+                                    
+                                </group>
+                                <group>
+                                    <field name="certi_laborales" string="Certificaciones Laborales" filename="certi_laborales_emp_filename"/>
+                                    <field name="certi_laborales_emp_filename" invisible="True"/>
+                                    <field name="hv" string="Hoja de Vida" filename="hv_filename"/>
+                                    <field name="hv_filename" invisible="True"/>
+                                </group>
+                                <group>
+                                    <field name="aceptacion_condiciones" string="Aceptación de Condiciones" filename="aceptacion_condiciones_emp_filename"/>
+                                    <field name="aceptacion_condiciones_emp_filename" invisible="True"/>
+                                    <field name="libreta_militar" string="Libreta Militar" filename="libreta_militar_emp_filename"/>
+                                    <field name="libreta_militar_emp_filename" invisible="True"/>
+                                    <field name="refrecnias_personales" string="Referencias Personales" filename="refrecnias_personales_emp_filename"/>
+                                    <field name="refrecnias_personales_emp_filename" invisible="True"/>
+                                    <field name="verificacion_referencias" string="Verificación de Referencias" filename="verificacion_referencias_emp_filename"/>
+                                    <field name="verificacion_referencias_emp_filename" invisible="True"/>
+                                </group>
+                                <group>
+                                    <field name="certificado_cuenta_bancaria" string="Certificado de Cuenta Bancaria" filename="certificado_cuenta_bancaria_emp_filename"/>
+                                    <field name="certificado_cuenta_bancaria_emp_filename" invisible="True"/>
+                                    <field name="antecedentes_disciplinarios" string="Antecedentes Disciplinarios" filename="antecedentes_disciplinarios_emp_filename"/>
+                                    <field name="antecedentes_disciplinarios_emp_filename" invisible="True"/>
+                                    <field name="validacion_antecedentes" string="Validación de Antecedentes" filename="validacion_antecedentes_emp_filename"/>
+                                    <field name="validacion_antecedentes_emp_filename" invisible="True"/>
+                                </group>
+                                <group>
+                                    <field name="entrevista_jefe_inmediato" string="Entrevista Jefe Inmediato" filename="entrevista_jefe_inmediato_emp_filename"/>
+                                    <field name="entrevista_jefe_inmediato_emp_filename" invisible="True" /> 
+                                    <field name="fotografias" string="Fotografías" filename="fotografias_emp_filename"/>
+                                    <field name="fotografias_emp_filename" invisible="True"/>
+                                    <field name="validacion_sarlaft" string="Validación Sarlaft" filename="validacion_sarlaft_emp_filename"/>
+                                    <field name="validacion_sarlaft_emp_filename" invisible="True"/>
+                                    <field name="TGS_Solidarios" string="TGS Solidarios" filename="TGS_Solidarios_filename"/>
+                                    <field name="TGS_Solidarios_filename" invisible="True"/>
+                                   
+                                </group>
+                                <group>
+                                    <field name="estudio_seguridad" string="Estudio de Seguridad" filename="estudio_seguridad_emp_filename"/>
+                                    <field name="estudio_seguridad_emp_filename" invisible="True"/>
+                                    <field name="examendes_medicos" string="Exámenes Médicos" filename="examendes_medicos_emp_filename"/>
+                                    <field name="examendes_medicos_emp_filename" invisible="True"/>
+                                    <field name="poliza" string="Póliza Exequial" filename="poliza_emp_filename"/>
+                                    <field name="poliza_emp_filename" invisible="True"/>
+                                    <field name="autorizacion_uso_correo" string="Autorización de Uso de Correo" filename="autorizacion_uso_correo_emp_filename"/>
+                                    <field name="autorizacion_uso_correo_emp_filename" invisible="True"/>
+                                </group>
+                                <group>
+                                    <field name="licencia_conducir" string="Licencia de Conducción" filename="licencia_conducir_emp_filename"/>
+                                    <field name="licencia_conducir_emp_filename" invisible="True"/>
+                                    <field name="carta_propiedad_vehiculo" string="Carta de Propiedad Vehículo o Autorización del Propietario" filename="carta_propiedad_vehiculo_emp_filename"/>
+                                    <field name="carta_propiedad_vehiculo_emp_filename" invisible="True" />        
+                                </group>
+                                <group>
+                                    <field name="cer_runt" string="Certificado Inscripción RUNT" filename="cer_runt_emp_filename"/>
+                                    <field name="cer_runt_emp_filename" invisible="True"/>
+                                    <field name="seguro_obligatorio_vigente" string="Seguro Obligatorio Vigente" filename="seguro_obligatorio_vigente_filename"/>
+                                    <field name="seguro_obligatorio_vigente_filename" invisible="True"/>
+                                    <field name="revision_tecnico_mecanica" string="Revisión Técnico Mecánica" filename="revision_tecnico_mecanica_emp_filename"/>
+                                    <field name="revision_tecnico_mecanica_emp_filename" invisible="True"/>
+                                    <field name="centro_induccion" string="Certificado de Inducción" filename="centro_induccion_emp_filename"/>
+                                    <field name="centro_induccion_emp_filename" invisible="True"/>
+                                    <field name="certificacion_sena" string="Certificación Sena" filename="certificacion_senafile_name"/>
+                                    <field name="certificacion_senafile_name" invisible="True"/>
+                                </group>
+                               
+                            </group>
+                        </page>
+                        <page string="Excepción de Ingreso">
+                            <group>
+                                <group string="Razón de la Excepción">
+                                    <field name="formacion" string="Formación"/>
+                                    <field name="experiencia" string="Experiencia"/>
+                                    <field name="habilidades" string="Habilidades"/>
+                                    <field name="educacion" string="Educación"/>
+                                </group>
+                                <group string="Fecha">
+                                    <field name="fecha_compromiso" string="Fecha de Compromiso"/>
+                                    <field name="fecha_vencimiento" string="Fecha de Vencimiento"/>
+                                </group>
+                                <group string="Plan de Acción">
+                                    <field name="plan_accion" string="Plan de Acción"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </xpath>
+        </field>
+    </record>
+   
+   
+</odoo>

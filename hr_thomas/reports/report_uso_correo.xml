@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom123"
+                string="SYC-FOR-050 USO CORREO ELECTRONICO"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom123_template"
+        />
+
+
+        <template id="report_custom123_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    
+                        <style>
+                              hr{border-top: 2px solid black;}
+                         
+                      
+                              p {font-size:14px;}
+                              span {font-size:14px;}
+                              TD {font-size:13px;}
+
+                              table {
+                                border-collapse: collapse;
+                              }
+                              
+                              table, th, td {
+                                border: 1px solid black;
+                              }
+                        </style>                   
+                   
+
+                        <div class="page">
+                           
+                            <br></br>
+                          <p align="right">SYC-FOR-050-V2</p> 
+                          <p align="justify"><span>Asunto: </span>  <strong><span>Autorización para envío de comprobante de nómina, seguridad social e informativo de entidades por correo electrónico.</span></strong></p>
+                          <p align="justify">Yo  <strong><span t-field="o.employee_id"></span></strong> identificado con cedula de ciudadanía No. <strong><span t-field="o.identificacion"></span></strong> me permito autorizar a la empresa  <strong><span t-field="o.company_id"></span></strong>  para enviar los comprobantes antes mencionados, a mi correo personal <strong> <span t-field="o.correo_empleado"></span> </strong></p>
+                          <p align="justify">De igual forma me comprometo a actualizar mi correo personal en caso de cambio del mismo, para continuar recibiendo la información de forma adecuada.</p>
+                          <p>Cordialmente,</p>
+                          <p><img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="210" height="100"/></p>
+                          <p>Firma</p>
+                          <p>No. Documento: <span t-field="o.identificacion"></span></p>
+                          <p>Fecha de autorización: <span t-field="o.fecha_firma_contrato"></span> </p> <br></br>
+                          <hr></hr>
+                           
+                        
+                        </div>
+                   
+                </t>
+            </t>
+        </template>
+
+
+        <record id="paperformat_frenchcheck" model="report.paperformat">
+            <field name="name">French Bank Check</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">80</field>
+            <field name="page_width">175</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">3</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+        
+        
+    </data>
+</odoo>

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record id="view_hr_e_inherit" model="ir.ui.view">
+      <field name="name">hr.employee.inherit</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form" />
+      <field name="arch" type="xml">
+
+         <header>
+            <button type="object" string="Enviar" class="oe_highlight" name="action_req" invisible="True"/>
+         </header>
+
+
+         <field name="passport_id" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+         <field name="certificate" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+         <field name="study_field" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+         <field name="study_school" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+         <field name="emergency_phone" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+         <field name="emergency_contact" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+         <field name="marital" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+
+         <field name="children" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+
+         <field name="place_of_birth" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+
+         <field name="gender" position="attributes" >
+            <attribute name="invisible">1</attribute>
+         </field>
+
+
+
+         <xpath expr="//field[(@name='category_ids')]" position="after">
+            <div class="o_row oe_edit_only">
+               <group>
+                  <field name="tratamiento_emp" string="Tratamiento"/>
+
+               </group>
+
+            </div>
+            <div class="o_row oe_edit_only">
+
+               <field name="first_name" placeholder="Primer Nombre" />
+               <field name="second_name" placeholder="Segundo Nombre" />
+            </div>
+            <div class="o_row oe_edit_only">
+               <field name="third_name" placeholder="Primer Apellido" required="True"/>
+               <field name="fourth_name" placeholder="Segundo Apellido" />
+            </div>
+         </xpath>
+         <xpath expr="//sheet/div[2]" position="after">
+           <div>
+            <group>
+
+               <group string="Información del Aplicante">
+                  <field name="aplicante" string="Aplicante"/>
+                  <field name="requisition_id" string="Requisición" readonly="True"/>
+
+               </group>
+               <group string="Aprobaciones">
+                  <field name="aprobador_ninel2" string="Aprobador Nivel 2"/>
+                  <field name="aprobador_ninel3" string="Aprobador Nivel 3"/>
+               </group>
+               <group>
+                  <field name="ciudad_requi" string="Ciudad"/>
+                  <field name="sede_requi" string="Sede"/>
+                  <field name="area_requi" string="Área"/>
+
+                  <field name="centro_de_costo_requisicion" string="Número del Centro de Costo" />
+
+                  <field name="nombre_centro_costo_requi" string="Nombre del centro de Costo"/>
+                  <field name="unidad_organizativa_requi" string="Unidad Organizativa"/>
+               </group>
+               <!--<group>
+                 <field name="fecha_retiro"  attrs="{'invisible': [('active', '=', True)]}"/>
+               </group>-->
+
+            </group>
+         </div>
+         </xpath>
+
+         <xpath expr="//field[@name='departure_description']" position="after">
+           <field name="fecha_retiro"  attrs="{'invisible': [('active', '=', True)]}"/>
+         </xpath>
+
+         <xpath expr="//field[@name='identification_id']" position="after">
+              <field name="lugar_expedicion_id_emp" string="Lugar de Expedición" required="True"/>
+
+
+
+         </xpath>
+
+         <xpath expr="//field[@name='birthday']" position="after">
+            <field name="confirmation_date_of_birth" />
+         </xpath>
+         <xpath expr="//field[@name='identification_id']" position="before">
+            <field name="identification_type" required="True" />
+         </xpath>
+         <!--<xpath expr="//field[@name='identification_id']" position="replace">
+            <field name="identification_number" required="True"/>
+         </xpath>-->
+         <xpath expr="//field[@name='country_of_birth']" position="replace">
+            <field name="country_of_birth" required="True"/>
+            <field name="state_residence" required="True"/>
+            <field name="city_residence" required="True"/>
+            <field name="neighbordhood_residence" required="True"/>
+            <field name="telefono_del_empleado" string="Télefono"/>
+            <field name="celular_del_empleado" string="Celular" required="True"/>
+            <field name="correo_privado_del_empleado" string="Correo" required="True"/>
+
+         </xpath>
+         <xpath expr="//group[@name='work_permit']" position="after">
+            <group name="Tallas">
+               <field name="pants_size" string="Talla Pantalon" required="True"  />
+               <field name="shirt_size" string="Talla Camisa" required="True" />
+               <field name="coat_size" string="Talla Saco" required="True" />
+               <field name="shoes_size" string="Talla Zapatos" required="True" />
+            </group>
+         </xpath>
+
+
+         <xpath expr="//field[@name='confirmation_date_of_birth']" position="after">
+            <field name="language" string="Idioma Nativo" required="True" />
+            <field name="blood_group" string="Grupo Sanguíneo" required="True" />
+            <field name="genero" string="Género"  required="True" />
+            <field name="rent" string="Declara usted Renta?" required="True" />
+         </xpath>
+         <xpath expr="//group[@name='Tallas']" position="after">
+            <group name="Residencia" string="Dirección de Residencia">
+               <field name="main_road" string="Vía principal" required="True"  />
+               <field name="main_road_name" string="Nombre Vía Principal" required="True" placeholder="38A BIS" />
+               <field name="road_generator" string="Via Generadora" required="True" placeholder="20B"/>
+               <field name="land" string="Predio" required="True" placeholder="61" />
+               <field name="complement" string="Complemento"  placeholder="SUR"/>
+               <field name="complete_direction" string="Dirección Completa"/>               
+            </group>
+         </xpath>
+         <xpath expr="//group[@name='Residencia']" position="after">
+            <group name="Vivienda" string="Información de Vivienda">
+
+                  <field name="property_type"  string="Tipo de Vivienda" required="True" />
+                  <field name="property_type2" attrs="{'invisible': [('property_type', 'not in', ['OTRO'])]}" groups="hr.group_hr_user"/>
+                  <field name="property_characteristic" string="Caracteristicas de la Vivienda" required="True"/>
+                  <field name="property_characteristic2" attrs="{'invisible': [('property_characteristic', 'not in', ['OTRO'])]}" groups="hr.group_hr_user"/>
+                  <field name="property_zone" string="Zona de la Vivienda" required="True" />
+                  <field name="energy_service" string="Cuenta con servicio de energía eléctrica?" required="True" />
+                  <field name="sewerage_service" string="Cuenta con servicio de alcantarillado?" required="True" />
+                  <field name="aqueduct_service" string="Cuenta con servicio de acueducto?" required="True" />
+
+
+            </group>
+            <group>
+
+            </group>
+         </xpath>
+         <xpath expr="//group[@name='Vivienda']" position="after">
+            <group name="Vivienda2">
+               <field name="gas_service" string="Cuenta con servicio de Gas Natural?" required="True" />
+               <field name="trash_service" string="Cuenta con servicio de Recolección de Basura?" required="True" />
+               <field name="etnic_group" string="Grupo Étnico"  required="True" />
+               <field name="socioeconomical_state" string="Estrato Socioeconómico" required="True" />
+
+            </group>
+         </xpath>
+         <xpath expr="//page[@name='hr_settings']" position="after">
+            <page name="familiar" string="Información Familiar">
+                <group>
+                    <group name="persona_emergencia" string="Persona en Caso de Emergencia">
+                        <field name="full_name" string="Nombre Completo" required="True" />
+                        <field name="Phone" string="Telefono" required="True" />
+                        <field name="relationship" string="Parentesco"  required="True"/>
+                        <field name="what_relationship"   string="Cuál parentesco?"  attrs="{'invisible': [('relationship', 'not in', ['OTRO'])]}" groups="hr.group_hr_user"/>
+
+
+
+                    </group>
+                        <group name="direccion" string="Dirección">
+                                <field name="main_road_parent" string="Vía Principal"  required="True" />
+                                <field name="main_road_name_parent" string="Nombre Vía Principal"  required="True" placeholder="38A BIS"/>
+                                <field name="road_generator_parent" string="Via Generadora"  required="True" placeholder="20B" />
+                                <field name="land_parent" string="Predio"  required="True" placeholder="61" />
+                                <field name="complement_parent" string="Complemento" placeholder="SUR" />
+                                <field name="complete_direction_parent" string="Dirección Completa" />
+                        </group>
+                        <group name="dependence_people">
+                                <field name="depend_person" string="Existen personas que dependan económicamente de usted?"  required="True" />
+                                <field name="head_family" string="Es cabeza de familia?"  required="True" />
+                                <field name="number_family" string="Número de personas del núcleo familiar" required="True" />
+                                <field name="number_person_discapacited" string="Número de personas en estado de discapacidad" required="True" />
+                        </group>
+                </group>
+                <group>
+                  <field name="hijos_line_emp" string="Hijos">
+                     <tree>
+
+                        <field name="nombre_hijo" string="Nombre del hijo" required="True"/>
+                        <field name="segundo_nombre" string="Segundo Nombre"/>
+                        <field name="primer_apellido" string="Primer Apellido" required="True"/>
+                        <field name="segundo_apellido" string="Segundo Apellido"/>
+                        <field name="identificacion"  string="Identificación" required="True"/>
+                        <field name="genero_hijo" string="Genero" required="True"/>
+                        <field name="grupo_sanguineo" string="Grupo Sanguíneo" required="True"/>
+
+                     </tree>
+                     <form>
+                         <group>
+                            <group>
+                               <field name="nombre_hijo" string="Nombre del hijo" required="True"/>
+                               <field name="segundo_nombre" string="Segundo Nombre"/>
+                               <field name="primer_apellido" string="Primer Apellido" required="True"/>
+                               <field name="segundo_apellido" string="Segundo Apellido"/>
+                               <field name="identificacion"  string="Identificación" required="True"/>
+                               <field name="ocupacion_hijo" string="Ocupación" required="True"/>
+                               <field name="nivel_escolaridad_hijo" string="Nivel de Escolaridad" required="True"/>
+                            </group>
+                            <group>
+                               <field name="fecha_nac_hijo" string="Fecha de nacimiento del hijo" required="True"/>
+                               <field name="genero_hijo" string="Genero" required="True"/>
+                               <field name="grupo_sanguineo" string="Grupo Sanguíneo" required="True"/>
+                               <field name="nacionalidad" string="Nacionalidad" required="True"/>
+                               <field name="pais_nacimiento" string="País de Nacimiento" required="True"/>
+                               <field name="hijastro" string="Hijastro" required="True"/>
+                            </group>
+                         </group>
+                     </form>
+                  </field>
+                </group>
+                <group name="pets">
+                    <field name="mascotas_line_emp" string="Mascotas">
+                      <tree editable="bottom">
+                         <field name="tipo_mascota" string="Tipo de Mascota"/>
+                         <field name="numero_mascota" string="Numero de Mascotas"/>
+
+                      </tree>
+                    </field>
+                </group>
+                <group>
+                    <group name="conduccion">
+
+                        <field name="drive_license" string="Tiene Licencia para conducir?" required="True" />
+                        <field name="license_type" string="Tipo de Licencia" attrs="{'invisible': [('drive_license', 'not in', ['SI'])],'required': [('drive_license', 'in', ('SI'))]}" groups="hr.group_hr_user"/>
+                        <field name="main_transport" string="Medio de Transporte Principal" required="True"  />
+                        <field name="second_transport" string="Medio de Transporte Secundario" required="True"  />
+                        <field name="hour_to_arrive" string="Horas para llegar al trabajo" required="True"  />
+                        <field name="civil_state" string="Estado Civil" required="True"/>
+                    </group>
+                    <group name="parent">
+                        <field name="first_last_name_parent" string="Primer Apellido Cónyuge" attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('civil_state', 'in', ('CASADO/A','UNIÓN LIBRE'))]}" />
+
+                        <field name="second_last_name_parent" string="Segundo Apellido Cónyuge" attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])]}" groups="hr.group_hr_user" />
+                        <field name="first_name_parent" string="Primer Nombre Cónyuge" attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('civil_state', 'in', ('CASADO/A','UNIÓN LIBRE'))]}" />
+                        <field name="second_name_parent" string="Segundo Nombre Cónyuge" attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])]}" groups="hr.group_hr_user" />
+                        <field name="gender_parent_emp" string="Genero Cónyuge"  attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('civil_state', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                        <field name="escolaridad_conyugue_emp" string="Escolaridad" attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('civil_state', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                        <field name="born_place_parent_emp" string="Lugar de Nacimiento Cónyuge" attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('civil_state', 'in', ('CASADO/A','UNIÓN LIBRE'))]}" />
+                        <field name="country_born_parent_emp" string="País de Nacimiento Cónyuge"  attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('civil_state', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                        <field name="date_birth_parent_emp" string="Fecha de Nacimiento Cónyuge"  attrs="{'invisible': [('civil_state', 'not in', ['CASADO/A','UNIÓN LIBRE'])], 'required': [('civil_state', 'in', ('CASADO/A','UNIÓN LIBRE'))]}"/>
+                    </group>
+                </group>
+                <!--<group name="childrens">
+                    <field name="childrens" string="Hijos"/>
+                </group>-->
+
+
+
+            </page>
+         </xpath>
+
+
+
+         <xpath expr="//page[@name='familiar']" position="after">
+            <page name="formacion" string="Experiencia Laboral y Formación">
+               <group>
+                  <group>
+                     <field name="escolaridad_solicitante_emp" string="Escolaridad" required="True"/>
+                     <field name="estudia_actualmente_solicitante_emp" string="Estudia Actualmente" required="True"/>
+                  </group>
+               </group>
+
+              <group name="grupo experiencia laboral">
+               <field name="resume_line_ids" string="Experiencia Laboral"/>
+              </group>
+              <group>
+               <field name="formacion_line_emp" string="Formación">
+                  <tree>
+                     <field name="formacion" string="Formación" required="True"/>
+                     <field name="estudia_actualmente_for" string="Estudia Actualmente" required="True"/>
+                     <field name="nombre_institucion" string="Nombre Institución" required="True"/>
+                     <field name="titulo_obtenido" string="Título Obtenido" required="True"/>
+                     <field name="clase_titulo" string="Clase de Instituto" required="True"/>
+
+                  </tree>
+               </field>
+        </group>
+
+            </page>
+         </xpath>
+
+
+
+
+
+
+         <xpath expr="//page[@name='familiar']" position="after">
+            <page name="especifica" string="Información Específica">
+               <group name="idiomas">
+                  <field name="idioma_line_emp" string="Idiomas">
+                      <tree editable="bottom">
+                           <field name="nombre" string="Idioma" required="True"/>
+                           <field name="porcent_dominio" String="Porcentaje de Dominio"  required="True"/>
+                           <field name="po" string="Porcentaje" widget="progressbar"/>
+                      </tree>
+                  </field>
+              </group>
+              <group name="idioma">
+               <field name="miedos_emp" string="Miedos/Fobias"/>
+               <field name="nombre_hobby_emp" string="Hobby"/>
+               <field name="alergia_emp" string="Alergías"/>
+
+           </group>
+           <group>
+            <field name="tiene_enfermedad_emp" string="Tiene alguna Enfermedad"/>
+            <field name="toma_medicamneto_emp" string="Toma Algún medicamento"/>
+           </group>
+            </page>
+         </xpath>
+
+
+
+
+
+
+
+
+
+
+
+         <xpath expr="//page[@name='formacion']" position="after">
+            <page name="doc" string="Documentos">
+                <group>
+                    <group name="documentos_certificados">
+                        <field name="fotocopia_cedula"  filename="fotocopia_cedula_filename" string="Fotocopia cedula" />
+                        <field name="fotocopia_cedula_filename" invisible="True"/>
+                        <field name="cer_estudio_emp" string="Certificados de estudio"  filename="cer_estudio_emp_filename" />
+                        <field name="cer_estudio_emp_filename" invisible="True"/>
+                        <field name="certi_laborales_emp" string="Certificados laborales"  filename="certi_laborales_emp_filename" />
+                        <field name="certi_laborales_emp_filename" invisible="True"/>
+                        <field name="hv_emp" string="Hoja de vida"  filename="hv_emp_filename" />
+                        <field name="hv_emp_filename" invisible="True"/>
+                    </group>
+                    <group name="documentos_personales">
+                        <field name="aceptacion_condiciones_emp" string="Aceptación de Condiciones" filename="aceptacion_condiciones_emp_filename" />
+                        <field name="aceptacion_condiciones_emp_filename" invisible="True"/>
+                        <field name="libreta_militar_emp" string="Libreta Militar" filename="libreta_militar_emp_filename" />
+                        <field name="libreta_militar_emp_filename" invisible="True"/>
+                        <field name="refrecnias_personales_emp" string="Referencias Personales" filename="refrecnias_personales_emp_filename" />
+                        <field name="refrecnias_personales_emp_filename" invisible="True"/>
+                        <field name="verificacion_referencias_emp" string="Verificación Referencias" filename="verificacion_referencias_emp_filename" />
+                        <field name="verificacion_referencias_emp_filename" invisible="True"/>
+                        <field name="certificado_cuenta_bancaria_emp" string="Certificado Cuenta Bancaria" filename="certificado_cuenta_bancaria_emp_filename" />
+                        <field name="certificado_cuenta_bancaria_emp_filename" invisible="True"/>
+                        <field name="antecedentes_disciplinarios_emp" string="Antecedentes Disciplinarios" filename="antecedentes_disciplinarios_emp_filename" />
+                        <field name="antecedentes_disciplinarios_emp_filename" invisible="True"/>
+                        <field name="validacion_antecedentes_emp" string="Validación de Antecedentes" filename="validacion_antecedentes_emp_filename" />
+                        <field name="validacion_antecedentes_emp_filename" invisible="True"/>
+                    </group>
+                </group>
+                <group>
+                    <group name="documentos_personales">
+                        <field name="entrevista_jefe_inmediato_emp" string="Entrevista jefe inmediato" filename="entrevista_jefe_inmediato_emp_filename" />
+                        <field name="entrevista_jefe_inmediato_emp_filename" invisible="True"/>
+                        <field name="fotografias_emp" string="Fotografías"  filename="fotografias_emp_filename"/>
+                        <field name="fotografias_emp_filename" invisible="True"/>
+                        <field name="validacion_sarlaft_emp" string="Validación Sarlaft" filename="validacion_sarlaft_emp_filename" />
+                        <field name="validacion_sarlaft_emp_filename" invisible="True"/>
+                        <field name="TGS_Solidarios" string="TGS Solidarios" filename="TGS_Solidarios_filename"/>
+                        <field name="TGS_Solidarios_filename" invisible="True"/>
+                        <field name="estudio_seguridad_emp" string="Estudio de Seguridad" filename="estudio_seguridad_emp_filename" />
+                        <field name="estudio_seguridad_emp_filename" invisible="True"/>
+                        <field name="examendes_medicos_emp" string="Exámenes Médicos" filename="examendes_medicos_emp_filename" />
+                        <field name="examendes_medicos_emp_filename" invisible="True"/>
+                        <field name="poliza_emp" string="Póliza Exequial" filename="poliza_emp_filename" />
+                        <field name="poliza_emp_filename" invisible="True"/>
+                        <field name="autorizacion_uso_correo_emp" string="Autorización de Uso de Correo" filename="autorizacion_uso_correo_emp_filename" />
+                        <field name="autorizacion_uso_correo_emp_filename" invisible="True"/>
+                        <field name="documentos_generales" string="Documentos Generales" filename="documentos_generales_filename"/>
+                        <field name="documentos_generales_filename" invisible="True"/>
+                    </group>
+                    <group name="documentos_personales3">
+                        <field name="licencia_conducir_emp" string="Licencia de Conducción" filename="licencia_conducir_emp_filename" />
+                        <field name="licencia_conducir_emp_filename" invisible="True"/>
+                        <field name="carta_propiedad_vehiculo_emp" string="Carta de Propiedad Vehículo o Autorización del Propietario" filename="carta_propiedad_vehiculo_emp_filename" />
+                        <field name="carta_propiedad_vehiculo_emp_filename" invisible="True"/>
+                        <field name="cer_runt_emp" string="Certificado Inscripción RUNT" filename="cer_runt_emp_filename" />
+                        <field name="cer_runt_emp_filename" invisible="True"/>
+                        <field name="seguro_obligatorio_vigente" string="Seguro Obligatorio Vigente"  filename="seguro_obligatorio_vigente_filename"/>
+                        <field name="seguro_obligatorio_vigente_filename" invisible="True"/>
+                        <field name="revision_tecnico_mecanica_emp" string="Revisión Técnico Mecánica" filename="revision_tecnico_mecanica_emp_filename" />
+                        <field name="revision_tecnico_mecanica_emp_filename" invisible="True"/>
+                        <field name="centro_induccion_emp" string="Certificado de Inducción" filename="centro_induccion_emp_filename" />
+                        <field name="centro_induccion_emp_filename" invisible="True"/>
+                        <field name="certificacion_sena_emp" filename="file_name" string="Certificación Sena"/>
+                        <field name="file_name" invisible="1"/>
+                    </group>
+                </group>
+            </page>
+         </xpath>
+         <xpath expr="//page[@name='formacion']" position="after">
+            <page name="contratacion" string="Contratación">
+               <group>
+                  <group>
+                     <field name="check_tag_ids" invisible="True"/>                    
+                     <field name="arl_emp" string="ARL"  domain="[('tipo', '=', 'ARL')]" attrs="{'required': [('check_tag_ids', '!=', True)]}"/>
+                     <field name="eps_emp" string="EPS" required="True" domain="[('tipo', '=', 'EPS')]"/>
+                     <field name="afp_emp" string="AFP"  domain="[('tipo', '=', 'AFP')]" attrs="{'required': [('check_tag_ids', '!=', True)]}"/>
+                     <field name="afc_emp" string="AFC"  domain="[('tipo', '=', 'AFC')]" attrs="{'required': [('check_tag_ids', '!=', True)]}"/>
+                     <field name="nivel_riesgo" string="Nivel de Riesgo" attrs="{'required': [('check_tag_ids', '!=', True)]}"/>
+                     <field name="caja_compensacion_emp" string="Caja de Compensación"  domain="[('tipo', '=', 'CAJA DE COMPENSACIÓN')]" attrs="{'required': [('check_tag_ids', '!=', True)]}"/>
+                  </group>
+                  <group>
+                     <field name="clase_beneficio" string="Clase de Beneficio"/>
+                     <field name="importe_clase_beneficio_emp" string="Importe Clase Beneficio"/>
+                     <field name="ccnomina_emp" string="CC-Nomina"/>
+                     <field name="clave_receptor_emp" string="Clave Receptor"/>
+                     <field name="plan_exequial" string="Plan Excequial"/>
+                     <field name="importe_plan_excequial_emp" string="Importe Plan Excequial"/>
+                  </group>
+                  <group>
+
+
+                  </group>
+                  <group>
+
+                  </group>
+               </group>
+            </page>
+         </xpath>
+         <xpath expr="//page[@name='familiar']" position="after">
+
+         </xpath>
+         <xpath expr="//page[@name='contratacion']" position="after">
+            <page name="sap" string="SAP">
+                 <group>
+                    <group>
+                       <field name="tipo_cotizante_emp" string="Tipo de Cotizante"/>
+                       <field name="subtipo_cotizante_emp" string="Subtipo de Cotizante"/>
+                       <field name="motivo_perdida_emp" string="Motivo de la Pérdida"/>
+                       <field name="clase_salario_emp" string="Clase de Salario"/>
+                    </group>
+                    <group>
+                       <field name="posicion_emp" string="Posición"/>
+                       <field name="area_nivel_cargo_emp" string="Área Nivel de Cargo"/>
+                       <field name="grupo_sueldos_emp" string="Grupo de Sueldos"/>
+                       <field name="grado_ocupacion_emp" string="Grado de Ocupación"/>
+                       <field name="hora_trabajo_periodo_emp" string="Horas de Trabajo Periodo"/>
+                       <field name="procedimiento_emp" string="Procedimiento"/>
+                       <field name="division_emp" string="División"/>
+                       <field name="grupo_seleccion_emp" string="Grupo de Personal"/>
+                       <field name="area_personal_emp" string="Área de Personal"/>
+                       <field name="relacion_laboral_emp"  string="Relación Laboral"/>
+                       <field name="evaluacion_de_tiempos" string="Evaluación de Tiempos PHT"/>
+                       <field name="turno_trabajo_emp" string="Turno de Trabajo"/>
+                    </group>
+                 </group>
+            </page>
+         </xpath>
+
+
+
+      </field>
+   </record>
+
+   <record id="ep_inherit_view_employee_thomas_search" model="ir.ui.view">
+    <field name="name">hr.employee</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_filter"/>
+    <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">
+            <field name="identification_id"/>
+        </xpath>
+    </field>
+   </record>
+
+
+
+
+
+
+
+
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_survey_survey_form_inherit" model="ir.ui.view">
+        <field name="name">survey.survey.form.inherit</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_form"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//field[(@name='category')]" position="after">
+                <field name="manejo_interno"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_survey_input_inherit" model="ir.ui.view">
+        <field name="name">survey.input.form.inherit</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//field[(@name='token')]" position="after">
+               
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_survey_input_inherit_tree" model="ir.ui.view">
+        <field name="name">survey.input.tree.inherit</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//field[(@name='deadline')]" position="after">
+               
+            </xpath>
+        </field>
+    </record>
+</odoo>                     

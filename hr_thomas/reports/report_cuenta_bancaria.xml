@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom66"
+                string="SYC-FOR-046 INFORMACIÓN CUENTA BANCARIA"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom66_template"
+        />
+
+
+        <template id="report_custom66_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                     <t t-foreach="o.employee_id" t-as="e">
+                        <t t-foreach="e.bank_account_id" t-as="b">
+                        <div class="page">
+                            <head>
+                                <style>
+                                    p {font-size:24px;}
+                                    span {font-size:24px;} 
+                            *{
+                                margin:0px;
+                                padding:0px;
+                                }                                       
+                                 div#a{
+                                 margin:auto;
+                                 margin-top:60px;
+                                 width:1100px;
+                                 height:30px;
+                                 border: 0px solid black;
+                                }
+                                 div#b{
+                                 width:30px;
+                                 height:30px;
+                                 background-color:white;
+                                 float:left;
+                                 border: 1px solid black;
+                                 margin:18px;                                                                          
+                                }
+                                 div#c{
+                                 width:1000px;
+                                 height:30px;
+                                 background-color:white;
+                                 float:left;
+                                 margin:0px;                                      
+                                }
+                            </style>
+                            </head>                            
+                            <br></br><br></br><br></br><br></br>
+                            <p align="right">SYC-FOR-046-V2</p>
+                            <p>Señores</p>                           
+                            <strong><p>MANEJO TÉCNICO DE INFORMACIÓN S.A</p></strong>
+                            <span>GESTION HUMANA</span><br></br><br></br><br></br><br></br>
+                            <p align="justify">
+                                Yo, <strong><span t-field="o.employee_id"></span></strong>, mayor de edad, domiciliado en   <strong><span t-field="o.res_city"></span></strong>, identificado como aparece al pie de mi firma, comedidamente reporto mi número de cuenta con el banco <strong> <span t-field="b.bank_id"></span> </strong>.
+                            </p>
+                            <br></br><br><br></br>
+                                <p>
+                                    Cuenta N°. <strong><span t-field="o.no_cuenta_bancaria"></span></strong>
+                                </p>
+                                <br></br><br></br>
+                                <div id="a">
+                                    <div id="b" style=" text-align: center;"><t t-if="b.account_type == 'ahorros'"> <span>✔</span></t></div>
+                                    <div id="c"><p align="justify">Ahorros</p> </div>                                       
+                                   
+                                </div>
+                                <div id="a">
+                                    <div id="b" style=" text-align: center;">  <t t-if="b.account_type == 'corriente'"> <span>✔</span></t>  </div>
+                                    <div id="c"><p align="justify">Corriente         </p></div>                                       
+                                   
+                                </div>
+                            </br>
+                            <br></br><br></br><br></br><br></br>
+                            <span> <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="220" height="90"/></span>
+                            <p>Firma</p>
+                            <p>Cédula: <span t-field="o.identificacion"></span></p>
+                            <p>Ciudad: <span t-field="o.res_city"></span></p>
+                            <p>Fecha: <span t-field="o.fecha_firma_contrato"></span></p>
+                        </div>
+                    </t>
+                   </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

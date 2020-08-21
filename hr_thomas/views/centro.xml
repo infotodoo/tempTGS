@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="centro_form" model="ir.ui.view">
+      <field name="name">centro.form</field>
+      <field name="model">centro</field>
+      <field name="arch" type="xml">
+        <form string="centro">
+           <group>
+             <group>
+                 <field name="centro_costo" string="Nombre Centro de Costo"/>
+                 <field name="numero" string="Número del Centro de Costo"/>
+                 <field name="company_id" string="Compañía"/>
+              
+             </group>
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record> 
+
+
+     
+
+
+
+
+    <record id="view_centro_tree" model="ir.ui.view">
+      <field name="name">centro.tree</field>
+      <field name="model">centro</field>
+        <field name="arch" type="xml">
+            <tree string="sector centro">
+               <field name="centro_costo" string="Nombre Centro de Costo"/>
+               <field name="numero" string="Número del Centro de Costo"/>
+               <field name="company_id" string="Compañía"/>
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_centro" model="ir.actions.act_window">
+        <field name="name">Centro de Costo</field>
+        <field name="res_model">centro</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Centro de Costo
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Centro de Costo'
+            action='action_centro'
+            id='centro_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='16' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sector_customer_form" model="ir.ui.view">
+            <field name="name">sector.customer.form</field>
+            <field name="model">requisiciones</field>
+            <field name="arch" type="xml">
+                <form string="Requisiciones">
+                    <header>
+                        <field name="stage_id" widget="statusbar"/>
+                        <button type="object" string="Aprobar" class="oe_highlight" name="button_primera_aprobacion" states="PRIMERA APROBACION"/>
+                        <button type="object" string="Rechazar" class="btn btn-danger" name="button_rechazar_primera_aprobacion" states="PRIMERA APROBACION"/>
+                        <button type="object" string="Aprobar" class="oe_highlight" name="button_segunda_aprobacion" states="SEGUNDA APROBACION"/>
+                        <button type="object" string="Rechazar" class="btn btn-danger" name="button_rechazar_segunda_aprobacion" states="SEGUNDA APROBACION"/> 
+                        <button type="object" string="Aprobar" class="oe_highlight" name="button_tercera_aprobacion" states="TERCERA APROBACION"/>
+                        <button type="object" string="Rechazar" class="btn btn-danger" name="button_rechazar_tercera_aprobacion" states="TERCERA APROBACION"/>       
+                        <button type="object" string="Aprobar" class="oe_highlight" name="button_done" states="APROBADA POR EL CLIENTE"/>
+                        <button type="object" string="Rechazar" class="oe_highlight" name="button_rechazar_final" states="APROBADA POR EL CLIENTE"/>
+                        <button type="object" string="Cambiar de Estado" class="oe_highlight" name="button_abierta"
+                                states="APROBADA"/>
+                        <button type="object" string="Cambiar de Estado" class="oe_highlight" name="button_cerrada"
+                                states="ABIERTA"/>
+                        <button type="object" string="Cambiar de Estado" class="oe_highlight" name="button_garantia"
+                                states="CERRADA"/>
+                        <button type="object" string="Cambiar de Estado" class="oe_highlight" name="button_finalizada"
+                                states="GARANTIA"/>
+                        <button type="object" string="Reprocesar" class="btn btn-warning" name="button_devolver_garantia"
+                                states="GARANTIA"/>                
+                      
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_applicant"
+                                    icon="fa-pencil-square-o">
+                                <field name="applicant_count" widget="statinfo" string="Aplicantes"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" text="Rechazada" bg_color="bg-danger"
+                                attrs="{'invisible': [('state', 'not in', ['RECHAZADA'])]}"/>
+                        <widget name="web_ribbon" text="Rechazada" bg_color="bg-danger"
+                                attrs="{'invisible': [('state', 'not in', ['RECHAZADA POR EL CLIENTE'])]}"/>
+                        <widget name="web_ribbon" text="Finalizada" bg_color="bg-success"
+                                attrs="{'invisible': [('state', 'not in', ['FINALIZADA'])]}"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" string="Referencia de la Requisición"
+                                       placeholder="Referencia de la Requisición" readonly="True"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="solicitante" string="Solicitante"/>
+                                <field name="cargo_soli" string="Cargo del solicitante"/>
+                            </group>
+                            <group>                                
+                                <field name="company_id" string="Empresa Cliente" groups="base.group_multi_company" readonly="False"/>                                
+                                <field name="prioridad" string="Prioridad" widget="priority"/>
+                                <field name="date_aper" string="Fecha de Apertura"/>
+                                <field name="no_of_hired_employee" readonly="True"/>
+                                <field name="id_estado_de_solicitud" invisible="True"/>
+                                <field name="fecha_hora_1ra_aprobacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 2)]}" readonly="True" invisible="True"/>
+                                <field name="tiempo_1ra_aprobacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 2)]}" readonly="True" widget="float_time"/>
+                                <field name="fecha_hora_2da_aprobacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 3)]}" readonly="True" invisible="True"/>
+                                <field name="tiempo_2da_aprobacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 3)]}" readonly="True" widget="float_time"/>
+                                <field name="fecha_hora_3ra_aprobacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 5)]}" readonly="True" invisible="True"/>
+                                <field name="tiempo_3ra_aprobacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 5)]}" readonly="True" widget="float_time"/>
+                                <field name="fecha_hora_aprobada_cliente" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 6)]}" readonly="True" invisible="True"/>
+                                <field name="tiempo_aprobada_cliente" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 6)]}" readonly="True" widget="float_time"/>
+                                <field name="fecha_hora_aprobacion" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 7)]}" readonly="True" invisible="True"/>
+                                <field name="tiempo_aprobada" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 7)]}" readonly="True" widget="float_time"/>
+                                <field name="fecha_hora_abierta" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 8)]}" readonly="True" invisible="True"/>
+                                <field name="tiempo_abierta" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 8)]}" readonly="True" widget="float_time"/>
+                                <field name="fecha_hora_cerrada" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 9)]}" readonly="True" invisible="True"/>
+                                <field name="tiempo_cerrada" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 9)]}" readonly="True" widget="float_time"/>
+                                <field name="fecha_hora_garantia" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 10)]}" readonly="True" invisible="True"/>
+                                <field name="tiempo_total" attrs="{'invisible': [('id_estado_de_solicitud', '!=', 10)]}" readonly="True" widget="float_time"/>
+
+                            </group>
+                            <group string="Aprobaciones">
+                                <field name="aprobador_nivel1" string="Aprobador Nivel 1" required="True"/>
+                                <field name="aprobador_nivel2" string="Aprobador Nivel 2" domain="[('aprobador_ninel2', '=', 'True')]" required="True"/>
+                                <field name="aprobador_nivel3" string="Aprobador Nivel 3" domain="[('aprobador_ninel3', '=', 'True')]" required="True"/>
+                            </group>
+                        </group>
+                        <field name="state" invisible="True"/>
+                        <notebook>
+                            <page string="Información de la Vacante">
+                                <group>
+                                    <group>
+                                        <field name="jefe_inmediato" string="Jefe Inmediato" required="True"/>
+                                        <field name="cargo_solicitado" string="Cargo Solicitado" required="True"/>
+                                        <field name="catidad_vacantes" string="Cantidad de Vacantes" required="True"/>
+                                        <field name="Generos" string="Genero" required="True"/>
+                                        <field name="res_city" string="Ciudad" required="True"/>                                      
+                                        <field name="sede" string="Sede" required="True"/>
+                                        <field name="area" string="Área" required="True"/>
+                                        <field name="un_organizativa" string="Cliente/Proyecto o Unidad Organizativa"
+                                               required="True"/>
+                                        <field name="centro_de_costo" string="Número del Centro de Costo" required="True"/>
+                                        <field name="nombre_centro_costo" string="Nombre del Centro de Costo"
+                                               readonly="True"  required="True"/>
+                                       
+                                    </group>
+                                    <group>
+                                        <field name="personal_a_cargo" string="Tiene Personal a Cargo" required="True"/>
+                                        <field name="masivo" string="Masivo" required="True"/>
+                                        <field name="requiere_entrevista"
+                                               string="Requiere Entrevista con Jefe Inmediato" required="True"/>
+                                        <field name="requiere_prueba" string="Requiere Prueba Técnica" required="True"/>
+                                        <field name="requiere_studio_seguridad" string="Requiere Estudio de Seguridad"
+                                               required="True"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Contrato">
+                                <group>
+                                    <group>
+                                        <field name="turn" string="Turno" required="True"/>
+                                        <field name="horari" string="Horario de Trabajo" required="True"/>
+                                        <field name="nivel_riesgo" string="Porcentaje Nivel de Riesgo ARL"/>                                       
+                                        <field name="nivel_riesgo_arl" string="Nivel de Riesgo ARL" required="True"/>
+                                        <field name="manejo_vacaciones" string="Horario / Manejo de Vacaciones"
+                                               required="True"/>
+                                        <field name="manejo_incapacidades" string="Manejo de Incapacidades Generales"
+                                               required="True"/>
+                                    </group>
+                                    <group>
+                                        <field name="tipo_contrato" string="Tipo de Contrato" required="True"/>
+                                        <field name="tiempo_de_contrato_inicial" attrs="{'invisible': [('tipo_contrato', 'not in', ['FIJO','MEDIO TIEMPO'])], 'required': [('tipo_contrato', 'in', ('FIJO','MEDIO TIEMPO'))]}"  groups="hr.group_hr_user" string="Tiempo de Contrato Inical"/>
+                                        <field name="rango"  attrs="{'invisible': [('tipo_contrato', 'not in', ['FIJO','MEDIO TIEMPO'])], 'required': [('tipo_contrato', 'in', ('FIJO','MEDIO TIEMPO'))]}"  groups="hr.group_hr_user" string="Rango"/>
+                                        <field name="cliente1"
+                                               attrs="{'invisible': [('tipo_contrato', 'not in', ['OBRA LABOR'])]}"
+                                               groups="hr.group_hr_user"/>
+                                        <field name="no_contrato_comercial"
+                                               attrs="{'invisible': [('tipo_contrato', 'not in', ['OBRA LABOR'])]}"
+                                               groups="hr.group_hr_user"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Justificación">
+                                <group>
+                                    <group>
+                                        <field name="mo_solicitud" string="Motivo de Solicitud" required="True"/>
+                                        <field name="per_quien_reemplaza" string="Persona a Quien Reemplaza"/>
+                                        <field name="cargo_pre" string="Cargo Presupuestado" required="True"/>
+                                    </group>
+                                    <group>
+                                        <field name="tipo_de_salario" string="Tipo de Salario" required="True"/>                                      
+                                        <field name="wage" string="Salario" readonly="False" attrs="{'invisible': [('tipo_de_salario', 'not in', ['SALARIO INTEGRAL','SUELDO BÁSICO','APOYO SOSTENIMIENTO'])], 'required': [('tipo_de_salario', 'in', ['SALARIO INTEGRAL','SUELDO BÁSICO','APOYO SOSTENIMIENTO'])]}"/>
+                                       
+                                        <field name="pacto_con" string="Pacto/Convención" required="True"/>                                    
+
+                                        <field name="docuemnto_ref" string="Documento Referido"/>
+                                    </group>
+                                    <group string="Beneficios">
+                                        <field name="aux_alimentacion" string="Auxilio de Alimentación Fijo"
+                                               required="True"/>
+                                        <field name="valor_auxilio_alimentacion"
+                                               attrs="{'invisible': [('aux_alimentacion', '!=', 'SI')], 'required': [('aux_alimentacion', '=', 'SI')]}"
+                                               groups="hr.group_hr_user" required="True"/>
+                                        <field name="auxilio_de_alimentacion_a_partir_de"
+                                               attrs="{'invisible': [('aux_alimentacion', '!=', 'SI')], 'required': [('aux_alimentacion', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"/>
+                                        <field name="aux_alimentacion_pro" string="Auxilio de Alimentación Proporcional"
+                                               required="True"/>
+                                        <field name="valor_aux_alimentacion_pro"
+                                               string="Valor Auxilio de Alimentación Proporcional"
+                                               attrs="{'invisible': [('aux_alimentacion_pro', '!=', 'SI')], 'required': [('aux_alimentacion_pro', '=', 'SI')]}"
+                                               groups="hr.group_hr_user" required="True"/>
+                                        <field name="aux_alimentacion_pro_partir"
+                                               attrs="{'invisible': [('aux_alimentacion_pro', '!=', 'SI')], 'required': [('aux_alimentacion_pro', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"
+                                               string="Auxilio de Alimentación proporcional a partir de"/>
+                                        <field name="aux_rodamiento" string="Auxilio de Rodamiento Fijo"
+                                               required="True"/>
+                                        <field name="Valor_Auxili_de_Rodamiento" string="Valor Auxilio de Rodamiento"
+                                               attrs="{'invisible': [('aux_rodamiento', '!=', 'SI')], 'required': [('aux_rodamiento', '=', 'SI')]}"
+                                               groups="hr.group_hr_user" required="True"/>
+                                        <field name="Auxilio_de_Rodamiento_a_partir_de"
+                                               attrs="{'invisible': [('aux_rodamiento', '!=', 'SI')], 'required': [('aux_rodamiento', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"/>
+                                        <field name="aux_rodamiento_pro" string="Auxilio de Rodamiento Proporcional"
+                                               required="True"/>
+                                        <field name="valor_aux_rodamiento_pro"
+                                               attrs="{'invisible': [('aux_rodamiento_pro', '!=', 'SI')], 'required': [('aux_rodamiento_pro', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"
+                                               string="Valor Auxilio de Rodamiento Proporcional"/>
+                                        <field name="aux_rodamiento_pro_partir"
+                                               attrs="{'invisible': [('aux_rodamiento_pro', '!=', 'SI')], 'required': [('aux_rodamiento_pro', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"
+                                               string="Auxilio de Rodamiento Proporcional a Partir de"/>
+                                        <field name="aux_celular" required="True"/>
+                                        <field name="Valor_Auxilio_de_Celular"
+                                               attrs="{'invisible': [('aux_celular', '!=', 'SI')], 'required': [('aux_celular', '=', 'SI')]}"
+                                               groups="hr.group_hr_user" required="True"/>
+                                        <field name="Auxilio_de_Celular_a_partir_de"
+                                               attrs="{'invisible': [('aux_celular', '!=', 'SI')], 'required': [('aux_celular', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"/>
+                                        <field name="aux_movilizacion" string="Auxilio de Movilización"
+                                               required="True"/>
+                                        <field name="valor_aux_movilizacion"
+                                               attrs="{'invisible': [('aux_movilizacion', '!=', 'SI')], 'required': [('aux_movilizacion', '=', 'SI')]}"
+                                               groups="hr.group_hr_user" string="Valor Auxilio de Movilización"
+                                               required="True"/>
+                                        <field name="aux_movilizacion_a_partir"
+                                               attrs="{'invisible': [('aux_movilizacion', '!=', 'SI')], 'required': [('aux_movilizacion', '=', 'SI')]}"
+                                               groups="hr.group_hr_user" string="Auxilio de Movilización a Partir de"/>
+                                    </group>
+                                    <group>
+                                        <field name="medicina_prepagada" string="Medicina Prepagada" required="True"/>
+                                        <field name="Valor_Medicina_Prepagada"
+                                               attrs="{'invisible': [('medicina_prepagada', '!=', 'SI')], 'required': [('medicina_prepagada', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"/>
+                                        <field name="Medicina_Prepagada_a_partir_de"
+                                               attrs="{'invisible': [('medicina_prepagada', '!=', 'SI')], 'required': [('medicina_prepagada', '=', 'SI')]}"
+                                               groups="hr.group_hr_user" string="Medicina Prepagada a partir de"/>
+                                        <field name="bonos" required="True"/>
+                                        <field name="Valor_Bonos"   attrs="{'invisible': [('bonos', '!=', 'SI')], 'required': [('bonos', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"/>
+                                        <field name="Bonos_a_partir_de"
+                                               attrs="{'invisible': [('bonos', '!=', 'SI')], 'required': [('bonos', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"/>
+
+                                        <field name="comisiones" required="True"/>
+                                        <field name="Valor_Comisiones"    attrs="{'invisible': [('comisiones', '!=', 'SI')], 'required': [('comisiones', '=', 'SI')]}"  groups="hr.group_hr_user" required="True"/>
+                                        <field name="Comisiones_a_partir_de"
+                                               attrs="{'invisible': [('comisiones', '!=', 'SI')], 'required': [('comisiones', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"/>
+                                        <field name="otro"/>
+                                        <field name="cual_Otro_Beneficio"
+                                               attrs="{'invisible': [('otro', '!=', 'SI')], 'required': [('otro', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"/>
+                                        <field name="Valor_Otro_Beneficio"      attrs="{'invisible': [('otro', '!=', 'SI')], 'required': [('otro', '=', 'SI')]}"  groups="hr.group_hr_user" string="Valor Otro Beneficio"  required="True"/>
+                                        <field name="Otro_Beneficio_a_partir_de"
+                                               attrs="{'invisible': [('otro', '!=', 'SI')], 'required': [('otro', '=', 'SI')]}"
+                                               groups="hr.group_hr_user" string="Otro Beneficio a partir de"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Asignación">
+                                <group>
+                                    <group>
+                                        <field name="tipo_cargo" string="Tipo de Cargo"/>
+                                        <field name="psicologo_req"/>
+                                        <field name="reclutador_req"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name="observaciones" string="Observaciones"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>                        
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sector_customer_tree" model="ir.ui.view">
+            <field name="name">sector.customer.tree</field>
+            <field name="model">requisiciones</field>
+            <field name="arch" type="xml">
+                <tree string="sector customer">
+                    <field name="name" string="Requisición"/>
+                    <field name="cargo_solicitado"/>
+                    <field name="psicologo_req"/>
+                    <field name="reclutador_req"/>
+                    <field name="catidad_vacantes" sum="catidad_vacantes"/>
+                    <field name="no_of_hired_employee" sum="Total" />
+                    <field name="company_id"/>
+                    <field name="state" string="Estado de la Requisición"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_sector_customer_pivot" model="ir.ui.view">
+            <field name="name">sector.customer.pivot</field>
+            <field name="model">requisiciones</field>
+            <field name="arch" type="xml">
+                <pivot string="Vista Pivot Requisiciones">
+                    <field name="name" string="Requisición"/>
+                    <field name="state" string="Estado de la Requisición"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_sector_customer_search" model="ir.ui.view">
+            <field name="name">sector.customer.search</field>
+            <field name="model">requisiciones</field>
+            <field name="arch" type="xml">
+               <search>
+                   <field name="cargo_soli"/>
+                  
+               </search>
+            </field>
+        </record>
+
+        <record id="action_sector_customer" model="ir.actions.act_window">
+            <field name="name">Requisiciones</field>
+            <field name="res_model">requisiciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,tree,form,pivot,search</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Requisiciones
+                </p>
+            </field>
+        </record>
+
+        <record id="seq_requisiciones" model="ir.sequence">
+            <field name="name">requisiciones</field>
+            <field name="code">requisiciones</field>
+            <field name="prefix">RQ%(year)s</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record model="ir.ui.view" id="view_openacad_session_kanban">
+            <field name="name">requisiciones.kanban</field>
+            <field name="model">requisiciones</field>
+            <field name="arch" type="xml">
+                
+                <kanban default_group_by="stage_id" quick_create_view="hr_thomas.view_sector_customer_form" records_draggable = "false">
+                    <field name="name"/>
+                    
+                   
+                    <progressbar field="activity_state" colors="{&quot;planned&quot;: &quot;success&quot;, &quot;today&quot;: &quot;warning&quot;, &quot;overdue&quot;: &quot;danger&quot;}" sum="cantidad_vacantes" help="This bar allows to filter the opportunities based on scheduled activities." />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div
+                                t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color)}}
+                                              oe_kanban_global_click_edit oe_semantic_html_override
+                                              oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                                <div class="oe_dropdown_kanban">
+                                    <!-- dropdown menu -->
+                                    <div class="oe_dropdown_toggle">
+                                        <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage"/>
+                                        <ul class="oe_dropdown_menu">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <ul class="oe_kanban_colorpicker"
+                                                    data-field="color"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    <!-- title -->
+                                    <strong>
+                                     Requisición:
+                                    <field name="name"/> </strong><br></br>
+                                    <strong>
+                                     Cantidad de Vacantes:
+                                    <field name="catidad_vacantes"/> </strong>
+                                    <br/>
+                                    <field name="cargo_solicitado"/> <br></br>
+                                    <field name="emp"/><br></br>
+                                    <field name="prioridad" widget="priority"/>
+                                    <field name="activity_ids" widget="kanban_activity"/>                            
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+               
+
+        <menuitem name='Requisiciones'
+                  action='action_sector_customer'
+                  id='sector_customer_menu'
+                  parent='hr_recruitment.menu_hr_recruitment_root'
+                  sequence='3'/>
+    </data>
+</odoo>

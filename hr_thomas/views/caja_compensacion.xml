@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="caja_form" model="ir.ui.view">
+      <field name="name">caja.form</field>
+      <field name="model">caja</field>
+      <field name="arch" type="xml">
+        <form string="caja">
+           <group>
+             <group>
+                <field name="nombre_caja_compensacion" string="Caja de Compensación"/> 
+                <field name="identificador" string="Identificador"/>
+              
+             </group>
+           </group>   
+        </form>
+      </field>
+    </record> 
+
+    <record id="caja_tree" model="ir.ui.view">
+      <field name="name">caja.tree</field>
+      <field name="model">caja</field>
+        <field name="arch" type="xml">
+            <tree string="sector caja">
+                <field name="identificador" string="Identificador"/>
+                <field name="nombre_caja_compensacion" string="Caja de Compensación"/> 
+              
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_caja" model="ir.actions.act_window">
+        <field name="name">Caja de Compensación</field>
+        <field name="res_model">caja</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Caja de Compensación
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Caja de Compensación'
+            action='action_caja'
+            id='caja_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='30'/> 
+    </data>   
+</odoo>
