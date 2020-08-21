@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_database_sync" model="ir.ui.view">
+        <field name="name">res.config.settings.database.sync</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div/div/div[@id='companies']" position="before">
+                <h2>Database Sync</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                    <label for="url" string="Url" class="col-3 col-lg-3"/>
+                                    <field name="url" class="oe_inline"/>
+                                </div>
+                                <div class="mt16 row">
+                                    <label for="db" string="Database" class="col-3 col-lg-3"/>
+                                    <field name="db" class="oe_inline"/>
+                                </div>
+                                <div class="mt16 row">
+                                    <label for="main_db" string="Main Database" class="col-3 col-lg-3"/>
+                                    <field name="main_db" class="oe_inline"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                                                        <div class="content-group">
+                                <div class="mt16 row">
+                                    <label for="username" string="Username" class="col-3 col-lg-3"/>
+                                    <field name="username" class="oe_inline"/>
+                                </div>
+                                <div class="mt16 row">
+                                    <label for="password" string="Password" class="col-3 col-lg-3"/>
+                                    <field name="password" class="oe_inline"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

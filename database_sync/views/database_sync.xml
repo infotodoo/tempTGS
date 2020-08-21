@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="replica_id_hr_job_form" model="ir.ui.view">
+        <field name="name">replica.id.hr.job</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_applicant_form" model="ir.ui.view">
+        <field name="name">replica.id.applicant.form</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="replica_id_recruitment_stage_form">
+        <field name="name">replica.id.recruitment.stage.form</field>
+        <field name="model">hr.recruitment.stage</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_recruitment_stage_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_applicant_category_form" model="ir.ui.view">
+        <field name="name">replica.id.applicant.category.form</field>
+        <field name="model">hr.applicant.category</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_category_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="replica_id_recruitment_degree_form">
+        <field name="name">replica.id..recruitment.degree.form</field>
+        <field name="model">hr.recruitment.degree</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_recruitment_degree_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="replica_id_recruitment_source_tree">
+        <field name="name">replica.id.recruitment.source.tree</field>
+        <field name="model">hr.recruitment.source</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_recruitment_source_tree"/>
+        <field name="arch" type="xml">
+            <field name="source_id" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="replica_id_utm_source_form">
+        <field name="name">replica.id.utm.source.form</field>
+        <field name="model">utm.source</field>
+        <field name="inherit_id" ref="utm.utm_source_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_department_form" model="ir.ui.view">
+        <field name="name">replica.id.department.form</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_activity_type" model="ir.ui.view">
+        <field name="name">replica.id.mail.activity.type</field>
+        <field name="model">mail.activity.type</field>
+        <field name="inherit_id" ref="mail.mail_activity_type_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_res_city" model="ir.ui.view">
+        <field name="name">replica.id.res.city</field>
+        <field name="model">res.city</field>
+        <field name="inherit_id" ref="base_address_city.view_city_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_res_users" model="ir.ui.view">
+        <field name="name">replica.id.res.users</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+    <record id="replica_id_res_company" model="ir.ui.view">
+        <field name="name">replica.id.res.company</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+    <record id="replica_id_requisiciones" model="ir.ui.view">
+        <field name="name">replica.id.requisiciones</field>
+        <field name="model">requisiciones</field>
+        <field name="inherit_id" ref="hr_thomas.view_sector_customer_form"/>
+        <field name="arch" type="xml">
+            <field name="jefe_inmediato" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_unidades" model="ir.ui.view">
+        <field name="name">replica.id.unidades</field>
+        <field name="model">unidades</field>
+        <field name="inherit_id" ref="hr_thomas.view_unidades_form"/>
+        <field name="arch" type="xml">
+            <field name="nombre_unidad_org" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_centro" model="ir.ui.view">
+        <field name="name">replica.id.centro</field>
+        <field name="model">centro</field>
+        <field name="inherit_id" ref="hr_thomas.centro_form"/>
+        <field name="arch" type="xml">
+            <field name="centro_costo" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_calendar" model="ir.ui.view">
+        <field name="name">replica.id.calendar</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_direccion" model="ir.ui.view">
+        <field name="name">replica.id.direccion</field>
+        <field name="model">direccion</field>
+        <field name="inherit_id" ref="hr_thomas.view_direccion_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_eps" model="ir.ui.view">
+        <field name="name">replica.id.eps</field>
+        <field name="model">eps</field>
+        <field name="inherit_id" ref="hr_thomas.eps_form"/>
+        <field name="arch" type="xml">
+            <field name="nombre_eps" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_afp" model="ir.ui.view">
+        <field name="name">replica.id.afp</field>
+        <field name="model">afp</field>
+        <field name="inherit_id" ref="hr_thomas.afp_form"/>
+        <field name="arch" type="xml">
+            <field name="nombre_afp" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_afc" model="ir.ui.view">
+        <field name="name">replica.id.afc</field>
+        <field name="model">afc</field>
+        <field name="inherit_id" ref="hr_thomas.afc_form"/>
+        <field name="arch" type="xml">
+            <field name="nombre_afc" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_hijo" model="ir.ui.view">
+        <field name="name">replica.id.hijo</field>
+        <field name="model">hijo</field>
+        <field name="inherit_id" ref="hr_thomas.view_hijo_form"/>
+        <field name="arch" type="xml">
+            <field name="nombre_hijo" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_mascotas" model="ir.ui.view">
+        <field name="name">replica.id.mascotas</field>
+        <field name="model">mascotas</field>
+        <field name="inherit_id" ref="hr_thomas.view_mascotas_form"/>
+        <field name="arch" type="xml">
+            <field name="tipo_mascota" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_lenguage" model="ir.ui.view">
+        <field name="name">replica.id.lenguage</field>
+        <field name="model">lenguage</field>
+        <field name="inherit_id" ref="hr_thomas.lenguage_form"/>
+        <field name="arch" type="xml">
+            <field name="nombre" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_fobias" model="ir.ui.view">
+        <field name="name">replica.id.fobias</field>
+        <field name="model">fobias</field>
+        <field name="inherit_id" ref="hr_thomas.view_fobias_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_hob" model="ir.ui.view">
+        <field name="name">replica.id.hob</field>
+        <field name="model">hob</field>
+        <field name="inherit_id" ref="hr_thomas.hob_form"/>
+        <field name="arch" type="xml">
+            <field name="nombre" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_alergia" model="ir.ui.view">
+        <field name="name">replica.id.alergia</field>
+        <field name="model">alergia</field>
+        <field name="inherit_id" ref="hr_thomas.alergia_form"/>
+        <field name="arch" type="xml">
+            <field name="Nombre" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_resume_line" model="ir.ui.view">
+        <field name="name">replica.id.resume.line</field>
+        <field name="model">hr.resume.line</field>
+        <field name="inherit_id" ref="hr_skills.resume_line_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_surveys" model="ir.ui.view">
+        <field name="name">replica.id.surveys</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_form"/>
+        <field name="arch" type="xml">
+            <field name="title" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- <record id="replica_id_cargosen" model="ir.ui.view">
+        <field name="name">replica.id.cargosen</field>
+        <field name="model">cargo.desen</field>
+        <field name="inherit_id" ref="hr_thomas.cargo_desempenadoform"/>
+        <field name="arch" type="xml">
+            <field name="cargo_desempenado" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record> -->
+
+    <record id="replica_id_titulo" model="ir.ui.view">
+        <field name="name">replica.id.titulo</field>
+        <field name="model">titulo</field>
+        <field name="inherit_id" ref="hr_thomas.titulo_form"/>
+        <field name="arch" type="xml">
+            <field name="nombre" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="replica_id_employee" model="ir.ui.view">
+        <field name="name">replica.id.employee</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+<!--    <record id="replica_id_resource" model="ir.ui.view">-->
+<!--        <field name="name">replica.id.resource</field>-->
+<!--        <field name="model">resource.resource</field>-->
+<!--        <field name="inherit_id" ref="resource.resource_resource_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <field name="name" position="after">-->
+<!--                <field name="replicated_id" invisible="1"/>-->
+<!--            </field>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- <record id="replica_id_formacion_cargos" model="ir.ui.view">
+        <field name="name">replica.id.formacion.cargos</field>
+        <field name="model">formacion.cargos</field>
+        <field name="inherit_id" ref="hr_thomas.view_formacion_cargos_form"/>
+        <field name="arch" type="xml">
+            <field name="formacion_especifica" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record> -->
+
+    <record id="replica_id_formacion" model="ir.ui.view">
+        <field name="name">replica.id.formacion</field>
+        <field name="model">formacion</field>
+        <field name="inherit_id" ref="hr_thomas.view_formacion_form"/>
+        <field name="arch" type="xml">
+            <field name="formacion" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- <record id="replica_id_activos" model="ir.ui.view">
+        <field name="name">replica.id.activos</field>
+        <field name="model">activos</field>
+        <field name="inherit_id" ref="hr_thomas.view_activos_form"/>
+        <field name="arch" type="xml">
+            <field name="categoria" position="after">
+                <field name="replicated_id" invisible="1"/>
+            </field>
+        </field>
+    </record> -->
+
+</odoo>
