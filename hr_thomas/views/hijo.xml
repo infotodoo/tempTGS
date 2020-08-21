@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="view_hijo_form" model="ir.ui.view">
+      <field name="name">hijo.form</field>
+      <field name="model">hijo</field>
+      <field name="arch" type="xml">
+        <form string="Hijos">
+           <group>
+             <group>
+              <field name="padre_o_madre" string="Padre/Madre: Aplicante"/>             
+              <field name="primer_apellido" string="Primer Apellido" required="True"/>
+              <field name="segundo_apellido" string="Segundo Apellido"/>
+              <field name="nombre_hijo" string="Primer Nombre" required="True"/>
+              <field name="segundo_nombre" string="Segundo Nombre"/> 
+              <field name="identificacion" string="Identificación"/>
+                    
+                          
+             </group>
+
+             <group>
+              <field name="fecha_nac_hijo" string="Fecha de Nacimiento" required="True"/>
+              <field name="genero_hijo" string="Genero" required="True"/>
+              <field name="grupo_sanguineo" string="Grupo Sanguíneo" required="True"/>
+              <field name="nacionalidad" string="Nacionalidad" required="True"/>
+              <field name="pais_nacimiento" string="País de Nacimiento" required="True"/>
+              <field name="hijastro" string="Hijastro" required="True"/>
+           
+             
+             </group>
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record> 
+
+
+     
+
+
+
+
+    <record id="view_hijo_tree" model="ir.ui.view">
+      <field name="name">hijo.tree</field>
+      <field name="model">hijo</field>
+        <field name="arch" type="xml">
+            <tree string="sector hijo">
+              <field name="padre_madre_emp" string="Padre/Madre: Empleado"/>
+               <field name="padre_o_madre" string="Padre/Madre: Aplicante"/>
+               <field name="primer_apellido" string="Primer Apellido"/>
+               <field name="segundo_apellido" string="Segundo Apellido"/>
+               <field name="nombre_hijo" string="Primer Nombre"/>
+               <field name="segundo_nombre" string="Segundo Nombre"/>
+               <field name="fecha_nac_hijo" string="Fecha de Nacimiento"/>
+               <field name="genero_hijo" string="Genero"/>
+               <field name="grupo_sanguineo" string="Grupo Sanguíneo"/>
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hijo" model="ir.actions.act_window">
+        <field name="name">Información de Hijos</field>
+        <field name="res_model">hijo</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Hijos
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Hijos'
+            action='action_hijo'
+            id='hijo_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='80' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

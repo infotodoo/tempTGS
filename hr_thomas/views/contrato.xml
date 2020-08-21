@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record id="view_hr_contrato_inherit" model="ir.ui.view">
+      <field name="name">hr.contrac</field>
+      <field name="model">hr.contract</field>
+      <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+      <field name="priority">5</field>
+      <field name="arch" type="xml">
+         
+         <field name="resource_calendar_id" position="attributes" >
+            <attribute name="readonly">False</attribute>
+         </field>
+
+         <field name="hr_responsible_id" position="attributes" >
+            <attribute name="invisible">True</attribute>
+         </field>
+
+                
+         <xpath expr="//field[(@name='employee_id')]" position="after">
+           <field name="identificacion" string="No. Identificación" required="True"/>
+           <field name="lugar_expedicion_contratado" string="Lugar de Expedición"/>
+           <field name="no_cuenta_bancaria" string="No de Cuenta Bancaría" invisible="True"/> 
+           <field name="telefono_empleado"  string="Télefono"/>
+           <field name="correo_empleado" string="Correo"/>           
+           <field name="Via_principal" invisible="True" />
+           <field name="nombre_via_principal" invisible="True"/> 
+           <field name="via_generadora" invisible="True"/> 
+           <field name="predio" invisible="True"/>
+           <field name="complemento" invisible="True"/>       
+         </xpath>
+            
+         <xpath expr="//field[(@name='hr_responsible_id')]" position="after">
+             <field name="jefe_inmediato_con" string="Jefe Inmediato" required="True"/>
+             <field name="cargo_jefe_inmediato_con" string="Cargo"/>
+             <field name="res_city" string="Ciudad" required="True"/>                           
+             <field name="No_dias_prueba" string="No. de Días de Prueba" required="True"/>          
+            
+             <field name="fecha_firma_contrato" string="Fecha de Firma del Contrato" required="True"/>
+           
+                          
+          </xpath>
+          <xpath expr="//field[(@name='job_id')]" position="after">
+            
+            <field name="version_documento" string="Versión del Documento" required="True"/>
+            <field name="firma" widget="image"/> 
+            <field name="clase_beneficio" invisible="True"/>                        
+           
+          
+                         
+         </xpath>
+ 
+                
+         
+
+
+             
+         <xpath expr="//group[2]"  position="after">
+             
+              <group string="Información de la Requisición">
+                
+                <field name="requisicion" string="Requisición"/>
+                <field name="tip_contrac" string="Tipo de Contrato"/>
+                <field name="no_cont" string="No de Contrato Comercial" attrs="{'invisible': [('tip_contrac', 'not in', ['OBRA LABOR'])]}"
+                groups="hr.group_hr_user"/>
+                <field name="cliente" string="Cliente" attrs="{'invisible': [('tip_contrac', 'not in', ['OBRA LABOR'])]}"
+                groups="hr.group_hr_user"/>
+                <field name="tiempo_contrato_inc" string="Tiempo de Contrato Inicial"/>
+                <field name="rango_contrato" string="Rango"/>              
+                <field name="tip_turno" string="Turno"/>  
+                <field name="area_req_contrato"  string="Área" invisible="True"/>      
+                 
+                <field name="manejo_vacaciones_contrato" string="Horario / Manejo de Vacaciones"/>
+                <field name="manejo_incapacidades_contrato" string="Manejo de Incapacidades Generales"/>
+                <field name="nivel_riesgo_arl" string="Nivel de Riesgo"/>               
+                <field name="tipo_de_salario_contrato" string="Tipo de Salario"/>
+                <field name="pacto_convencion_contrato" string="Pacto/Convensión"/>
+
+                          
+               
+                
+             
+               
+
+
+           
+                  
+             
+            </group>
+           
+         </xpath>
+
+         <xpath expr="//notebook/page[@name='other']/group[1]"  position="after">
+            <group>
+               <group string="Representante">
+                   <field name="nombre_representante" string="Nombre del Representante" required="True"/>
+                   <field name="cedula_representante" string="Cédula del Representante" required="True"/>
+                   <field name="lugar_expedicion_con" string="Lugar de Expedición"/>
+                   <field name="cargo_representante" string="Cargo del Representante" required="True"/>       
+               </group>             
+
+               <group>                             
+                  <field name="solicitante_contrato" invisible="True"/>                             
+                  <field name="via_pago" string="Vía de pago"/>
+               </group>              
+
+               <group string="Aprendiz Sena / Practicante">                
+                   <field name="tipo_aprendiz" string="Tipo de Aprendiz"/>
+                   <field name="fecha_fin_etapa_lectiva" string="Fecha de Terminación Etapa Lectiva"/>
+                   <field name="Fecha_Inicio_Etapa_Productiva" string="Fecha de Inicio Etapa Productiva"/>
+                   <field name="fecha_fin_etapa_productiva" string="Fecha de Terminación Etapa Productiva"/>                  
+               </group>
+
+               <group string="Beneficios/Auxilio de Alimentación">            
+                  <field name="aux_alimentacion" string="Auxilio de Alimentación Fijo"
+                  />
+                  <field name="valor_auxilio_alimentacion"
+                  attrs="{'invisible': [('aux_alimentacion', '!=', 'SI')], 'required': [('aux_alimentacion', '=', 'SI')]}"
+                  groups="hr.group_hr_user"/>
+                  <field name="auxilio_de_alimentacion_a_partir_de"
+                  attrs="{'invisible': [('aux_alimentacion', '!=', 'SI')], 'required': [('aux_alimentacion', '=', 'SI')]}"
+                  groups="hr.group_hr_user"/>
+                        
+                 
+                 
+               
+               </group>
+               <group string="Beneficios/Auxilio de Alimentación Proporcional">
+                  <field name="aux_alimentacion_pro" string="Auxilio de Alimentación Proporcional"
+                  />
+                  <field name="valor_aux_alimentacion_pro"
+                  string="Valor Auxilio de Alimentación Proporcional"
+                  attrs="{'invisible': [('aux_alimentacion_pro', '!=', 'SI')], 'required': [('aux_alimentacion_pro', '=', 'SI')]}"
+                  groups="hr.group_hr_user"/>
+                  <field name="aux_alimentacion_pro_partir"
+                  attrs="{'invisible': [('aux_alimentacion_pro', '!=', 'SI')], 'required': [('aux_alimentacion_pro', '=', 'SI')]}"
+                  groups="hr.group_hr_user"
+                  string="Auxilio de Alimentación proporcional a partir de"/>
+               </group>
+
+               <group string="Beneficios/Auxilio de Rodamiento Fijo">
+                  <field name="aux_rodamiento" string="Auxilio de Rodamiento Fijo"
+                  />
+                  <field name="Valor_Auxili_de_Rodamiento" string="Valor Auxilio de Rodamiento"
+                  attrs="{'invisible': [('aux_rodamiento', '!=', 'SI')], 'required': [('aux_rodamiento', '=', 'SI')]}"
+                  groups="hr.group_hr_user" required="True"/>
+                  <field name="Auxilio_de_Rodamiento_a_partir_de"
+                  attrs="{'invisible': [('aux_rodamiento', '!=', 'SI')], 'required': [('aux_rodamiento', '=', 'SI')]}"
+                  groups="hr.group_hr_user"/>
+               </group>
+
+               <group string="Beneficios/Auxilio de Rodamiento Proporcional">
+                  <field name="aux_rodamiento_pro" string="Auxilio de Rodamiento Proporcional"
+                                               readonly="False"/>
+                  <field name="valor_aux_rodamiento_pro"
+                                               attrs="{'invisible': [('aux_rodamiento_pro', '!=', 'SI')], 'required': [('aux_rodamiento_pro', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"
+                                               string="Valor Auxilio de Rodamiento Proporcional"/>
+                  <field name="aux_rodamiento_pro_partir"
+                                               attrs="{'invisible': [('aux_rodamiento_pro', '!=', 'SI')], 'required': [('aux_rodamiento_pro', '=', 'SI')]}"
+                                               groups="hr.group_hr_user"
+                                               string="Auxilio de Rodamiento Proporcional a Partir de"/>
+               </group>
+
+               <group string="Beneficios/Auxilio de Celular">
+                  <field name="aux_celular"/>
+                  <field name="Valor_Auxilio_de_Celular"
+                                                 attrs="{'invisible': [('aux_celular', '!=', 'SI')], 'required': [('aux_celular', '=', 'SI')]}"
+                                                 groups="hr.group_hr_user" required="True"/>
+                  <field name="Auxilio_de_Celular_a_partir_de"
+                                                 attrs="{'invisible': [('aux_celular', '!=', 'SI')], 'required': [('aux_celular', '=', 'SI')]}"
+                                                 groups="hr.group_hr_user"/>
+               </group>
+
+               <group string="Beneficios/Auxilio de Movilización">
+                  <field name="aux_movilizacion" string="Auxilio de Movilización"
+                  />
+                  <field name="valor_aux_movilizacion"
+                  attrs="{'invisible': [('aux_movilizacion', '!=', 'SI')], 'required': [('aux_movilizacion', '=', 'SI')]}"
+                  groups="hr.group_hr_user" string="Valor Auxilio de Movilización"
+                  required="True"/>
+                  <field name="aux_movilizacion_a_partir"
+                  attrs="{'invisible': [('aux_movilizacion', '!=', 'SI')], 'required': [('aux_movilizacion', '=', 'SI')]}"
+                  groups="hr.group_hr_user" string="Auxilio de Movilización a Partir de"/>
+
+               </group>
+
+               <group string="Beneficios/Medicina Prepagada">
+                  <field name="medicina_prepagada" string="Medicina Prepagada"/>
+                  <field name="Valor_Medicina_Prepagada"
+                  attrs="{'invisible': [('medicina_prepagada', '!=', 'SI')], 'required': [('medicina_prepagada', '=', 'SI')]}"
+                  groups="hr.group_hr_user" string="Valor Medicina Prepagada"/>
+                  <field name="Medicina_Prepagada_a_partir_de"
+                  attrs="{'invisible': [('medicina_prepagada', '!=', 'SI')], 'required': [('medicina_prepagada', '=', 'SI')]}"
+                  groups="hr.group_hr_user" string="Medicina Prepagada a Partir de"/>
+
+                  
+                  
+               </group>
+
+               <group string="Beneficios/Bonos">
+                  <field name="bonos" string="Bonos"/>
+                  <field name="Valor_Bonos"
+                  attrs="{'invisible': [('bonos', '!=', 'SI')], 'required': [('bonos', '=', 'SI')]}"
+                  groups="hr.group_hr_user" string="Valor del Bono"/>
+                  <field name="Bonos_a_partir_de"
+                  attrs="{'invisible': [('bonos', '!=', 'SI')], 'required': [('bonos', '=', 'SI')]}"
+                  groups="hr.group_hr_user" string="Bonos a Partir de"/>
+
+                  
+               </group>
+
+               <group string="Beneficios/Comisiones">
+                  <field name="comisiones" string="Comisiones"/>
+                  <field name="Valor_Comisiones"
+                  attrs="{'invisible': [('comisiones', '!=', 'SI')], 'required': [('comisiones', '=', 'SI')]}"
+                  groups="hr.group_hr_user" string="Valor de la Comisión"/>
+                  <field name="Comisiones_a_partir_de"
+                  attrs="{'invisible': [('comisiones', '!=', 'SI')], 'required': [('comisiones', '=', 'SI')]}"
+                  groups="hr.group_hr_user" string="Comisiones a Partir de"/>
+               </group>
+
+
+               <group string="Beneficios/Otro">
+                  <field name="otro"/>
+                  <field name="cual_Otro_Beneficio"
+                         attrs="{'invisible': [('otro', '!=', 'SI')], 'required': [('otro', '=', 'SI')]}"
+                         groups="hr.group_hr_user"/>
+                  <field name="Valor_Otro_Beneficio"      attrs="{'invisible': [('otro', '!=', 'SI')], 'required': [('otro', '=', 'SI')]}"  groups="hr.group_hr_user" string="Valor Otro Beneficio"  required="True"/>
+                  <field name="Otro_Beneficio_a_partir_de"
+                         attrs="{'invisible': [('otro', '!=', 'SI')], 'required': [('otro', '=', 'SI')]}"
+                         groups="hr.group_hr_user" string="Otro Beneficio a partir de"/>
+                 
+                  
+               </group>
+               
+            </group>
+              
+
+          </xpath>  
+
+            
+
+          <xpath expr="//page[2]" position="after">
+
+           
+
+         </xpath>
+
+
+
+
+      </field>
+   </record>
+   
+
+   
+
+
+    
+</odoo>
+
+
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom44"
+                string="SYC-FOR-018 MEMORANDO DE PRESENTACION V2"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom44_template"
+        />
+
+
+        <template id="report_custom44_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">                    
+                        <div class="page">
+                            <head>
+                                <style>                                    
+                                    *{
+                                        margin:0px;
+                                        padding:0px;
+                                        }
+                                         div#a{
+                                         margin:auto;
+                                         margin-top:60px;
+                                         width:700px;
+                                         height:300px;
+                                         border: 0px solid black;                                       
+                                        }                                     
+                                         div#b{
+                                         width:500px;
+                                         height:300px;
+                                         background-color:blue;
+                                         float:left;
+                                        }                                    
+                                         div#c{                                        
+                                         width:500px;
+                                         height:300px;
+                                         background-color:red;
+                                         float:left;                                                                      
+                                        }                                     
+                                </style>
+                            </head>
+                            <br></br>
+                          <p align="right">SYC-FOR-018-V2</p>
+                          <strong><h5 align="center">MEMORANDO</h5></strong>
+                            
+                            <div id="a">
+                                <strong><h6> <strong>PARA:</strong> <span t-field="o.jefe_inmediato_con"></span></h6></strong> <br></br>
+                                <strong><h6><strong>CARGO:</strong> <span t-field="o.cargo_jefe_inmediato_con"></span></h6></strong> <br></br>
+                                <strong><h6><strong>DE:</strong> GERENCIA RECURSOS HUMANOS CSC</h6></strong> <br></br>
+                                <br></br>
+                                <strong><h6><strong>FECHA:</strong> <span t-field="o.date_start"></span></h6></strong> <br></br>
+                                <strong><h6><strong>ASUNTO:</strong> PRESENTACIÓN COLABORADOR(A)  </h6></strong> <br></br>
+                                <br></br>
+                                <p align="justify" style="font-size:16px">Por este medio nos permitimos informarle que a partir de la fecha entra a formar parte de su equipo de trabajo:</p>
+                                <br></br>
+                                <strong><h6><strong>Nombre: <span t-field="o.employee_id"></span></strong></h6></strong> <br></br>
+                                <strong><h6><strong>Cédula: <span t-field="o.identificacion"></span></strong></h6></strong> <br></br>
+                                <strong><h6><strong>Cargo:<span t-field="o.job_id"></span> </strong></h6></strong> <br></br>
+                                <strong><h6><strong>Horario: <span t-field="o.resource_calendar_id"></span></strong></h6></strong> <br></br>
+                                <br></br>
+                                <p>Atentamente,</p>
+                                <br></br>
+                                <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="150" height="70"/><br></br>
+                                <strong><p>EDISON ENRIQUE LINARES BARRERO</p></strong>
+                                <span style="font-size:15px">Jefe de Gestion del Talento</span><br></br>
+                                <span style="font-size:13px"> <strong>Requisición:</strong> <span t-field="o.solicitante_contrato"></span>  <span> </span> <strong><span t-field="o.requisicion"></span></strong> </span>
+                               
+                            </div>
+                          
+                        </div>
+                    
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

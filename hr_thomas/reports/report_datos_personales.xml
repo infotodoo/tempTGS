@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom3"
+                string="SYC-FOR-051-SOLICITUD DE AUTORIZACIÓN PARA LA UTILIZACIÓN DE DATOS PERSONALES"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom3_template"
+        />
+
+
+        <template id="report_custom3_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                   
+                        <div class="page">
+                            <head>
+                                <style>
+                                    p {font-size:21px;}
+                                    span {font-size:21px;}
+                                    li {font-size:21px;}
+                                    *{
+                                        margin:0px;
+                                        padding:0px;
+                                        }                                    
+                                                                                
+                                         div#a{
+                                         margin:auto;
+                                         margin-top:90px;
+                                         width:900px;
+                                         height:450px;
+                                         border: 1px solid black;
+                                         margin:5px;
+                                         padding:5px;                                       
+                                        }                                   
+                                                                              
+                                        
+                                         div#b{                                        
+                                         width:500px;
+                                         height:300px;
+                                         background-color:blue;
+                                         float:left;                                       
+                                        }                          
+                                                                                          
+                                         div#c{                                        
+                                         width:500px;
+                                         height:300px;
+                                         background-color:white;
+                                         float:left;                                        
+                                        }                                       
+                                        
+                                </style>
+                            </head>
+                             <p align="right">SYC-FOR-051-V2</p>
+                              <strong><p align="center">SOLICITUD DE AUTORIZACIÓN PARA LA UTILIZACIÓN DE DATOS PERSONALES  TRABAJADORES
+                                
+                                     </p>
+                             </strong>
+                            <br></br>
+                            <p>
+                                Estimado(a) <strong> <span t-field="o.employee_id"></span></strong>
+                            </p>
+                            <p align="justify">
+                                Thomas Greg &amp; Sons Limited (Guernsey) S.A., sociedad comercial dedicada a la centralización de servicios de gestión humana de las Compañías del Grupo Thomas Greg &amp; Sons, así como a las empresas a las que les presta estos servicios, en adelante “LA COMPAÑÍA”, como Responsable del Tratamiento de la información, podrá recolectar, almacenar, usar, circular, transmitir, transferir o suprimir la información personal, general, de identificación, ubicación, sensible y socioeconómica actual y futura, suministrada por el Titular por el tiempo que sea necesario para alcanzar dicha finalidad o el máximo legal permitido. 
+                            </p>
+                            <p align="justify">
+                                Esta autorización comprende la información que suministro verbalmente o por escrito para las siguientes finalidades:
+                            </p>
+                            <p >
+                                <ul>
+                                    <li align="justify">Realizar pruebas psicotécnicas para evaluar el perfil y las competencias laborales de empleados de las Compañías del Grupo Thomas Greg &amp; Sons, o, de las empresas a las que les presta estos servicios como Centro de Servicios Compartidos, identificando las competencias y el perfil profesional de cada uno de ellos.</li>
+                                    <li align="justify">Actualizar de manera continua la información de los trabajadores de la Compañía y de las empresas a las cuales presta estos servicios como Centro de Servicios Compartidos.</li>
+                                    <li align="justify">Administrar el sistema de gestión de seguridad y salud en el trabajo, aplicando los controles para la prevención de accidentes laborales, realizando el registro y seguimiento de los reportes de accidentes laborales.</li>
+                                    <li align="justify">Realizar el seguimiento de los procesos de investigación de novedades disciplinarias de los trabajadores de las Compañías del Grupo Thomas Greg &amp; Sons, así como de las empresas a las cuales presta estos servicios como Centro de Servicios Compartidos. </li>
+                                    <li align="justify">Realizar seguimiento y control de las faltas disciplinarias graves en cabeza de los trabajadores de las Compañías del Grupo Thomas Greg &amp; Sons, así como de las empresas a las cuales presta estos servicios como Centro de Servicios Compartidos.</li>
+                                    <li align="justify">Soportar de manera física y digital las hojas de vida de los empleados de las Compañías del Grupo Thomas Greg  Sons, así como de las empresas a las cuales presta estos servicios como Centro de Servicios Compartidos, para consulta interna del perfil laboral de cada uno de los empleados.</li>
+                                    <li align="justify">Realizar evaluaciones de desempeño a los trabajadores de las Compañías del Grupo Thomas Greg  Sons, así como de las empresas a las cuales presta estos servicios como Centro de Servicios Compartidos, para establecer la antigüedad y monitorear el grado de eficacia y eficiencia de los trabajadores en el desempeño de su cargo.</li>
+                                    <li align="justify">Gestionar y acreditar los programas o cursos de capacitación y formación del personal, internos o externos, conforme los requerimientos del cargo y los lineamientos de LA COMPAÑÍA y de las empresas a las cuales presta estos servicios como Centro de Servicios Compartidos.</li>
+                                    <li align="justify">Gestionar las hojas de vida de los empleados de la Compañía y de las empresas a las cuales presta estos servicios como Centro de Servicios Compartidos, para la consulta interna del perfil académico del empleado, dando respuesta a solicitudes de información realizadas por las diferentes áreas de LA COMPAÑÍA y de las empresas a las cuales presta estos servicios como Centro de Servicios Compartido.</li>
+                                    <li align="justify">Gestionar las hojas de vida del personal del área de seguridad, para realizar seguimiento del historial laboral de cada uno de ellos. </li>
+                                    <li align="justify">Medio de consulta de contacto de emergencia del personal de las diferentes áreas de la Compañía. </li>
+                                    <li align="justify">Realizar el control y seguimiento del proceso de retiro del personal de las Compañías del Grupo Thomas Greg  &amp; Sons y de las empresas a las cuales preste estos servicios como Centro de Servicios Compartidos.</li>
+                                    <li align="justify">Promover el desarrollo de actividades de integración y bienestar de los empleados y su entorno familiar.</li>
+                                    <li align="justify">Administrar el sistema de gestión de seguridad y salud en el trabajo, para la promoción de la salud de los trabajadores; realizando un seguimiento de las enfermedades de origen común y de origen laboral y llevando el seguimiento y control de capacitaciones en seguridad y salud en el trabajo.</li>
+                                    <li align="justify">Registrar los ausentismos de los trabajadores, realizando un control y seguimiento de las incapacidades médicas y el estado de salud de cada uno de los trabajadores de LA COMPAÑÍA, así como de las compañías a las que presta estos servicios como Centro de Servicios Compartidos.</li>
+                                    <li align="justify">Gestionar el plan estratégico de seguridad vial, realizando el seguimiento de los conductores de  <strong>LA COMPAÑÍA,</strong>  así como de las compañías a las que presta estos servicios como Centro de Servicios Compartidos, y los comparendos en los que ha incurrido cada uno de ellos.</li>
+                                    <li align="justify">Seguimiento de los procesos de investigación de casos por abandono de puesto de trabajo del personal de las Compañías del Grupo Thomas Greg &amp; Sons, así como de las empresas a las que presta estos servicios como Centro de Servicios Compartidos.</li>
+                                    <li align="justify">Ingresar la información de los trabajadores al sistema informático para la creación del carné de identificación del trabajador, con el fin de controlar la entrada y salida de los trabajadores a las instalaciones de <strong>LA COMPAÑÍA</strong> y a las zonas autorizadas.</li>
+                                    <li align="justify">Controlar el ingreso y salida de los trabajadores, visitantes y aspirantes a las instalaciones de <strong>LA COMPAÑÍA</strong>  a través del circuito cerrado de video vigilancia.</li>
+                                    <li align="justify">Analizar y custodiar las grabaciones de voz de los trabajadores de  <strong>LA COMPAÑÍA,</strong>  obtenidas a través de las llamadas telefónicas (entrantes y/o salientes), a efectos de evaluar la prestación del servicio brindado a los clientes, proveedores y terceros en el desempeño de sus labores.</li>
+                                </ul>
+                            </p>
+                            
+                            <p align="justify">
+                               <strong>Datos Sensibles:</strong> Dentro de los datos personales que proporciono a   <strong>LA COMPAÑÍA</strong> se encuentran los resultados de exámenes médicos, órdenes y relación de pruebas complementarias como laboratorio, imagen, endoscopias, patologías, estudios, diagnósticos médicos generales o especializados, psicológicos o psiquiátricos, medicamentos y/o tratamientos médicos y datos biométricos, los cuales son catalogados como información sensible y son de facultativo suministro.
+
+
+                            </p>
+                            <p align="justify">
+                                El titular es informado del carácter facultativo de la respuesta a las preguntas que le sean hechas, cuando estas versen sobre datos sensibles o sobre los datos de las niñas, niños y adolescentes y de sus derechos que le asisten como titular de (a) Conocer, actualizar y rectificar sus datos personales. Este derecho se podrá ejercer, entre otros frente a datos parciales, inexactos, incompletos, fraccionados, que induzcan a error, o aquellos cuyo Tratamiento esté expresamente prohibido o no haya sido autorizado; (b) Solicitar prueba de la autorización otorgada al Responsable del Tratamiento salvo cuando expresamente se exceptúe como requisito para el Tratamiento, de conformidad con lo previsto en el artículo 10 de la  ley 1581 de 2012; (c) Ser informado por el Responsable del Tratamiento o el Encargado del Tratamiento, previa solicitud, respecto del uso que le ha dado a sus datos personales; (d) Presentar ante la Superintendencia de Industria y Comercio quejas por infracciones a lo dispuesto en la presente ley y las demás normas que la modifiquen, adicionen o complementen; (e) Revocar la autorización y/o solicitar la supresión del dato cuando en el Tratamiento no se respeten los principios, derechos y garantías constitucionales y legales. La revocatoria y/o supresión sólo procederá cuando la Superintendencia de Industria y Comercio haya determinado que en el Tratamiento el Responsable o Encargado han incurrido en conductas contrarias a esta ley y a la Constitución. (f) Acceder en forma gratuita a sus datos personales que hayan sido objeto de tratamiento.
+                            </p>
+                            <p align="justify">
+                                Adicionalmente, el titular podrá solicitar la supresión de sus datos personales, abstenerse de suministrar información personal de naturaleza sensible, solicitar y revocar la autorización otorgada, ser informado sobre el uso que se da a sus datos y consultar de forma gratuita los datos personales suministrados, atendiendo a lo dispuesto en la Ley 1581 de 2012 y sus decretos reglamentarios.
+                            </p>
+                            <p align="justify">
+                               <strong>Autorización:</strong> Autorizo de manera previa, explícita, inequívoca e informada a  <strong>LA COMPAÑÍA</strong> para que recolecte y trate mis datos personales, incluidos los datos personales sensibles para las finalidades indicadas en el presente documento. Por lo tanto, <strong>LA COMPAÑÍA</strong> podrá realizar todos los usos necesarios para alcanzar dichas finalidades, como, entre otros, los siguientes: a) Identificar y ubicar a empleados; b) Identificar el entorno familiar y social de empleados; c) Informar los cambios y/o modificaciones frente a las funciones del cargo que desempeñe durante la vinculación con el Grupo y sus empresas, d) Comunicar noticias, beneficios, requerimientos y promociones ofrecidas por el Grupo y sus empresas y/o terceros; e) Evaluar y calificar el desempeño y desarrollo de actividades por parte de empleados; f) Certificar la experiencia, formación y competencias, de empleados; g), Consultar y/o reportar información acerca del comportamiento crediticio, financiero y comercial en centrales de riesgo financiero, listados para la prevención del lavado de activos y/o financiamiento del terrorismo; h) Consultar y verificar antecedentes de carácter disciplinario fiscal, judiciales y/o penales, en las bases de datos de los órganos de control y empresas que presten dicho servicio de verificación; i) Analizar los datos de carácter personal, financiero y todos aquellos que puedan obtenerse de la realización de pruebas psicotécnicas, de polígrafo, visitas domiciliarias y entrevistas sean estas, efectuadas por personal de la empresa o terceros contratados, con el fin de validar la conveniencia o viabilidad de entablar relaciones con sus trabajadores o futuros empleados o contratistas; j) Analizar y/o utilizar las imágenes que sean obtenidas a través del circuito cerrado de televisión y/o cámaras de seguridad que se encuentren instaladas al interior de las empresas del grupo Thomas o de las instalaciones de clientes; k) Trasladar la información necesaria para el cumplimiento de las obligaciones contraídas con el empleado, al Grupo y sus empresas a nivel nacional e internacional, cuando sea necesario vincularlas para tal fin; l) Brindar la información necesaria y específica, cuando la misma sea requerida por autoridades, siempre y cuando medie requerimiento judicial o acto administrativo que así lo determine; m) Transferir la información contenida en las bases de datos, a nivel nacional e internacional, siempre que el país de destino cumpla con las especificaciones mínimas exigidas por la Superintendencia de Industria y Comercio.
+                            </p>
+                            <p align="justify">
+                                Por lo anterior y de acuerdo con el interés de proteger su privacidad, así como sus derechos, autoriza expresamente al tratamiento de su información personal, de acuerdo con la Política para el Tratamiento que ha dispuesto la Compañía, la cual está disponible para su consulta a través de la página web: https://www.thomasgregandsons.com. Así mismo, en el evento que requiera realizar alguna solicitud, consulta o reclamo relacionada con el tratamiento de la información personal efectuado por la Compañía, podrá realizarlo a través de cualquiera de los siguientes canales:
+                            </p>
+                            <p>
+                                <ul>
+                                    <li>Correo electrónico: protecciondatos.limited@thomasgreg.com</li>
+                                    <li>Dirección física: Carrera 42 Bis # 17 A - 75 de Bogotá. </li>
+                                    <li>Teléfono: 57 (1) 369 3720 </li>
+                                </ul>
+                            </p>
+                            <div id="a" style="page-break-inside: avoid;"> <p align="justify">Yo, <strong> <span t-field="o.employee_id"></span> </strong>, identificado con cédula de ciudadanía <strong> <span t-field="o.identificacion"></span> </strong> de <strong> <span t-field="o.lugar_expedicion_contratado"></span> </strong>, doy fe del conocimiento de mis derechos como titular de los datos personales que he entregado libremente a  <strong>LA COMPAÑÍA.</strong> Así mismo, autorizo de manera previa, explícita, inequívoca e informada a <strong>LA COMPAÑÍA</strong> para que recolecte y trate mis datos personales, incluidos los datos personales sensibles, de conformidad con lo expresado en el presente documento, lo previsto en la política de protección de datos personales y de conformidad con la Ley Estatutaria 1581 de 2012, decretos reglamentarios y normas aplicables.</p> <br></br><br></br> <strong>   <span>  <p> <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="130" height="90"/></p>    </span><br></br> <span>Firma:</span>  </strong>  <br></br><br></br> <strong><span>No. Identificación: </span><span t-field="o.identificacion"></span></strong> <br></br>  <strong> <span>Fecha:</span> <span t-esc="o.fecha_firma_contrato.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/>   de   <span t-esc="o.fecha_firma_contrato.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')"  t-esc-options="{'widget': 'num2words','case':'capital'}"/> de  <span t-esc="o.fecha_firma_contrato.strftime('%Y')"/> </strong> </div>
+                        </div>
+                   
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

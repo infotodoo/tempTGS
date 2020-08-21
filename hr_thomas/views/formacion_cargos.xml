@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="view_formacion_cargos_form" model="ir.ui.view">
+      <field name="name">formacion.cargos.form</field>
+      <field name="model">formacion.cargos</field>
+      <field name="arch" type="xml">
+        <form string="formacion">
+           <group>
+             <group>
+               <field name="formacion_especifica"/> 
+               <field name="certificado_academico"/>
+               <field name="prueba_tecnica"/> 
+               <field name="certificado_laboral_funciones"/>               
+            
+             </group>
+           </group>         
+                              
+          
+        </form>
+      </field>
+    </record>  
+
+    <record id="view_formacion_cargos_tree" model="ir.ui.view">
+      <field name="name">formacion.cargos.tree</field>
+      <field name="model">formacion.cargos</field>
+        <field name="arch" type="xml">
+            <tree string="sector activos">
+                <field name="formacion_especifica"/>
+                <field name="certificado_academico"/>
+                <field name="prueba_tecnica"/> 
+                <field name="certificado_laboral_funciones"/>                         
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_formacion_cargos" model="ir.actions.act_window">
+        <field name="name">Formación Cargos</field>
+        <field name="res_model">formacion.cargos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Formación Cargos
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Formación Cargos'
+            action='action_formacion_cargos'
+            id='formacion_cargos_menu'
+            parent='hr.menu_human_resources_configuration_employee'
+            sequence='98' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>

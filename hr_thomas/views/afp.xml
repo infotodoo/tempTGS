@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="afp_form" model="ir.ui.view">
+      <field name="name">afp.form</field>
+      <field name="model">afp</field>
+      <field name="arch" type="xml">
+        <form string="sfp">
+           <group>
+             <group>
+                <field name="nombre_afp" string="AFP" required="True"/>
+                <field name="identificador" string="Identificador" required="True"/>
+              
+             </group>
+           </group>   
+        </form>
+      </field>
+    </record> 
+
+    <record id="view_afp_tree" model="ir.ui.view">
+      <field name="name">eps.tree</field>
+      <field name="model">afp</field>
+        <field name="arch" type="xml">
+            <tree string="sector afp">
+               <field name="identificador" string="Identificador" required="True"/>
+               <field name="nombre_afp" string="AFP"/>
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_afp" model="ir.actions.act_window">
+        <field name="name">AFP</field>
+        <field name="res_model">afp</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            AFP
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='AFP'
+            action='action_afp'
+            id='afp_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='18' /> 
+    </data>   
+</odoo>

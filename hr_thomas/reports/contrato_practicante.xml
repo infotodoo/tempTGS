@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom2006"
+                string="SYC-FOR-036 MINUTA CONTRATO PRACTICANTE"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom2006_template"
+        />
+        
+        <record id="paperformat_low_monthly_report" model="report.paperformat">
+          <field name="name">PF Thomas Report Talento</field>
+          <field name="default" eval="True"/>
+          <field name="format">A4</field>
+          <field name="page_height">0</field>
+          <field name="page_width">0</field>
+          <field name="orientation">Portrait</field>
+          <field name="margin_top">10</field>
+          <field name="margin_bottom">15</field>
+          <field name="margin_left">30</field>
+          <field name="margin_right">30</field>
+          <field name="header_line" eval="False"/>
+          <field name="header_spacing">3</field>
+          <field name="dpi">90</field>
+        </record>
+
+        <template id="report_custom2006_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    
+                        <div class="page">
+
+                            <head>
+                                <style>
+                                  p {font-size:20px;}
+                                  span {font-size:20px;}
+                                  li {font-size:20px;}
+                                  div {font-size:20px;}
+  
+                                  
+                                  *{
+                                    margin:0px;
+                                    padding:0px;
+                                    }                               
+                                    
+                                    
+                                     div#a{
+                                     margin:auto;
+                                     margin-top:60px;
+                                     width:1100px;
+                                     height:100px;
+                                     border: 0px solid black;
+                                   
+                                    }                            
+                                    
+                                    
+                                    
+                                     div#b{
+                                    
+                                     width:500px;
+                                     height:100px;
+                                     background-color:white;
+                                     float:left;
+                                   
+                                    }                          
+                                                                    
+                                    
+                                    
+                                     div#c{
+                                    
+                                     width:500px;
+                                     height:100px;
+                                     background-color:white;
+                                     float:left;                             
+                                                                     
+                                   
+                                    }                               
+                                    
+    
+                                </style>                          
+                              </head>
+
+
+
+
+                            <p align="right">SYC-FOR-036-V2</p>
+                            <strong><p align="center">CONTRATO DE PRACTICANTE</p></strong>
+                            <p align="justify">
+                                Entre los suscritos de una parte <strong><span t-field="o.nombre_representante"></span></strong>, identificado con la Cédula de Ciudadanía No. <strong><span t-field="o.cedula_representante"></span></strong> de   <strong><span t-field="o.lugar_expedicion_con"></span></strong> actuando en calidad de Representante Legal de la Sociedad  <strong><span t-field="o.company_id"></span></strong> quien para los efectos del presente contrato se denominará la  <strong>EMPRESA,</strong>  y de la otra parte   <strong><span t-field="o.employee_id"></span></strong> identificado (a) con Cédula de Ciudadanía número (o Tarjeta de Identidad) número  <strong><span t-field="o.identificacion"></span></strong> de  <strong><span t-field="o.lugar_expedicion_contratado"></span></strong> quien para los efectos de este contrato se denominará el  <strong>PRACTICANTE,</strong>  se suscribe el presente Contrato de <strong>PRACTICANTE</strong>  conforme a lo preceptuado por la Ley 789 de 2002, el Decreto 933 de 2003, y demás normas concordantes, y que se regirá por las siguientes cláusulas: 
+                            </p>
+                            <p align="justify">
+                                <strong>PRIMERA. Objeto. -</strong>  El Presente contrato tiene como objeto garantizar al <strong>PRACTICANTE</strong>  su desarrollo en el oficio, actividad y ocupación de <strong>PRACTICANTE,</strong>  la cual se impartirá en su Etapa Lectiva por la _________________________________________________ mientras su Etapa de Práctica se llevará a cabo en la <strong>EMPRESA</strong>  para que pueda el <strong>PRACTICANTE</strong>  adquirir la formación profesional metódica y completa requerida en la actividad arriba señalada. 
+                            </p>
+                            <p align="justify">
+                                <strong>SEGUNDA. - Duración. -</strong> El presente contrato tendrá un término de duración de <strong><span t-field="o.tiempo_contrato_inc"></span><span>  </span><span t-field="o.rango_contrato"></span></strong>, contados a partir de su iniciación, término que se distribuirá así:
+                            </p>
+                            <p align="justify">
+                                - Una etapa Práctica que va del  <strong><span t-esc="o.date_start.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/>  de <span t-esc="o.date_start.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> de <span t-esc="o.date_start.strftime('%Y')"/>.</strong> al  <strong><span t-esc="o.fecha_fin_etapa_lectiva.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/>  de <span t-esc="o.fecha_fin_etapa_lectiva.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> de <span t-esc="o.fecha_fin_etapa_lectiva.strftime('%Y')"/>.</strong> <br></br>El presente contrato de PRACTICANTE rige a partir del  <strong><span t-esc="o.Fecha_Inicio_Etapa_Productiva.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/>  de <span t-esc="o.Fecha_Inicio_Etapa_Productiva.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> de <span t-esc="o.Fecha_Inicio_Etapa_Productiva.strftime('%Y')"/>.</strong> hasta  <strong><span t-esc="o.fecha_fin_etapa_productiva.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/>  de <span t-esc="o.fecha_fin_etapa_productiva.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> de <span t-esc="o.fecha_fin_etapa_productiva.strftime('%Y')"/>.</strong> fecha prevista como terminación de la etapa productiva. 
+                            </p>
+                            <p align="justify">
+                                <strong>PARÁGRAFO No. 1:</strong> En cumplimiento del Artículo 30 de la Ley 789 de 2002, los términos del presente contrato no podrán ser superiores a dos (2) años.
+                            </p>
+                            <p align="justify">
+                                <strong>PARAGRAFO No. 2:</strong> No obstante, lo establecido en esta cláusula, de acuerdo con las pertinentes circunstancias las partes podrán modificar las fechas de iniciación y terminación de las etapas antedichas.
+                            </p>
+                            <p align="justify">
+                               <strong>TERCERA. - Son obligaciones</strong>
+                            </p>
+                            <p align="justify">
+                                <strong>1) POR PARTE DE LA EMPRESA:</strong>
+                            </p>
+                            <p align="justify">
+                                a)	Cancelar oportunamente al <strong>PRACTICANTE</strong> un Apoyo de Sostenimiento Mensual de acuerdo con la etapa que se esté cumpliendo o desarrollando así: La suma de <strong>Cancelar oportunamente al PRACTICANTE un Apoyo económico Mensual de  <span t-field="o.wage"></span><span>  </span> <span t-if="o.currency_id" t-esc="o.currency_id.amount_to_text(o.wage)"></span><span>s</span>  durante la etapa practica.</strong> <br></br><strong>PARAGRAFO.</strong> Este Apoyo de Sostenimiento no constituye salario en forma alguna, ni podrá ser regulado a través de convenios o contratos colectivos o fallos arbitrales que recaigan sobre estos últimos. 
+                            </p>
+                            <p align="justify">
+                                b)	Afiliar al <strong>PRACTICANTE</strong> al Sistema General de Seguridad Social en Salud y realizar el pago mensual de las cotizaciones conforme a las normas pertinentes.
+                            </p>
+                            <p align="justify">
+                                c)	Afiliar al <strong>PRACTICANTE</strong> al Sistema General de Seguridad Social en Riesgos Profesionales únicamente durante el lapso de la Etapa Práctica en la A.R.P. que maneja la <strong>EMPRESA</strong>  para el resto de su personal. 
+                            </p>
+                            <p align="justify">
+                               <strong>2) POR PARTE DEL PRACTICANTE:</strong>
+                            </p>
+                            <p align="justify">
+                                a)	Concurrir puntualmente a las clases durante los períodos de enseñanza para así recibir la formación profesional integral a que se refiere el presente contrato, someterse a los reglamentos y normas establecidas por el respectivo centro de formación y poner toda diligencia y aplicación a lograr el mayor rendimiento en su formación. 
+                            </p>
+                            <p align="justify">
+                                b)	Concurrir puntualmente al lugar asignado por la <strong>EMPRESA</strong>  para desarrollar su formación en la fase práctica durante el período aquí establecido para la misma en actividades que se le encomienden cumpliendo con las indicaciones que le señale la <strong>EMPRESA.</strong>
+                            </p>
+                            <p align="justify">
+                                c)	Cumplir todas las prescripciones de orden, seguridad, privacidad, confidencialidad y fidelidad que disponga la <strong>EMPRESA</strong> y que surjan de la naturaleza misma de la relación jurídica que existirá entre las partes. 
+                            </p>
+                            <p align="justify">
+                                d)	Guardar absoluto respeto y adecuado y correcto tratamiento con todos los trabajadores de la <strong>EMPRESA</strong> y con los clientes y visitantes de la misma. 
+                            </p>
+                            <p align="justify">
+                                e)	Facilitar toda la información, documentos, y trámites relativos a su afiliación como trabajador independiente al sistema de seguridad social en salud de forma oportuna.
+                            </p>
+                            <p align="justify">
+                                Cualquier trasgresión o desacato de las obligaciones aquí contenidas dará lugar a la inmediata terminación del presente contrato.
+                            </p>
+                            <p align="justify">
+                                <strong>CUARTA. - Supervisión.</strong>  En la etapa Lectiva o de formación, la EMPRESA podrá supervisar en la entidad de Formación respectiva la asistencia y el rendimiento académico del PRACTICANTE, a efectos de verificar y asegurar la realidad y efectiva utilización del tiempo en la citada Etapa por parte de éste. 
+                            </p>
+                            <p align="justify">
+                                <strong>QUINTA. - Cese de actividades. -</strong> Cuando motivos de fuerza mayor impidan que el PRACTICANTE pueda cumplir con la parte lectiva de su formación profesional integral en la Entidad de Formación correspondiente, deberá cumplir con las actividades encomendadas por la empresa para desarrollar la fase práctica de su formación. 
+                                Así mismo, cuando se presente un cese legal de actividades en la EMPRESA o cualquier otra circunstancia similar que no permita desarrollar la formación del PRACTICANTE en su fase práctica, se suspenderá el presente contrato hasta que termine el cese legal de actividades en la EMPRESA o desaparezca la aludida circunstancia y se den las condiciones para que el PRACTICANTE continúe con el desarrollo de su actividad en virtud del cumplimiento de la fase práctica de la formación. 
+
+                            </p>
+                            <p align="justify">
+                                <strong>SEXTA.- Confidencialidad.-</strong> El  <strong>PRACTICANTE</strong> se obliga expresamente a abstenerse de usar, duplicar, divulgar, o explotar en cualquier sentido y por cualquier medio, para cualquier fin industrial o comercial, en forma pública o privada a terceros y/o familiares, en cualquier sentido y medida, y por cualquier medio, con ánimo de lucro o sin él, cualquiera de los conocimientos e informaciones a que tenga acceso en la prestación y desarrollo de sus servicios, so pena de hacerse íntegramente responsable por cualquier concepto derivado de la violación de estas obligaciones, especialmente las relativas a las bases de datos de los clientes, proveedores, contratos, negocios, ventas, precios, compradores, contratos, etc., y demás informaciones que maneje el PRACTICANTE o que tenga acceso a cualquier título y por cualquier medio en el ejercicio de su práctica; además se abstendrá el PRACTICANTE de establecer o tratar de entablar relaciones comerciales con los referidos clientes en perjuicio o no de la <strong>EMPRESA.</strong>
+                            </p>
+                            <p align="justify">
+                                <strong>SEPTIMA. - Terminación. -</strong> El presente contrato podrá darse por terminado en los siguientes casos: 
+                            </p>
+                            <p align="justify">
+                                a)	Por mutuo acuerdo entre las partes o por la decisión unilateral de una cualquiera de ellas en cualquier tiempo, bastando para ello un preaviso de un (1) día.
+                            </p>
+                            <p align="justify">
+                                b) Por vencimiento del término de duración del presente contrato. 
+                            </p>
+                            <p align="justify">
+                                c) Por la cancelación de la matrícula por parte del SENA o de la entidad, institución, universidad, colegio, o instituto del que sea miembro el PRACTICANTE de acuerdo con el reglamento previsto para los alumnos.
+                            </p>
+                            <p align="justify">
+                                d) El incumplimiento de las obligaciones previstas para cada una de las partes. 
+                            </p>
+                            <p align="justify">
+                                <strong>OCTAVA. - Relación Laboral. -</strong> El presente contrato no implica relación laboral alguna entre las partes y se regirá en todas sus partes por la Ley 789 de 2002, sus Decretos Reglamentarios, y demás normas concordantes. El <strong>PRACTICANTE</strong> declara bajo la gravedad de juramento que no se encuentra ni ha estado vinculado con la <strong>EMPRESA</strong> en una relación de <strong>PRACTICANTE.</strong> Así mismo, declara que no se encuentra ni ha estado vinculado mediante una relación laboral con la <strong>EMPRESA.</strong>
+                            </p>
+                            <p align="justify">
+                                <strong>NOVENA.- Derechos De Autor, Invenciones, Descubrimientos:</strong> el <strong>PRACTICANTE</strong>  acepta de manera expresa y voluntaria que todas los procedimientos, descubrimientos, invenciones, fórmula, obras protegidas por derechos de propiedad intelectual y las mejoras en los procedimientos de cualquier tipo que el <strong>PRACTICANTE</strong> llegue a producir, generar o crear, lo mismo que todos los trabajos y consiguientes resultados de las actividades que el <strong>PRACTICANTE</strong> realice durante la prestación sus servicios a la <strong>EMPRESA,</strong> quedarán de propiedad exclusiva de la <strong>Empresa,</strong> de conformidad con lo dispuesto en las leyes vigentes. Además, la <strong>EMPRESA</strong> tendrá el derecho de patentar o registrar a su nombre o a nombre de terceros esos inventos, obras o mejoras para lo cual el Empleado adquiere la obligación y el compromiso de acceder y facilitar el cumplimiento oportuno de las correspondientes formalidades y dará su firma y otorgará los poderes y documentos necesarios para tal fin según se lo indique la <strong>EMPRESA,</strong> sin que éste quede obligado al pago de compensación alguna ya que la <strong>EMPRESA</strong> remunera y paga el tiempo durante el cual el <strong>PRACTICANTE</strong> presta con exclusividad sus servicios y además suministra los medios, implementos, datos, infraestructura y demás ayudas para la actividad del <strong>PRACTICANTE</strong>  que produce la invención u obra. En consecuencia, el <strong>PRACTICANTE</strong> no tiene derecho a reclamar ninguna compensación, pago o indemnización y renuncia a cualquier reclamación administrativa, judicial o arbitral sobre estos aspectos. El incumplimiento de esta obligación se califica como falta grave. Como en el curso de la relación laboral el <strong>PRACTICANTE</strong> tiene acceso a secretos y a investigaciones confidenciales del <strong>PRACTICANTE</strong> y sus Compañías Afiliadas, todos los descubrimientos e inventos, incluyendo aquellos que se encuentren en estado de desarrollo, relacionados con el negocio o las actividades investigativas de la <strong>EMPRESA</strong> y sus Compañías Afiliadas, que el <strong>PRACTICANTE</strong> haya realizado o conocido en el desempeño de sus funciones propias de su empleo, solo o conjuntamente con otros, será propiedad de la <strong>EMPRESA.</strong> Una vez se conozca los descubrimientos o inventos, el <strong>PRACTICANTE</strong> adquiere la obligación de informarlos inmediata y espontáneamente la <strong>EMPRESA.</strong> A solicitud de la <strong>EMPRESA</strong> y por su cuenta y riesgo, el <strong>PRACTICANTE</strong> o sus mandatarios solicitarán en nombre de la empresa las patentes para dichos descubrimientos e inventos en Colombia o en el extranjero para lo cual firmarán todos los documentos que sean necesarios, incluidas las cesiones de patentes que les indique la <strong>EMPRESA</strong>  y se obliga a prestar toda la colaboración para cualquier procedimiento relacionado con las patentes y solicitudes de patentes. El incumplimiento de esta obligación se califica como falta grave.
+                            </p>
+                            <p align="justify">
+                                Para los efectos de Ley, se firma el presente contrato a los  <strong><span t-esc="o.fecha_firma_contrato.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> días del mes de <span t-esc="o.fecha_firma_contrato.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> de <span t-esc="o.fecha_firma_contrato.strftime('%Y')"/></strong>
+                            </p>
+                            <br></br>
+
+                            <div id="a">
+                               <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="400" height="150"/><br></br>
+                               <div id="b"><strong><span t-field="o.nombre_representante"></span><br></br><span>C.C.</span><span t-field="o.cedula_representante"></span>  <span> </span> <span>de</span> <span> </span>  <span t-field="o.lugar_expedicion_con"></span>    <br></br><span t-field="o.cargo_representante"></span></strong></div>
+                               <div id="c"><strong><span t-field="o.employee_id"></span><br></br><span>C.C.</span><span t-field="o.identificacion"></span> <span> </span> <span>de</span> <span> </span> <span t-field="o.lugar_expedicion_contratado"></span>   <br></br><span>TÉLEFONO:</span><span>  </span><span t-field="o.telefono_empleado"></span><br></br><span>DIRECCIÓN:</span><span>  </span><span t-field="o.Via_principal"></span><span>  </span><span t-field="o.nombre_via_principal"></span><span>  </span><span t-field="o.via_generadora"></span><span>   </span><span t-field="o.predio"></span><span>   </span><span t-field="o.complemento"></span></strong></div>
+                            </div>
+
+                        </div>
+                   
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

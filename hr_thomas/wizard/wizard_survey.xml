@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="create_survey_form" model="ir.ui.view">
+        <field name="name">wizard.survey.form</field>
+        <field name="model">wizard.survey</field>
+        <field name="arch" type="xml">
+            <form string="Entrevistas">
+                <header>
+                    <button name="action_start_survey" type="object" string="Enviar" class="oe_highlight"></button>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="survey_id" domain="[('id', 'in', (surveys_id))]" required="True"/>  
+                    </group>
+                    <group>
+                        <field name="applicant_id" invisible="True"/>
+                        <field name="job_id" readonly="True"/>
+                      
+                        <field name="surveys_id" readonly="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="launch_the_wizard" 
+            name="Seleccionar Entrevista" 
+            binding_model="hr.job" 
+            res_model="wizard.survey" 
+            view_mode="form" 
+            target="new" />
+    
+    <record id="hr_applicant_form_inherit" model="ir.ui.view">
+        <field name="name">hr.applicant.form.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment_survey.hr_applicant_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_start_survey']" position="replace">
+                <button name="%(launch_the_wizard)d" icon="fa-user" class="oe_stat_button" type="action" string="Entrevistas"/>
+            </xpath>        
+        </field>
+    </record>
+</odoo>

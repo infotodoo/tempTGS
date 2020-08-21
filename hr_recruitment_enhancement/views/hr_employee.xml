@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page name="applicant_info" string="Applicant Information">
+                    <group name="applicant_info_group">
+                        <field name="applicant_categ_ids" widget="many2many_tags" readonly="1"/>
+                        <field name="applicant_type_id" readonly="1"/>
+                        <field name="applicant_medium_id" readonly="1"/>
+                        <field name="applicant_source_id" readonly="1"/>
+                    </group>
+                    <group string="Contract">
+                        <label for="applicant_salary_expected"/>
+                        <div class="o_row">
+                            <field name="applicant_salary_expected" readonly="1"/>
+                            <span attrs="{'invisible':[('applicant_salary_expected_extra','=',False)]}"> + </span>
+                            <field name="applicant_salary_expected_extra" placeholder="Extra advantages..." readonly="1"/>
+                        </div>
+                        <label for="applicant_salary_proposed"/>
+                        <div class="o_row">
+                            <field name="applicant_salary_proposed" readonly="1"/>
+                            <span attrs="{'invisible':[('applicant_salary_proposed_extra','=',False)]}"> + </span>
+                            <field name="applicant_salary_proposed_extra" placeholder="Extra advantages..." readonly="1"/>
+                        </div>
+                        <field name="applicant_availability" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+         </field>
+    </record>
+</odoo>

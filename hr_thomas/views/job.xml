@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_job_form_inherit" model="ir.ui.view">
+        <field name="name">job.form.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">           
+           
+            <xpath expr="//field[(@name='description')]" position="replace">
+                <field name="description_job"/>
+            </xpath>
+
+            <xpath expr="//div[(@name='button_box')]" position="after">
+                <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" attrs="{'invisible': [('state', '!=', 'archive')]}"/>
+            </xpath>
+
+            <xpath expr="//button[(@name='set_open')]" position="after">
+                <button name="button_open" string="Confirmar" states="create,write" type="object"/>
+                <button name="button_create" string="Borrador" states="unlink" type="object"/>
+            </xpath>
+            <xpath expr="//field[(@name='user_id')]" position="after">
+                <field name="active" invisible="True"/>
+                <field name="modificacion" string="Modificación" attrs="{'invisible': [('state', '!=', 'open')]}"/>
+                <field name="eliminacion" string="Eliminación" attrs="{'invisible': [('state', '!=', 'open')]}"/>
+            </xpath>
+            <xpath expr="//sheet/div[2]" position="after">
+                <h2>1. Identificación del Cargo				
+                </h2>
+            </xpath>
+            <xpath expr="//sheet/div[3]" position="replace">
+                <div>
+                    <label for="description"/>
+                    <field name="description"/>
+                </div>
+            </xpath>
+            <xpath expr="//sheet/group[1]" position="after">
+                <group>
+                    <group>
+                        <field name="tht" string="Cargo en THT" required="True"/>
+                                               
+                        <field name="jefe_inmediato_apl" string="Jefe Inmediato"/>                        
+                         
+                        <field name="tiene_personal_cargo" string="Tiene Personal a Cargo" required="True"/>
+                        <field name="cargo1" attrs="{'invisible': [('tiene_personal_cargo', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user"/>
+                        <field name="tipo_relacion1" attrs="{'invisible': [('tiene_personal_cargo', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user" string="Tipo de Relación"/>
+                        <field name="cargo2" attrs="{'invisible': [('tiene_personal_cargo', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user"/>
+                        <field name="tipo_relacion2" attrs="{'invisible': [('tiene_personal_cargo', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user" string="Tipo de Relación"/>
+                        <field name="cargo3" attrs="{'invisible': [('tiene_personal_cargo', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user"/>
+                        <field name="tipo_relacion3" attrs="{'invisible': [('tiene_personal_cargo', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user" string="Tipo de Relación"/>                        
+                        <field name="cargo4" attrs="{'invisible': [('tiene_personal_cargo', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user"/>
+                        <field name="tipo_relacion4" attrs="{'invisible': [('tiene_personal_cargo', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user" string="Tipo de Relación"/>
+                        <field name="procesos_servicios_per"/>       
+                             
+                    </group>
+                    <group>
+                        <div>
+                            <h2>
+                              2. Especificaciones
+                            </h2>
+                            <h2>
+                                2.1 Educación
+                              </h2>
+                          </div>
+                        <field name="nivel_primario_educativo_minimo" string="Nivel Primario Educativo Mínimo Requerido"
+                               required="True"/>
+                        <field name="nombre_programa_carrera" string="Nombre del Programa o Carrera" required="True"/>
+                        <field name="nivel_secundario_educativo" string="Nivel Secundario Educativo Requerido"/>
+                        <field name="nombre_programa" string="Nombre del Programa"/>
+                        <field name="requiere_tarjeta_profesional" string="Requiere tarjeta y/o Licencia profesional"/>
+                      
+                       
+                    </group>
+                </group>
+                <group>
+                    <div>
+                        <h2>
+                          2.2 Formación
+                        </h2>                  
+                                          
+                      <field name="formacion_esp">
+                           <tree editable="bottom">
+                              <field name="formacion_especifica" string="Formación Especifica"/>
+                              <field name="certificado_academico" string="Certificado Académico"/>
+                              <field name="prueba_tecnica" string="Prueba Técnica"/>
+                              <field name="certificado_laboral_funciones" string="Certificado Laboral Funciones"/>
+                          </tree>
+                      </field>
+                    </div>
+                </group>
+                <group>
+                    <div>
+                        <h2>
+                          2.3 Experiencia
+                        </h2>
+                       
+                     <group>
+                        <field name="general" string="General"/>
+                        <field name="especifica_cargos_similares" string="Especifica y/o en cargos similares"/>
+                     </group>
+                    
+                    </div>
+                </group>
+                <group>
+                    <div>
+                        <h2>3. Descripción del Cargo</h2>
+                     <group string="3.1 Objetivo del Cargo">
+                       
+                        <field name="objetivo_cargo" string="Objetivo" required="True"/>
+                   
+                     </group>
+                   </div> 
+                    <group string="3.2 Escala Salarial">
+                        <field name="aplica"/>
+                        <field name="minimo" attrs="{'invisible': [('aplica', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user"/>
+                        <field name="maximo" attrs="{'invisible': [('aplica', 'not in', ['SI'])]}"
+                               groups="hr.group_hr_user"/>
+                    </group>
+                    <group string="3.3 Funciones">
+                        <field name="que_hace" string="Que hace?" required="True"/>
+                        <field name="como_lo_hace" string="Como lo hace?" required="True"/>
+                    </group>
+                    <group string="4. Deberes">
+                        <field name="deberes" string="Deberes" required="True"/>
+                    </group>
+                    <group string="5. Responsabilidades">
+                        <field name="responsabilidades" string="Responsabilidades" required="True"/>
+                    </group>
+                    <group string="6. Nivel de Autoridad">
+                        <field name="nivel_autoridad" string="Nivel de Autoridad" required="True"/>
+                    </group>
+                </group>
+                <group string="7. Activos del Cargo">
+                    <field name="activos_line" string="Activos">
+                        <tree editable="bottom">
+                            <field name="categoria" string="Categoría" required="True"/>
+                            <field name="activo_cargo" string="Activo del Cargo" required="True"/>
+                        </tree>
+                    </field>
+                </group>
+                <group string="8. Informes">
+                    <field name="reportes">                                          
+
+                    </field>  
+                </group>
+            </xpath>
+            <xpath expr="//form/div" position="replace">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_recruitment_survey.hr_job_survey_inherit" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="hr_job_survey" model="ir.ui.view">
+        <field name="name">hr.job.survey</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_job_survey"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="surveys_id" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

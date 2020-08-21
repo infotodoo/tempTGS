@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="view_formacion_form" model="ir.ui.view">
+      <field name="name">formacion.form</field>
+      <field name="model">formacion</field>
+      <field name="arch" type="xml">
+        <form string="formacion">
+           <group>
+              <group> 
+                <field name="Empleado_solicitante" string="Aplicante"/>              
+                <field name="empleado_formacion" string="Empleado"/>                   
+                <field name="formacion" string="Formación" required="True"/>
+                <field name="estudia_actualmente_for" string="Estudia Actualmente" required="True"/>
+                <field name="nombre_institucion" string="Nombre Institución" required="True"/>
+                <field name="titulo_obtenido" string="Título Obtenido" required="True"/>
+                <field name="clase_titulo" string="Clase de Instituto" required="True"/>
+                <field name="estado_formacion" string="Estado Formación" required="True"/>
+                <field name="pais_donde_estudio" string="País Donde Estudio" required="True"/>
+                <field name="tiempo_estudio" string="Tiempo Estudio" required="True"/>
+                <field name="periocidad_estudio" string="Periocidad Estudio" required="True"/>
+                <field name="fecha_graduacion" string="Fecha de Graduación" required="True"/>
+              </group>
+
+              
+
+
+
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record>     
+
+
+
+
+    <record id="view_formacion_tree" model="ir.ui.view">
+      <field name="name">formacion.tree</field>
+      <field name="model">formacion</field>
+        <field name="arch" type="xml">
+            <tree string="sector formacion">
+                <field name="Empleado_solicitante" string="Aplicante"/>
+                <field name="empleado_formacion" string="Empleado"/>            
+                <field name="formacion" string="Formación" required="True"/>
+                <field name="estudia_actualmente_for" string="Estudia Actualmente" required="True"/>
+                <field name="nombre_institucion" string="Nombre Institución" required="True"/>
+                <field name="titulo_obtenido" string="Título Obtenido" required="True"/>
+                          
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_formacion" model="ir.actions.act_window">
+        <field name="name">Formación</field>
+        <field name="res_model">formacion</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            formacion
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Formación'
+            action='action_formacion'
+            id='customer_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='12' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

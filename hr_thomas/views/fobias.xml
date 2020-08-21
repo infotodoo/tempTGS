@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="view_fobias_form" model="ir.ui.view">
+      <field name="name">fobias.form</field>
+      <field name="model">fobias</field>
+      <field name="arch" type="xml">
+        <form string="fobias">
+           <group>
+             <group>
+               <field name="name" string="Miedos/Fobias"/>
+               
+            
+             </group>
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record> 
+
+
+     
+
+
+
+
+    <record id="view_fobias_tree" model="ir.ui.view">
+      <field name="name">fobias.tree</field>
+      <field name="model">fobias</field>
+        <field name="arch" type="xml">
+            <tree string="sector fobias">
+               <field name="name" string="Miedos/Fobias"/>
+            
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_fobias" model="ir.actions.act_window">
+        <field name="name">Miedos/Fobias</field>
+        <field name="res_model">fobias</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Fobias
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Miedos/Fobias'
+            action='action_fobias'
+            id='fobias_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='11' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

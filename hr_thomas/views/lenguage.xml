@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="lenguage_form" model="ir.ui.view">
+      <field name="name">lenguage.form</field>
+      <field name="model">lenguage</field>
+      <field name="arch" type="xml">
+        <form string="lenguage">
+           <group>
+             <group>
+                 <field name="idioma_empleado" string="Empleado/Aplicante"/>
+                 <field name="nombre" string="Idioma"/>
+                 <field name="porcent_dominio" string="Porcentaje de Dominio"/>
+                 <field name="po" string="Porcentaje"/>
+              
+             </group>
+           </group>   
+          
+            
+             
+             
+          
+
+        </form>
+      </field>
+    </record> 
+
+
+     
+
+
+
+
+    <record id="view_lenguage_tree" model="ir.ui.view">
+      <field name="name">lenguage.tree</field>
+      <field name="model">lenguage</field>
+        <field name="arch" type="xml">
+            <tree string="sector lenguage">
+             <field name="idioma_empleado" string="Aplicante"/>
+             <field name="idioma_mod_empleado" string="Empleado"/>
+             <field name="nombre" string="Idioma"/>
+             <field name="porcent_dominio" string="Porcentaje de Dominio"/>
+             <field name="po" string="Porcentaje" widget="progressbar"/>
+              
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_lenguage" model="ir.actions.act_window">
+        <field name="name">Idiomas</field>
+        <field name="res_model">lenguage</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Idiomas
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Idiomas'
+            action='action_lenguage'
+            id='lenguage_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='14' /> 
+
+    </data>   
+
+
+
+    
+
+    
+
+
+
+</odoo>
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report_custom1993"
+                string="SYC-FOR-055 OTROSÍ SITUACION MILITAR"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom1993_template"
+        />
+
+
+        <template id="report_custom1993_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                   
+                        <div class="page">
+                           <head>
+                               <style>
+                                p {font-size:22px;}
+                                span {font-size:22px;}
+                                
+                              *{
+                                margin:0px;
+                                padding:0px;
+                                }                               
+                                
+                                
+                                 div#a{
+                                 margin:auto;
+                                 margin-top:60px;
+                                 width:1100px;
+                                 height:300px;
+                                 border: 0px solid black;
+                               
+                                }                            
+                                
+                                
+                                
+                                 div#b{
+                                
+                                 width:500px;
+                                 height:300px;
+                                 background-color:white;
+                                 float:left;
+                               
+                                }                          
+                                
+                                
+                                
+                                
+                                 div#c{
+                                
+                                 width:500px;
+                                 height:300px;
+                                 background-color:white;
+                                 float:left;                             
+                                 
+                               
+                               
+                                }       
+                               </style>
+                           </head>
+                           <p align="right">SYC-FOR-055-V2</p><br></br>
+                           <strong><p align="center">OTROSÍ SUSCRITO ENTRE   <strong><span t-field="o.company_id"></span></strong>  Y  <strong><span t-field="o.employee_id"></span></strong>-SITUACIÓN MILITAR</p></strong>
+                           <p align="justify">
+                            Entre los suscritos a saber, por un lado   <strong> <span t-field="o.company_id"></span>  </strong> ( En adelante la “Compañía”) sociedad domiciliada en Bogotá, representada por  <strong><span t-field="o.nombre_representante"></span></strong>, mayor de edad, vecino de la ciudad de <strong><span t-field="o.lugar_expedicion_con"></span> </strong>, identificado como aparece al pie de su firma, que para estos efectos se denominará   <strong>EL EMPLEADOR</strong>  y por la otra parte   <strong><span t-field="o.employee_id"></span></strong>  (en adelante “El trabajador”)  mayor de edad, identificado como aparece al pie de su firma, quien para los efectos del presente acuerdo se denominará    <strong>EL TRABAJADOR,</strong>  hacemos constar que por medio del presente documento que hemos celebrado un OTROSÍ al contrato de trabajo celebrado entre las partes el 12 DE MARZO DE 2020 en adelante el “Contrato Original”, el cual se regirá en lo general por los siguientes consideraciones y cláusulas: 
+
+
+                           </p>
+                           <strong><p align="center">CONSIDERACIONES</p></strong>
+                           <p> <strong>Primero:</strong> Que la Compañía en virtud de los establecido en la ley 1780 de 2016 no exige la libreta militar como requisito de contratación de los aspirantes a las vacantes.
+
+                        </p>
+                        <p align="justify">
+                          <strong>Segundo:</strong> Que el Trabajador tiene la obligación legal a definir su situación militar dentro de los próximos 18 meses contado a partir de la fecha de su contratación, de acuerdo con el art 20 de la ley 1780 de 2016, donde se establece que la situación militar se deberá acreditar para ejercer cargos públicos o privados.
+
+
+                        </p>
+                        <p align="justify">
+                           <strong>Tercero:</strong> Que para el caso del trabajador que no se encuentre apto, esté exento o haya superado la edad máxima de incorporación a las filas, deberán igualmente definir su situación dentro de los 18 Meses siguientes a partir de la fecha en que se realice la contratación
+                        </p>
+                        <p align="justify">
+                           <strong>Cuarto:</strong> Que, con el fin de plasmar el objetivo expuesto en las anteriores consideraciones, las Partes de mutuo acuerdo han decidido modificar el contenido del Contrato de trabajo Inicial o de cualquier otro documento que consagre la obligación mencionada.
+                        </p>
+                        <strong><p align="center">CLÁUSULAS</p></strong>
+                        <p align="justify">                            
+                          <strong>Primera:</strong> El Trabajador deberá remitir a la compañía la certificación del estado del trámite en que se encuentra su libreta militar dentro de los 3 meses siguientes a su vinculación laboral.
+
+                        </p>
+                        <p align="justify">
+                           <strong>Segundo:</strong> El Trabajador se obliga para con el empleador a presentar dentro de los 18 meses siguientes a la fecha de contratación constancia de que su situación militar ya se encuentra definida.
+
+
+                        </p>
+                        <p align="justify">
+                           <strong>Tercera:</strong> El Trabajador acepta que el incumplimiento de las obligaciones acordadas en el presente documentos es considerado como falta grave a sus obligaciones laborales y por ende la compañía podrá terminar su contrato de trabajo con justa causa.
+                        </p>
+                        <br></br>
+                        <div id="a">
+                            <br></br><br></br><br></br>
+                            <div id="b"><br></br><br></br><br></br><br></br><br></br><br></br><br></br><strong><span t-field="o.employee_id"></span></strong> <br></br> <span>CC.</span><span> </span><span t-field="o.identificacion"></span> <span> </span> <span>de</span> <span> </span> <span t-field="o.lugar_expedicion_contratado"></span>  </div>
+                            <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="240" height="130"/><br></br>
+                            <div id="c"><strong><span t-field="o.nombre_representante"></span></strong> <br></br> <span>CC.</span><span> </span><span t-field="o.cedula_representante"></span><span> </span> <span>de</span> <span> </span><span t-field="o.lugar_expedicion_con"></span>  </div>
+                        </div>
+                        </div>
+                    
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

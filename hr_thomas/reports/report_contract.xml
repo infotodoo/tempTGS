@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding = "UTF-8"?> <!--by: Ing.Luis Felipe Paternina - Todoo SAS -->
+<odoo>
+
+      <data> 
+        <report
+                id="report_custom_1"
+                string="SYC-FOR-003 ANEXO DE SEGURIDAD DE LA INFORMACION"
+                model="hr.contract"
+                report_type="qweb-pdf"
+                name="hr_thomas.report_custom_1_template"
+        />
+
+
+        <template id="report_custom_1_template">
+            <t t-call="web.html_container">                             
+                <t t-foreach="docs" t-as="o">                   
+                        <div class="page">                             
+                          <head>
+                            <style>
+                              p {font-size:22px;}
+                              span {font-size:22px;}
+                              li {font-size:22px;}                              
+                              
+                              *{
+                                margin:0px;
+                                padding:0px;
+                                }     
+                                 div#a{
+                                 margin:auto;
+                                 margin-top:60px;
+                                 width:1100px;
+                                 height:300px;
+                                 border: 0px solid black;
+                                } 
+                                 div#b{
+                                 width:500px;
+                                 height:300px;
+                                 background-color:white;
+                                 float:left;
+                                } 
+                                 div#c{
+                                 width:500px;
+                                 height:300px;
+                                 background-color:white;
+                                 float:left; 
+                                }
+                            </style>                          
+                          </head>
+                             <p align="right">SYC-FOR-003-V2</p>
+
+                            <strong><p  align="center">ANEXO DE SEGURIDAD DE LA INFORMACION PARA CONTRATOS CON EMPLEADOS</p></strong>
+                            <p align="justify">
+                               Entre los suscritos, de una parte <strong>  <span t-field="o.company_id"/>  </strong> representada por <strong>  <span t-field="o.nombre_representante"/></strong>  identificado con cédula de ciudadanía No. <strong> <span t-field="o.cedula_representante"/> </strong> expedida en  <strong> <span t-field="o.lugar_expedicion_con"/> </strong>, y que en delante se llamará EL EMPLEADOR, y de la otra parte el  <strong>  <span t-field="o.employee_id"/>  </strong> , identificado con la cédula de ciudadanía <strong> <span t-field="o.identificacion"/> </strong>  y que en adelante se llamará EL TRABAJADOR, hemos convenido adicionar al Contrato de Trabajo que nos vincula las siguientes cláusulas: 
+                            </p>
+                            <p align="justify">
+                               <strong> CLÁUSULA PRIMERA: PROPIEDAD DE LA INFORMACIÓN.  </strong> Toda la información que sea revelada a EL TRABAJADOR por EL EMPLEADOR o que sea conocida por aquel con ocasión de la ejecución del contrato laboral existente entre las partes, así como toda la información que sea creada por EL TRABAJADOR en ejecución de sus funciones, es de propiedad de EL EMPLEADOR y de carácter estrictamente confidencial . 	
+                            </p>
+                             <p align="justify">
+                              <strong>CLÁUSULA SEGUNDA: ACUERDO DE CONFIDENCIALIDAD Y PREVISIÓN COMERCIAL. </strong>EL TRABAJADOR ha sido informado y acepta que en desarrollo de sus funciones maneja y conoce Información Confidencial de propiedad y/o en custodia de EL EMPLEADOR o de cualquier parte interesada , entre otros. Además, EL TRABAJADOR ha sido informado y acepta la importancia fundamental y estratégica que representa dentro del giro ordinario de los negocios del EMPLEADOR la absoluta confidencialidad que debe mantener EL TRABAJADOR para con cualquier compañero o tercero respecto de la información de carácter laboral o personal que le sea suministrada o tenga conocimiento.
+                            </p>
+                             <p align="justify">
+                              EL TRABAJADOR a sabiendas que el desconocimiento de la ley no sirve de excusa, ni exime de responsabilidad a quien la viola, es consciente de que las leyes colombianas y los tratados internacionales que reglamentan esos temas, imponen sanciones por violación de las normas establecidas en la Constitución Nacional, Código de Comercio y Código Penal Colombiano, lo mismo que lo señalado por el Código Sustantivo del Trabajo, referente a la terminación del Contrato de Trabajo por justa causa por parte del EMPLEADOR. Por ello forma parte de este acuerdo las normas antes citadas, así como lo pertinente de la decisión 386 del Acuerdo de Cartagena, normas sobre competencia desleal, normas y tratados internacionales que regulan derechos de propiedad intelectual, leyes de protección de la información y los datos (Ley 1266 de 2008, Ley 1273 de 2009, Ley 1581 de 2012), y en general cualquier normatividad que reglamente y proteja los derechos de información, así como la confidencialidad de la misma.
+                            </p>
+                            <p  align="justify">Por todo lo anterior, EL TRABAJADOR asume las siguientes obligaciones:</p> 
+                            <p  align="justify">
+                            	1)	EL TRABAJADOR se obliga a no revelar a ningún tercero  sin la autorización previa, expresa y por escrito de EL EMPLEADOR, cualquier información relacionada con su trabajo directa o indirectamente.
+                            </p> 
+                            <p  align="justify">
+                               2)	EL TRABAJADOR se obliga durante la vigencia del contrato de trabajo, así como por los siguientes diez (10) años contados a partir de la terminación, a no utilizar para su propio beneficio o de un tercero y a guardar absoluta reserva frente a éstos (incluida su familia) sobre toda la información referente a EL EMPLEADOR o cualquier parte interesada, la cual se constituye en información de carácter confidencial para todos los efectos, el incumplimiento de la obligación de confidencialidad una vez terminado el vínculo laboral, podría conllevar la iniciación de las acciones judiciales por los perjuicios materiales e inmateriales que se causen.	
+                            </p>
+                            <p align="justify">
+                              3)	EL TRABAJADOR reconoce que será responsable hasta la culpa levísima en cualquier caso que permita o divulgue información de carácter confidencial y estará obligado a indemnizar a EL EMPLEADOR sin perjuicio de las acciones civiles, penales o laborales existentes.  	
+                            </p>
+                            <p align="justify">
+                            	4)	En concordancia con lo establecido en el numeral 2 del Artículo 58, del Código Sustantivo del Trabajo, durante la vigencia del presente contrato, EL TRABAJADOR se obliga y se compromete a no comunicar a terceros, ni usar en su propio provecho, información de naturaleza reservada o cuya divulgación pueda ocasionar perjuicios al Empleador, que tenga o llegue a conocer en razón de su vinculación laboral. 
+                            </p>
+                            <p align="justify">
+                              5)	Como consecuencia de lo señalado en la presente cláusula, se considera FALTA GRAVE por parte de EL TRABAJADOR y reconocido por las partes como justa causa para dar por terminado el contrato laboral vigente entre las partes: 	
+                            </p>
+                            <p>
+                              <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul style="list-style-type:lower-latin">
+                                          <li  align="justify">Copiar información propia o en custodia del EMPLEADOR, de manera no autorizada, de cualquier documento o archivo contenido en papeles, cintas magnetofónicas, videos, discos de computadora, medios de almacenamiento removibles y no removibles, etc.</li>
+                                          <li align="justify">Sustraer, transmitir o revelar información confidencial por cualquier clase de medio y sin la autorización requerida.</li>
+                                          <li align="justify">Incumplir o violar el presente anexo de seguridad de la información. </li>
+                                          <li align="justify">Incurrir en cualquier tipo de delito informático según lo previsto en las leyes vigentes para lo cual bastará que se haya iniciado una investigación por tales conductas.</li>
+                                          <li align="justify">No reportar incidentes de seguridad de la información  que sean de su conocimiento, conforme a lo descrito en la cláusula séptima del presente anexo.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                                 
+                            </p>
+                            <p align="justify">
+                            	6)	Pagar los perjuicios, daño emergente y lucro cesante derivados del incumplimiento o violación del presente acuerdo y sus anexos, en los términos previstos en el Artículo 1600 del Código Civil Colombiano. 
+                            </p>
+                            <p align="justify">
+                              7)	En caso que alguna autoridad de carácter administrativo o judicial requiera la presentación de información del Empleador, o cualquier parte interesada como sus Clientes, empleados, proveedores, etc.  es obligación de EL TRABAJADOR
+                            </p>
+                            
+                            
+                            <p align="justify"> informar inmediatamente a su jefe inmediato, quien deberá solicitar la autorización respectiva al área de Secretaría General. 	</p>
+                            <p align="justify">
+                              8)	Teniendo en cuenta lo anterior, EL TRABAJADOR se obliga expresamente a abstenerse de usar, duplicar, divulgar, o explotar en cualquier sentido y por cualquier medio  todos los conocimientos e informaciones a que tenga acceso en la prestación y desarrollo de sus servicios, so pena de hacerse íntegramente responsable por cualquier concepto derivado de la violación de estas obligaciones. 
+
+	
+                            </p>
+                            <p  align="justify">
+                            	9)	Restituir la totalidad de información que detente, y hacer entrega de la información que haya creado, implementado o procesado. 
+                            </p>
+
+                            <p align="justify">
+                            	<strong>CLÁUSULA TERCERA: PROPIEDAD DE LOS TRABAJOS: </strong> Los trabajos, estudios, investigaciones, inventos, SOFTWARE y demás conceptos similares que desarrolle EL TRABAJADOR en virtud de la ejecución del contrato suscrito con SERDEMPO S.A.S, serán de propiedad exclusiva de este último, así como el Software entregado por EL EMPLEADOR AL TRABAJADOR. Los descubrimientos e invenciones y las mejoras de los procedimientos, lo mismo que todos los trabajos y consiguientes resultados en la actividad de EL TRABAJADOR o cuando por naturaleza de sus funciones haya tenido acceso a secretos o investigaciones confidenciales, quedarán de propiedad exclusiva de EL EMPLEADOR. Además, tendrá este último el derecho de hacer patentar a su nombre o a nombre de terceros esos inventos y mejoras, para lo cual EL TRABAJADOR accederá a facilitar el cumplimiento oportuno de las correspondientes formalidades y dar su firma o extender los poderes y documentos necesarios para tal fin, según y cuando se lo solicite EL EMPLEADOR, sin que este quede obligado al pago de compensación alguna.
+                            </p>
+                            <p align="justify">
+                              <strong>CLÁUSULA CUARTA: OBLIGACIONES Y FUNCIONES DE SEGURIDAD DE LA INFORMACIÓN. </strong> EL TRABAJADOR tiene como obligación velar por la confidencialidad, integridad y disponibilidad de los activos de información   de propiedad o en custodia de EL EMPLEADOR. Lo anterior implica que debe tomar los controles adecuados para su protección, seguir los lineamientos y recomendaciones de seguridad, y reportar al Área de Seguridad de la Información cualquier vulnerabilidad y/o incidencia que pueda implicar la materialización de un riesgo sobre los activos de información. 	
+                            </p>
+                            <p  align="justify">
+                            	El incumplimiento de la anterior disposición será considerado como una falta grave, de EL TRABAJADOR, la cual dará lugar a la aplicación de lo dispuesto en la cláusula Séptima del presente anexo de seguridad de información. 
+                            </p>
+                            <p  align="justify">
+                              <strong>CLÁUSULA QUINTA. CONOCIMIENTO Y CUMPLIMIENTO DE POLÍTICAS DE SEGURIDAD DE LA INFORMACIÓN.</strong> EL TRABAJADOR debe participar de las actividades que sobre sensibilización y capacitación de Seguridad de Información que se realicen y cumplir con las POLÍTICAS, ESTÁNDARES Y PROCEDIMIENTOS DE SEGURIDAD DE LA INFORMACIÓN del Grupo Thomas Greg  Sons, las cuales declara conocer y aceptar y se compromete a cumplir con la firma de este anexo de seguridad de información.	
+                            </p>
+                           
+
+                            <p  align="justify">
+                            	<strong>CLÁUSULA SEXTA. REPORTE DE INCIDENTES DE SEGURIDAD DE INFORMACIÓN. </strong> EL TRABAJADOR se compromete a reportar a sus jefes inmediatos y/o al área de Seguridad de Información, cualquier incidente o vulnerabilidad detectada por él o de la que tenga conocimiento y que ponga en riesgo la Seguridad de Información de EL EMPLEADOR o cualquier parte interesada.
+                            </p>
+                            <p align="justify">
+                            	El incumplimiento de la anterior disposición será considerado como una falta grave, de EL TRABAJADOR, la cual dará lugar a la aplicación de lo dispuesto en la cláusula Séptima del presente anexo de seguridad de información.
+                            </p> 
+                            <p align="justify">
+                            	<strong>CLÁUSULA SÉPTIMA. TERMINACIÓN DEL CONTRATO LABORAL POR EL INCUMPLIMIENTO DE LAS OBLIGACIONES Y POLÍTICAS DE SEGURIDAD DE LA INFORMACIÓN. </strong> De conformidad con lo señalado en el Numeral 6º del Literal A) del Artículo 62 del Código Sustantivo del Trabajo, modificado por el artículo 7º del Decreto 2351 de 1965, y conforme lo previsto en el Reglamento Interno de Trabajo, se configura como justa causa para dar por terminado el contrato de trabajo que vincula a las partes cualquier violación grave de las obligaciones o prohibiciones especiales que incumben al trabajador de acuerdo con los artículos 58 y 60 del Código Sustantivo del Trabajo, o cualquier falta grave calificada como tal en pactos o convenciones colectivas, fallos arbitrales, contratos individuales o reglamentos. Así mismo, la violación de cualquier cláusula contenida en el presente acuerdo de confidencialidad constituye una falta grave que configura una justa causa para dar por terminado el contrato de trabajo.
+                            </p>
+                            <P  align="justify">
+                            	<strong>CLÁUSULA OCTAVA. USO ADECUADO DE LOS RECURSOS. </strong> El TRABAJADOR se compromete a hacer uso adecuado de los recursos que le brinda el EMPLEADOR y otorga su consentimiento previo, expreso e informado al EMPLEADOR, para que toda la información contenida en los recursos que le suministre el EMPLEADOR, como sistemas informáticos propios o en custodia de él, correo electrónico, computador, aplicaciones, sin limitarse a, sean objeto de cualquier operación o conjunto de operaciones tales como la recolección, almacenamiento, uso, circulación, transferencia, supresión, auditoría o revisión que realizara el EMPLEADOR, bajo el entendido de que el TRABAJADOR conoce por medio del presente acuerdo y por lo estipulado en las políticas de seguridad de la información, que toda la información en ellos contenida debe ser eminentemente de contenido laboral. De igual forma otorga su consentimiento previo, expreso e informado para realizar procesos de auditoría y revisión de toda la información contenida en los recursos informáticos, sin limitarse a, que se entreguen al TRABAJADOR o tenga acceso y que sean propiedad del EMPLEADOR o en custodia del mismo, por parte de los entes de control del EMPLEADOR, sin incumplir con las leyes establecidas por el gobierno nacional.  
+                            </P>
+                            <p  align="justify">
+                            	El TRABAJADOR es responsable del mantenimiento y buen estado de los recursos que le sean entregados por la compañía, y de dar un buen manejo a la información que le sea entregada para el desarrollo de sus funciones, así como el uso de estos para fines estrictamente laborales.
+                            </p>
+                            <p>Bajo ninguna circunstancia se permite que a EL TRABAJADOR:</p>
+                            <p  align="justify">
+                            	<ul>
+                            		<li>Instalar Software de uso personal y no autorizado por la compañía, en los equipos que se utilizan para el cumplimiento de sus labores.</li>
+                            		<li>Retirar USB, discos duros o cualquier otro medio de almacenamiento con información de la Compañía, sin autorización del EMPLEADOR.</li>
+                            		<li>Remitir correos electrónicos con información de la Compañía a terceros ajenos a la empresa y personal interno no autorizado para el uso de la misma.</li>
+                            		<li>Hacer uso de correos personales para enviar información propiedad o en custodia del EMPLEADOR.</li>
+                            		<li>No ejecutar y saltar los controles de seguridad definidos por el EMPLEADOR.</li>
+                            	</ul>
+                            </p>
+                            <p  align="justify">
+                            	<strong>CLÁUSULA NOVENA. CONFIDENCIALIDAD DATOS PERSONALES. </strong> Si el TRABAJADOR interviene en la administración de datos personales que no tengan la naturaleza de públicos, está obligado en todo tiempo a garantizar la reserva de la información, inclusive después de finalizada su relación contractual o labores que comprendan la administración de datos personales, pudiendo solo realizar suministro o comunicación de los mismos para las actividades autorizadas en la Ley 1266 de 2008 de Habeas Data o Ley 1581 de 2012 y decreto 1377 de 2013.
+                            </p>
+                            <p align="justify">
+                            	<strong>CLÁUSULA DÉCIMA. AUTORIZACIÓN TRATAMIENTO DE DATOS PERSONALES. </strong> En los términos descritos en la Ley 1581 de 2012, sus Decretos reglamentarios y demás normatividad concordante, <strong> EL TRABAJADOR </strong> le concede autorización expresa a LA <strong> COMPAÑÍA </strong> a las empresas pertenecientes al Grupo Thomas Greg &amp; Sons,  así como a las compañías a las cuales presta sus servicios, para el tratamiento de sus datos personales que ha suministrado y que reposarán en nuestras bases de datos, de acuerdo con las finalidades y en los términos previstos en la Política de Tratamiento de Datos Personales.
+                            </p>
+                            <p  align="justify">
+                            	<strong>EL TRABAJADOR</strong>  declara igualmente que conoce y acepta que los datos personales suministrados son pertinentes y adecuados para las finalidades para las cuales son recolectados y que ha sido informado previamente de las finalidades específicas del tratamiento para las cuales se obtiene el consentimiento, conforme lo previsto en Política de Tratamiento de Datos Personales, en donde se detallan entre otros aspectos los derechos que le asisten como titular de información para realizar consultas, peticiones o reclamos relacionados con el tratamiento de información por parte de  <strong>LA COMPAÑÍA,</strong>  las cuales ha podido consultar a través de la Dirección de Planeación y Calidad, ubicada en la Carrera 42 Bis # 17ª - 75 de Bogotá, teléfono 3693720, y mediante el correo electrónico protecciondatos.limited@thomasgreg.com y que  <strong>EL TRABAJADOR</strong>  declara conocer.                             
+
+                            </p>                            
+                            <p>En señal de aceptacion, se firma a los  <strong> <span t-esc="o.fecha_firma_contrato.strftime('%d')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> </strong> días del mes de  <strong> <span t-esc="o.fecha_firma_contrato.strftime('%B').replace('January','Enero').replace('February','Febrero').replace('March','Marzo').replace('April','Abril').replace('May','Mayo').replace('June','Junio').replace('July','Julio').replace('August','Agosto').replace('September','Septiembre').replace('October','Octubre').replace('November','Noviembre').replace('December','Diciembre')" t-esc-options="{'widget': 'num2words','case':'capital'}"/> </strong>  del  <strong><span t-esc="o.fecha_firma_contrato.strftime('%Y')"/> </strong> en Bogotá </p> <br></br><br></br> 
+                            <div id="a">
+                              <div id="b"> <span>EL TRABAJADOR <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>                                
+                              <br></br> <strong>  <span t-field="o.employee_id"/>  </strong> </span> <br></br> <strong> <span>C.C:</span></strong>  <strong> <span t-field="o.identificacion"/></strong> <span> </span> <span>de</span> <span> </span> <span t-field="o.lugar_expedicion_contratado"></span> </div>
+                              <div id="c">  <span>El EMPLEADOR <br></br><br></br><br></br> <strong> <img t-att-src="'data:image/png;base64,%s' % to_text(o.firma)" width="470" height="150"/> <span t-field="o.nombre_representante"/></strong></span> <br></br> <strong> <span>C.C:</span> </strong>  <strong> <span t-field="o.cedula_representante"/></strong><span> </span><span>de</span> <span> </span> <span t-field="o.lugar_expedicion_con"></span> </div>
+                            </div> 
+                            <p> ____________________________________</p>
+                            <p style="font-size:13px" align="justify" class="page-break-inside: avoid;">
+                              <strong> 1 Información Confidencial: </strong> Toda información que no haya sido expresamente catalogada como pública, relacionada con los asuntos y negocios del EMPLEADOR incluyendo sin limitarse a bases de datos, secretos industriales, patentes e inventos, informes financieros, planes y estrategias de mercado, listas de proveedores, clientes, software desarrollado o licenciado por el Empleador, así como datos catalogados como personal que el EMPLEADOR custodie en calidad de responsable o Encargado.<br></br>
+                              <strong> 2 Partes Interesadas: </strong> Accionistas, Empleados, Clientes, Proveedores y en general cualquier Entidad o Persona relacionada con el EMPLEADOR, incluyendo las empresas y funcionarios del  <strong> Grupo Thomas Greg  Sons. </strong> 
+ 
+                           </p>
+                           <p align="justify" style="font-size:13px">3 Se entiende como <strong>tercero</strong> todas aquellas personas diferentes a EL EMPLEADOR incluyendo a los familiares, amigos, conocidos y cualquier persona que tenga relación con EL TRABAJADOR, así como todos aquellos que no tienen vínculo alguno con EL EMPLEADOR.</p>
+                      
+                            <p align="justify" style="font-size:13px">4 Un <strong> Incidente de Seguridad de la Información </strong> se define como uno o más eventos de seguridad de la información no deseados o inesperados que tienen una significativa probabilidad de comprometer las operaciones de la compañía y amenazan la confidencialidad, integridad y/o confidencialidad de la información del Grupo Thomas Greg  Sons, adicionalmente un incumplimiento de las políticas de seguridad de la información se considera un incidente de seguridad de la información.</p>
+                            <p align="justify" style="font-size:13px">
+                            	5 Cualquier <strong>medio</strong> por el cual se pueda transmitir información, sea este de forma verbal, por medios impresos, digitales extraíbles (memorias USB, discos duros, CD’S/DVD’s), redes inalámbricas, servicios a través de internet (correo electrónico, redes sociales, servicios de almacenamiento en la nube), etc.
+                            </p>
+                            <p  align="justify" style="font-size:13px" >
+                            	6 Un <strong> activo de información </strong> es información de diferentes tipos, registrada o almacenada en diferentes medios, con la que una organización desarrolla su actividad y que suele ser vital para el desarrollo del negocio de la organización.
+                            </p>                            
+                        </div>
+                    
+                </t>
+            </t>
+        </template>
+    </data>
+   
+   
+   
+   
+   
+   
+   
+  
+
+
+
+
+
+
+
+
+
+
+</odoo>

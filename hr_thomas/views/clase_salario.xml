@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="clase_salario_form" model="ir.ui.view">
+      <field name="name">clase.salario.form</field>
+      <field name="model">clase.salario</field>
+      <field name="arch" type="xml">
+        <form string="salario">
+           <group>
+             <group>
+                <field name="clase_salario" string="Clase de Salario"/>
+              
+              
+             </group>
+           </group>   
+        </form>
+      </field>
+    </record> 
+
+    <record id="clase_salario_tree" model="ir.ui.view">
+      <field name="name">clase.salario.tree</field>
+      <field name="model">clase.salario</field>
+        <field name="arch" type="xml">
+            <tree string="sector salario">
+              
+                <field name="clase_salario" string="Clase de Salario"/>
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_clase_salario" model="ir.actions.act_window">
+        <field name="name">Clase de Salario</field>
+        <field name="res_model">clase.salario</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Clase de Salario
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Clase de Salario'
+            action='action_clase_salario'
+            id='clase_salario_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='27'/> 
+    </data>   
+</odoo>

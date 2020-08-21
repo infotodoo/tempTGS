@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="evaluacion_form" model="ir.ui.view">
+      <field name="name">evaluacion.form</field>
+      <field name="model">evaluacion</field>
+      <field name="arch" type="xml">
+        <form string="evaluacion">
+           <group>
+             <group>
+                <field name="evaluacion_tiempos_tht" string="Evaluación de Tiempos THT"/> 
+            
+              
+             </group>
+           </group>   
+        </form>
+      </field>
+    </record> 
+
+    <record id="evaluacion_tree" model="ir.ui.view">
+      <field name="name">evaluacion.tree</field>
+      <field name="model">evaluacion</field>
+        <field name="arch" type="xml">
+            <tree string="sector evaluacion">
+                <field name="evaluacion_tiempos_tht" string="Evaluación de Tiempos THT"/> 
+              
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_evaluacion" model="ir.actions.act_window">
+        <field name="name">Evaluación de Tiempos THT</field>
+        <field name="res_model">evaluacion</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Evaluacion
+          </p>
+        </field>
+    </record>
+
+    <menuitem name='Evaluación de Tiempos THT'
+            action='action_evaluacion'
+            id='evaluacion_menu'
+            parent='hr_recruitment.menu_hr_recruitment_configuration'
+            sequence='83'/> 
+    </data>   
+</odoo>
